@@ -1,0 +1,107 @@
+.carousel {
+    .carousel-indicators {
+        align-items: center;
+        li {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            margin-left: 20px;
+
+            &:hover {
+            }
+        }
+        .active {
+            width: 10px;
+            height: 10px;
+            background-color: orange;
+        }
+    }
+
+    .carousel-inner {
+        .carousel-item {
+           
+
+            .playTrailer {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%) scale(1);
+                color: white !important;
+                border-radius: 50%;
+                opacity: 0;
+                transition: all 0.5s;
+                cursor: pointer !important;
+            
+                i {
+                    padding: 25px;
+                    border: 2px solid white;
+                    border-radius: 50%;
+                    color: white;
+                    cursor: pointer !important;
+                    transition: all 0.5s;
+                    font-size: 25px;
+                    background-color: rgba(0, 0, 0, 0.5);
+                }
+
+                &:hover {
+                    i {
+                        transform: scale(1.2);
+                        color: orange;
+                        border-color: orange;
+                    }
+                }
+            }
+
+            &:hover {
+                .playTrailer {
+                    opacity: 1;
+                }
+                
+            }
+        }
+        .modal-dialog {
+            margin: auto;
+            max-width: 1000px;
+        }
+        .close {
+            position: absolute;
+            top: 10px;
+            right: 0;
+            color: white;
+            opacity: 1;
+        }
+        .modal-content {
+            background: transparent;
+            padding: 40px;
+            width: auto;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: unset;
+            justify-content: center;
+        }
+    }
+    .btn-control {
+        &:hover {
+            i {
+                color: orange;
+            }
+        }
+    }
+}
+
+.content-popup {
+    position: relative;
+    background: transparent;
+    padding: 40px;
+    width: auto;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+}
+.mfp-close-btn-in .mfp-close {
+    color: white;
+    opacity: 1;
+    position: absolute;
+    top: -30px;
+}
