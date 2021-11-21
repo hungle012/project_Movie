@@ -5,13 +5,14 @@
 // Vendor
 
 // Base
-@import './Base/reset';
+@import './Base/_reset';
 // Components
-@import './Components/button';
+@import './Components/_button';
 
 // Layouts 
 @import './Layouts/_header';
-@import './Layouts/carousel'
+@import './Layouts/_carousel';
+@import './Layouts/_listmovie'
 
 // Pages
 
