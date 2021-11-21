@@ -89,19 +89,29 @@
     }
 }
 
-.content-popup {
-    position: relative;
-    background: transparent;
-    padding: 40px;
-    width: auto;
-    max-width: 1200px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: center;
+// macnific-popup
+.mfp-fade.mfp-bg {
+    opacity: 0;
+    -webkit-transition: all 0.15s ease-out;
+    -moz-transition: all 0.15s ease-out;
+    transition: all 0.15s ease-out;
 }
-.mfp-close-btn-in .mfp-close {
-    color: white;
+
+.mfp-fade.mfp-bg.mfp-ready {
+    opacity: 0.8;
+}
+
+.mfp-fade.mfp-bg.mfp-removing {
+    opacity: 0;
+}
+
+.mfp-fade.mfp-wrap .mfp-content {
+    opacity: 0;
+    -webkit-transition: all 0.15s ease-out;
+    -moz-transition: all 0.15s ease-out;
+    transition: all 0.15s ease-out;
+}
+
+.mfp-fade.mfp-wrap.mfp-ready .mfp-content {
     opacity: 1;
-    position: absolute;
-    top: -30px;
 }
