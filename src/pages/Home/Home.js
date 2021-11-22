@@ -1,9 +1,10 @@
-import React from 'react'
+import React from 'react';
+import ListMovieComponents from '../../Components/ListMovieComponents/ListMovieComponents'
 
 export default function Home() {
     return (
         <div>
-            Đây là Home page
+            <ListMovieComponents/>
         </div>
     )
 }

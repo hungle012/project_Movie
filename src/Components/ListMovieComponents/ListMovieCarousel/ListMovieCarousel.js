@@ -9,7 +9,7 @@ export default function ListMovieCarousel() {
                         <div className="row">
                             <div className="movie__item col-3">
                                 <div className="movie__img">
-                                    <img src="http://movie0706.cybersoft.edu.vn/hinhanh/doraemon_gp05.jpg" alt="film-1" className="img-fluid" />
+                                    <img src="http://movieapi.cyberlearn.vn/hinhanh/de-men-phieu-luu-ki_gp01.jpg" alt="film-1" className="img-fluid" />
                                     <div className="icon__play">
                                         <a className="popup-youtube" href="https://www.youtube.com/watch?v=2kPdL9DceTc">
                                             <i className="fa fa-play" /></a>
