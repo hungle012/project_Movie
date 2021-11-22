@@ -3,6 +3,7 @@ import { createBrowserHistory } from 'history';
 import { HomeTemplate } from './templates/HomeTemplate/HomeTemplate';
 import { Router, Switch } from 'react-router';
 import Home from './pages/Home/Home';
+import './assets/style/main.scss'
 export const history = createBrowserHistory();
 
 
