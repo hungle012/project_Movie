@@ -7,7 +7,16 @@ html, body {
     font-family: 'Roboto', sans-serif;
     font-size: 16px;
     line-height: 1.6;
+<<<<<<< HEAD
     font-weight: 400;   
+=======
+    font-weight: 400;
+    height: 100vh;   
+    background-image: url(./bgfull.jpg);
+    background-position: center;
+    background-size: 100%;
+    object-fit: cover;
+>>>>>>> e7da01a21b37450f38068d3cd32b5cde89ba6c5d
 }
 // macnific-popup
 .mfp-fade.mfp-bg {
