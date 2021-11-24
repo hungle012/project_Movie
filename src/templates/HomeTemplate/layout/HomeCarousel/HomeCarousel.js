@@ -11,7 +11,7 @@ export default function HomeCarousel() {
                     <li data-target="#carouselMovie" data-slide-to={3} />
                     <li data-target="#carouselMovie" data-slide-to={4} />
                 </ol>
-                <div className="carousel-inner">
+                <div className="carousel-inner home_carousel">
                     <div className="carousel-item active">
                         <img src="./img/carousel/cr1.png" className="d-block w-100" alt="..." />
                         <div className="playTrailer">
