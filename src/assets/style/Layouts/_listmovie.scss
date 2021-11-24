@@ -116,9 +116,11 @@
                 text-overflow: ellipsis;
                 white-space: nowrap;
                 width: 100%;
+                color: white;
               }
               .thoiLuong {
-                @include styleText($fs-1, $fw-2, $color-gray-1);
+                @include styleText($fs-1, $fw-2,#ff7f27);
+               
               }
               .movie__btnMuaVe {
                 // display: block;
