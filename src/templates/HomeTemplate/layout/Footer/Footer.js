@@ -1,21 +1,10 @@
 import React from "react";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-import Slider from "react-slick";
 import { Link } from "react-router-dom";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 
 export default function Footer() {
-  const slick = {
-    arrows: false,
-    autoplay: true,
-    infinite: true,
-    autoplaySpeed: 2000,
-    next: false,
-  };
   return (
-    <div className="pt-5">
-      <footer className="footer">
+      <footer className="footer pt-5">
         <div className="footer__info">
           <div className="container">
             <div className="row info__top">
@@ -396,8 +385,7 @@ export default function Footer() {
               </div>
             </div>
           </div>
-        </div>
+          </div>
       </footer>
-    </div>
   );
 }
