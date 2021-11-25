@@ -3,8 +3,11 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+//config redux
 import { Provider } from 'react-redux';
 import {store} from './redux/configStore'
+// cấu hình antd
+import 'antd/dist/antd.css'
 
 ReactDOM.render(
   <Provider store={store}>

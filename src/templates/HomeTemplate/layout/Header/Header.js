@@ -39,7 +39,7 @@ export default function Header() {
                                 <a className="nav-link text-left px-4 text-md-center" href="/">Tin tức </a>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link text-left px-4 text-md-center" href="/">Đăng nhập</a>
+                                <a className="nav-link text-left px-4 text-md-center" href="/">Ứng dụng</a>
                             </li>
                         </ul>
                     </div>
@@ -49,8 +49,12 @@ export default function Header() {
                                 <i className="fas fa-user" />
                             </a>
                         </div>
-                        <div className="user-name">
-                            <p>Người dùng</p>
+                        <div className="user-name dropdown">
+                            <p type="button" className="btn dropdown-toggle" id="dropdownMenuOffset" data-toggle="dropdown" aria-expanded="false" data-offset="10,20">Người dùng </p>
+                            <div className="dropdown-menu drop-menu" aria-labelledby="dropdownMenuOffset">
+                                <a className="dropdown-item" href="#">My account</a>
+                                <a className="dropdown-item" href="#">Log out</a>
+                            </div>
                         </div>
                     </div>
                 </nav>

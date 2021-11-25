@@ -5,6 +5,7 @@
     position: fixed;
     z-index: 999;
     box-shadow: inset 10em 19em rgba(0, 0, 0, 0.3);
+    top: 0;
 
     .header__logo img {
         height: 75px;
@@ -68,6 +69,10 @@
                 .user-name p {
                     color: white;
                     margin: 0;
+                }
+                .drop-menu {
+                    right: 0;
+                    left: auto;
                 }
             }
         }
