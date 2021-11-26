@@ -8,9 +8,9 @@ import "slick-carousel/slick/slick-theme.css";
 export default function AppMovie() {
     const slick = {
         arrows: false,
-        // autoplay: true,
+        autoplay: true,
         infinite: true,
-        // autoplaySpeed: 2000,
+        autoplaySpeed: 2000,
         next: false,
       };
     return (

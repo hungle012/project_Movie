@@ -17,8 +17,11 @@
 @import './Layouts/appmovie';
 @import './Layouts/news';
 @import './Layouts/login';
-@import './Layouts/register'
+@import './Layouts/register';
+
 
 // Pages
-
+@import './pages/detailmovie';
+@import './pages/detailmovieshowtime';
+@import './pages/home';
 // Theme

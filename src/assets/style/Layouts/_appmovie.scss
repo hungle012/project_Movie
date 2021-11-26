@@ -4,7 +4,9 @@
     .intro__info {
         color: $color-white;
         padding-top: 120px;
-
+        h2 {
+            color: white !important;
+        }
         button {
             outline: none;
         }

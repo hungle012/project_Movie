@@ -1,4 +1,8 @@
 .login {
+    background-image: url(../pages/bgfull.jpg);
+    background-position: center;
+    background-size: 100%;
+    object-fit: cover;
     height: 100vh;
     padding-top: 25px;
     .login__content {

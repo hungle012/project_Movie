@@ -4,7 +4,7 @@ import { LazyLoadImage } from "react-lazy-load-image-component";
 
 export default function Footer() {
   return (
-      <footer className="footer pt-5">
+      <footer className="footer">
         <div className="footer__info">
           <div className="container">
             <div className="row info__top">

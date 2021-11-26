@@ -4,14 +4,10 @@
     box-sizing: border-box;
 }
 html, body {
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Roboto', sans-serif !important;
     font-size: 16px;
     line-height: 1.6;
     font-weight: 400;
-    background-image: url(./bgfull.jpg);
-    background-position: center;
-    background-size: 100%;
-    object-fit: cover;
 }
 // macnific-popup
 .mfp-fade.mfp-bg {
