@@ -1,6 +1,20 @@
-import React from 'react'
+import React from 'react';
+import { useSelector } from 'react-redux';
 
-export default function HomeCarousel() {
+export default function HomeCarousel(props) {
+    const { arrCarousel } = useSelector(state => state.CarouselReducers);
+    const renderCarousel = () => {
+        return arrCarousel.map((item, index) => {
+            return <div className="carousel-item" key={index}>
+                <img src={item.hinhAnh} className="d-block w-100" alt="..." />
+                <div className="playTrailer">
+                    <a href="https://www.youtube.com/watch?v=_8ldAdQd9WU" className="popup-youtube">
+                        <i className="fas fa-play" />
+                    </a>
+                </div>
+            </div>
+        });
+    }
     return (
         <section className="carousel">
             <div id="carouselMovie" className="carousel slide" data-ride="carousel">
@@ -12,46 +26,7 @@ export default function HomeCarousel() {
                     <li data-target="#carouselMovie" data-slide-to={4} />
                 </ol>
                 <div className="carousel-inner home_carousel">
-                    <div className="carousel-item active">
-                        <img src="./img/carousel/cr1.png" className="d-block w-100" alt="..." />
-                        <div className="playTrailer">
-                            <a href="https://www.youtube.com/watch?v=_8ldAdQd9WU" className="popup-youtube">
-                                <i className="fas fa-play" />
-                            </a>
-                        </div>
-                    </div>
-                    <div className="carousel-item">
-                        <img src="./img/carousel/cr2.png" className="d-block w-100" alt="..." />
-                        <div className="playTrailer">
-                            <a href="https://www.youtube.com/watch?v=_8ldAdQd9WU" className="popup-youtube">
-                                <i className="fas fa-play" />
-                            </a>
-                        </div>
-                    </div>
-                    <div className="carousel-item">
-                        <img src="./img/carousel/cr3.png" className="d-block w-100" alt="..." />
-                        <div className="playTrailer">
-                            <a href="https://www.youtube.com/watch?v=_8ldAdQd9WU" className="popup-youtube">
-                                <i className="fas fa-play" />
-                            </a>
-                        </div>
-                    </div>
-                    <div className="carousel-item">
-                        <img src="./img/carousel/cr4.png" className="d-block w-100" alt="..." />
-                        <div className="playTrailer">
-                            <a href="https://www.youtube.com/watch?v=_8ldAdQd9WU" className="popup-youtube">
-                                <i className="fas fa-play" />
-                            </a>
-                        </div>
-                    </div>
-                    <div className="carousel-item">
-                        <img src="./img/carousel/cr5.png" className="d-block w-100" alt="..." />
-                        <div className="playTrailer">
-                            <a href="https://www.youtube.com/watch?v=_8ldAdQd9WU" className="popup-youtube">
-                                <i className="fas fa-play" />
-                            </a>
-                        </div>
-                    </div>
+                    {renderCarousel()}
                 </div>
                 <button className="btn-control carousel-control-prev" type="button" data-target="#carouselMovie" data-slide="prev">
                     <i className="fas fa-chevron-left" />
