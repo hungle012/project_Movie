@@ -8,15 +8,16 @@ import Login from './templates/UserTemplate/Layout/Login/Login'
 import { UserTemplate } from './templates/UserTemplate/UserTemplate';
 import Register from './templates/UserTemplate/Layout/Register/Register';
 import Detail from './pages/Detail/Detail'
+
 export const history = createBrowserHistory();
 function App() {
   return (
     <BrowserRouter history={history}>
       <Switch>
-        <HomeTemplate exact path="/"  Component={Home} />
-        <HomeTemplate exact path="/detail"  Component={Detail} />
-        <UserTemplate exact path="/login"  Component={Login} />
-        <UserTemplate exact path="/register"  Component={Register} />
+        <HomeTemplate exact path="/" Component={Home} />
+        <HomeTemplate exact path="/detail" Component={Detail} />
+        <UserTemplate exact path="/login" Component={Login} />
+        <UserTemplate exact path="/register" Component={Register} />
       </Switch>
     </BrowserRouter>
   );
