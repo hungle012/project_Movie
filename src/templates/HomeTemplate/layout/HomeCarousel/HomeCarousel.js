@@ -1,11 +1,23 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
-
+import React,{useEffect} from 'react';
+import { useSelector, useDispatch} from 'react-redux';
+import { getCarouselAction } from '../../../../redux/action/CarouselAction';
 export default function HomeCarousel(props) {
-    const { arrCarousel } = useSelector(state => state.CarouselReducers);
+    const { arrCarousel } = useSelector(state => state.CarouselReducers)
+    const dispatch = useDispatch();
+    useEffect(() => {
+        // const action = getCarouselAction;
+        dispatch(getCarouselAction());
+    }, [])
+
     const renderCarousel = () => {
         return arrCarousel.map((item, index) => {
-            return <div className="carousel-item" key={index}>
+            let classname = ``;
+            if (index == 0) {
+                classname = "carousel-item active"
+            } else {
+                classname = "carousel-item"
+            }
+            return <div className={classname} key={index} style={{backgroundImage:`url(${item.hinhAnh})`,backgroundPosition:'center',backgroundSize:'100%',backgroundRepeat:'no-repeat',height:'85vh'}}>
                 <img src={item.hinhAnh} className="d-block w-100" alt="..." />
                 <div className="playTrailer">
                     <a href="https://www.youtube.com/watch?v=_8ldAdQd9WU" className="popup-youtube">
@@ -13,7 +25,7 @@ export default function HomeCarousel(props) {
                     </a>
                 </div>
             </div>
-        });
+        })
     }
     return (
         <section className="carousel">
