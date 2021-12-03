@@ -17,7 +17,7 @@ export const layDanhSachPhimDangChieuAction = () => {
 export const layDanhSachPhimSapChieuAction = () => {
     return async (dispatch) => {
         try {
-            const result = await quanlyPhimService.LayDanhSachPhimSapChieu();
+            const result = await quanlyPhimService.LayDanhSachPhim();
             // đưa lên reducer
             dispatch({
                 type: SET_FILM_SAP_CHIEU,

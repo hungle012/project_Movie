@@ -8,7 +8,7 @@ export default function ShowInTick(props) {
         <div id="cumRap">
             <div className="container showInTicket mt-5 bg-white" >
                 <Tabs tabPosition={'left'} className="row">
-                    <TabPane className="col-1" tab={<img src="http://movieapi.cyberlearn.vn/hinhanh/cgv.png" className="lichChieu__LogoRap" alt="..." />} key="1">
+                    <TabPane tab={<img src="http://movieapi.cyberlearn.vn/hinhanh/cgv.png" className="lichChieu__LogoRap" alt="..." />} key="1">
                     </TabPane>
                     <TabPane tab={<img src="http://movieapi.cyberlearn.vn/hinhanh/cgv.png" className="lichChieu__LogoRap" alt="..." />} key="2">
                     </TabPane>

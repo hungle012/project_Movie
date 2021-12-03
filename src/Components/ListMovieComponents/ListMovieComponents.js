@@ -62,7 +62,6 @@ const ListMovieComponents = (props) => {
             })
         }
     };
-    console.log("arrSapChieu",arrFilmSapChieu);
     return (
         <div id="lichChieu">
             <section className="listMovie container">
