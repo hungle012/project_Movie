@@ -20,7 +20,7 @@ export default function HomeCarousel(props) {
             return <div className={classname} key={index} style={{backgroundImage:`url(${item.hinhAnh})`,backgroundPosition:'center',backgroundSize:'100%',backgroundRepeat:'no-repeat',height:'85vh'}}>
                 <img src={item.hinhAnh} className="d-block w-100" alt="..." />
                 <div className="playTrailer">
-                    <a href="https://www.youtube.com/watch?v=_8ldAdQd9WU" className="popup-youtube">
+                    <a href="https://www.youtube.com/watch?v=_8ldAdQd9WU" data-lity className="popup-youtube">
                         <i className="fas fa-play" />
                     </a>
                 </div>

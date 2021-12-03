@@ -9,7 +9,7 @@ function Movie(props) {
             <div className="movie__img">
                 <img src={props.movie.hinhAnh} alt="film-1" className="img-fluid" />
                 <div className="icon__play">
-                    <a className="popup-youtube" href={props.movie.trailer}>
+                    <a className="popup-youtube" href={props.movie.trailer} data-lity>
                         <i className="fa fa-play" />
                     </a>
                 </div>

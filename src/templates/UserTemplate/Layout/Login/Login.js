@@ -3,7 +3,7 @@ import { styled } from '@mui/system';
 import CancelIcon from '@mui/icons-material/Cancel';
 import React from 'react'
 import { Link } from 'react-router-dom';
-import {useFormik} from 'formik';
+import { useFormik } from 'formik';
 import * as Yup from 'yup'
 
 
@@ -59,6 +59,21 @@ const CssTextField = styled(TextField)({
 
 export default function Login() {
 
+    const formik = useFormik({
+        initialValues: {
+            taiKhoan: '',
+            matKhau: ''
+        },
+        validationSchema: Yup.object().shape({
+            taiKhoan: Yup.string().required('Tài khoản không được bỏ trống !').trim(),
+            matKhau: Yup.string().required('Mật khẩu không được bỏ trống !').trim().min(6, 'Mật tối thiểu 6 ký tự').max(32, 'Mật khẩu tối đa 32 ký tự'),
+
+        }),
+        onSubmit: (values) => {
+            console.log('values', values);
+        }
+    })
+
     return (
         <div className="login">
             <div className="login__content col-4 mx-auto px-5">
@@ -77,18 +92,26 @@ export default function Login() {
                         <div className="login__acc login__field">
                             <TextFieldCustom
                                 label="Tài khoản"
+                                id="taiKhoan"
                                 fullWidth
                                 variant="outlined"
-                                id="taiKhoan"
+                                onChange={formik.handleChange}
+                                onBlur={formik.handleBlur}
+                                helperText={(formik.touched.taiKhoan) && (formik.errors.taiKhoan) ? formik.errors.taiKhoan : ""}
+                                error={(formik.touched.taiKhoan) && (formik.errors.taiKhoan) ? true : false}
                             />
                         </div>
                         <div className="login__pass login__field">
                             <CssTextField
                                 label="Mật khẩu"
+                                id="matKhau"
                                 type="password"
                                 fullWidth
                                 variant="outlined"
-                                id="matKhau"
+                                onChange={formik.handleChange}
+                                onBlur={formik.handleBlur}
+                                helperText={(formik.touched.matKhau) && (formik.errors.matKhau) ? formik.errors.matKhau : ""}
+                                error={(formik.touched.matKhau) && (formik.errors.matKhau) ? true : false}
                             />
                         </div>
                         <FormControlLabel control={<Checkbox defaultUnChecked />} label="Remember me" />
