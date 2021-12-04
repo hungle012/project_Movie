@@ -1,4 +1,6 @@
-import React, { useEffect } from 'react'
+import React, { useEffect } from 'react';
+import { NavLink } from 'react-router-dom';
+
 
 export default function Header() {
     useEffect(() => {
@@ -21,9 +23,9 @@ export default function Header() {
         <header className="header" id="myHeader">
             <div className="header__nav " id="nav-test">
                 <nav className="navbar navbar-expand-md ">
-                    <a className="header__logo" href="/">
+                    <NavLink className="header__logo" to="/">
                         <img src="./img/logo.png" alt="anh_LOGO" className="mb-0" />
-                    </a>
+                    </NavLink>
                     <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon" />
                     </button>
@@ -50,11 +52,14 @@ export default function Header() {
                             </a>
                         </div>
                         <div className="user-name dropdown">
-                            <p type="button" className="btn dropdown-toggle" id="dropdownMenuOffset" data-toggle="dropdown" aria-expanded="false" data-offset="10,20">Người dùng </p>
+                            <p className="">
+                                <NavLink to="/login" >Đăng nhập</NavLink>
+                            </p>
+                            {/* <p type="button" className="btn dropdown-toggle" id="dropdownMenuOffset" data-toggle="dropdown" aria-expanded="false" data-offset="10,20">Đăng nhập </p>
                             <div className="dropdown-menu drop-menu" aria-labelledby="dropdownMenuOffset">
                                 <a className="dropdown-item" href="#">My account</a>
                                 <a className="dropdown-item" href="#">Log out</a>
-                            </div>
+                            </div> */}
                         </div>
                     </div>
                 </nav>

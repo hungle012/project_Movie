@@ -4,7 +4,7 @@ export class QuanLyRapService extends baseServices{
     constructor() {
         super();
     }
-    layThongTinLichChieu = () => {
+    layDanhSachHeThongRap = () => {
         return this.get(`/api/QuanLyRap/LayThongTinLichChieuHeThongRap?maNhom=${GROUPID}`)
     }
 } 
