@@ -1,17 +1,15 @@
 import { Fragment } from "react";
 import { Route } from "react-router";
-import Footer from "./layout/Footer/Footer";
-import Header from "./layout/Header/Header";
+import StepHeader from "./layout/StepHeader/StepHeader";
 
-export const HomeTemplate = (props) => {
+export const CheckoutTemplate = (props) => {
     const { Component, ...restProps } = props;
 
 
     return <Route {...restProps} render={(propsRoute) => {
         return <Fragment>
-            <Header />
-            <Component {...propsRoute} />
-            <Footer />
+            <StepHeader/>
+            <Component {...propsRoute}/>
         </Fragment>
     }} />
 }

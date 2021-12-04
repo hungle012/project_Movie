@@ -8,6 +8,8 @@ import Login from './templates/UserTemplate/Layout/Login/Login'
 import { UserTemplate } from './templates/UserTemplate/UserTemplate';
 import Register from './templates/UserTemplate/Layout/Register/Register';
 import Detail from './pages/Detail/Detail'
+import { CheckoutTemplate } from './templates/CheckoutTemplate/CheckoutTemplate';
+import SelectSeat from './Components/SelectSeat/SelectSeat';
 
 export const history = createBrowserHistory();
 function App() {
@@ -18,6 +20,7 @@ function App() {
         <HomeTemplate exact path="/detail" Component={Detail} />
         <UserTemplate exact path="/login" Component={Login} />
         <UserTemplate exact path="/register" Component={Register} />
+        <CheckoutTemplate exact path="/checkout/" Component={SelectSeat} />
       </Switch>
     </BrowserRouter>
   );
