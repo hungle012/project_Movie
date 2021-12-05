@@ -1,154 +1,116 @@
-.lichChieu {
-    .lichChieu__content {
-      .lichChieu__LogoRap {
-        border: 1px solid #dee2e6;
-        // max-height: 550px;
-        height: 550px;
-        @include reponsiveMax("large") {
-          padding-top: 7px;
-          height: 80px;
-          .nav {
-            justify-content: center;
-            .nav-link {
-              .logoRap__item {
-                border: none !important;
-              }
-            }
-          }
-        }
-        .nav {
-          .nav-link.active {
-            background-color: transparent;
-            opacity: 1;
-          }
-          .nav-link {
-            border-radius: 0;
-            opacity: 0.6;
-            transition: all 0.5s;
-            &:hover {
-              opacity: 1;
-            }
-            .logoRap__item {
-              text-align: center;
-              padding-bottom: 10px;
-              img {
-                border-radius: 50%;
-                width: 50px;
-              }
-            }
-          }
-        }
-      }
-      .lichChieu__Rap {
-        border: 1px solid #dee2e6;
-        max-height: 550px;
-        overflow-y: auto;
-        .rap__item.active {
-          opacity: 1;
-        }
-        .rap__item {
-          border-bottom: 1px solid #dee2e6;
-          padding: 3px;
-          opacity: 0.6;
-          transition: all 0.5s;
-          &:hover {
-            opacity: 1;
-            cursor: pointer;
-          }
-          .rap__img {
-            padding-top: 7px;
-            padding-bottom: 7px;
-            img {
-              width: 50px;
-            }
-          }
-          .rap__text {
-            padding: 0;
-            font-size: 11.5px;
-            p {
-              font-size: 13px;
-              margin: 0;
-              color: $color-orange-dark;
-              font-weight: bold;
-              .diaChiRap {
-                color: #212530;
-              }
-            }
-            span {
-              color: rgb(102, 101, 101);
-            }
-            a {
-              color: rgb(240, 30, 30);
-              font-weight: bold;
-            }
-          }
-        }
-      }
-      .lichChieu__Phim {
-        border: 1px solid #dee2e6;
-        max-height: 550px;
-        height: 550px;
-        overflow-y: auto;
-        .lichChieu__item {
-          border-bottom: 1px solid #dee2e6;
-          padding-bottom: 15px;
-          .phim__item {
-            padding-top: 10px;
-            .phim__img {
-              text-align: center;
-              img {
-                width: 50px;
-              }
-            }
-            .phim__thoiLuong {
-              padding: 0;
-              p {
-                margin-bottom: 3px;
-                font-weight: bold;
-                .doTuoi {
-                  background-color: rgb(6, 156, 6);
-                  padding: 5px 15px;
-                  color: $color-white;
-                  border-radius: 8px;
-                  margin-right: 10px;
+.theater {
+    .theater_content {
+        box-shadow: 0px 0px 15px $color-start;
+
+        .theater__rap {
+            width: 300px;
+            display: flex;
+
+            .rap--info {
+                width: 90%;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                opacity: 0.6;
+                transition: all 0.5s;
+
+                .rap--name {
+                    font-weight: bold;
                 }
-              }
-              span {
-                color: $color-boxShawdom;
-                font-size: 12px;
-                font-weight: bold;
-              }
             }
-          }
-          h4 {
-            padding-left: 5px;
-            padding-top: 10px;
-            font-size: 16px;
-            font-weight: bold;
-          }
-          .thoiGianChieu {
-            border: 1px solid #dee2e6;
-            width: 100%;
-            text-align: center;
-            border-radius: 8px;
-            background-color: rgba(238, 235, 235, 0.438);
-            padding: 5px;
-            &:hover {
-              cursor: pointer;
-            }
-            p {
-              margin: 0;
-              color: rgba(128, 128, 128, 0.61);
-              font-weight: bold;
-              span {
-                font-size: 18px;
-  
-                color: rgb(6, 156, 6);
-              }
-            }
-          }
         }
-      }
+        .theater__movie {
+            padding: 0 10px 24px;
+
+            .row {
+                border-bottom: $color-gray-1 1px solid;
+                padding-bottom: 7px;
+            }
+
+            .movie--info {
+                color: $color-gray-2;
+                .movie--infoName {
+                    font-size: 17px;
+                    margin-bottom: 0;
+                    font-weight: bold;
+                    color: $color-black;
+                }
+                .theater__time {
+                    display: flex;
+                    flex-wrap: wrap;
+                    .btn {
+                        font-size: $fs-2;
+                        border: $color-orange-dark 1px solid;
+                        margin: 7px 7px;
+                        color: $color-gray-2;
+                        box-shadow: $color-orange-dark 0px 2px 5px -1px, $color-orange-dark 0px 1px 3px -1px;
+                        background-color: rgba(246, 246, 246, 1);
+
+                        .hightlight {
+                            color: $color-green;
+                            font-size: 120%;
+                            transition: all 0.3s ease-in;
+                        }
+
+                        &:hover {
+                            .hightlight {
+                                color: $color-orange-dark;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .ant-tabs-left {
+            height: 476px;
+            overflow-x: hidden;
+
+            .ant-tabs-nav {
+                .ant-tabs-tab {
+                    &:hover {
+                        color: $color-black;
+                        .rap--info {
+                            opacity: 1;
+                        }
+                    }
+                    &.ant-tabs-tab-active .ant-tabs-tab-btn {
+                        color: $color-black;
+                        .rap--info {
+                            opacity: 1;
+                        }
+                    }
+                }
+                .ant-tabs-ink-bar {
+                    background: red !important;
+                    width: 3px;
+                }
+            }
+            .ant-tabs-content-holder {
+                height: 476px;
+                overflow-x: hidden;
+                /* width */
+                ::-webkit-scrollbar {
+                    width: 7px;
+                }
+
+                /* Track */
+                ::-webkit-scrollbar-track {
+                    background: $color-start;
+                }
+
+                /* Handle */
+                ::-webkit-scrollbar-thumb {
+                    background: $color-gray-2;
+                    border-radius: 7px;
+                }
+
+                /* Handle on hover */
+                ::-webkit-scrollbar-thumb:hover {
+                    background: $color-gray-1;
+                }
+            }
+            .ant-tabs-tabpane {
+                padding: 0 !important;
+            }
+        }
     }
-  }
-  
+}

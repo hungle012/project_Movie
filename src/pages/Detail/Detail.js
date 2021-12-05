@@ -11,7 +11,7 @@ export default function Detail(props) {
                         <div className="col-6 col-md-3 detail__img">
                             <img src="http://movie0706.cybersoft.edu.vn/hinhanh/mad-max-fury-roads_gp05.jpg" alt="..." className="img-fluid w-100" />
                             <div className="icon__play">
-                                <a className="popup-youtube" href="https://www.youtube.com/watch?v=0PvazM8D1XE">
+                                <a className="popup-youtube" href="https://www.youtube.com/watch?v=0PvazM8D1XE" lity>
                                     <i className="fa fa-play" />
                                 </a>
                             </div>
@@ -54,141 +54,7 @@ export default function Detail(props) {
                     </ul>
                     <div className="tab-content detailShowtime__content" id="myTabContent">
                         <div className="tab-pane fade mt-5" id="showtime" role="tabpanel" aria-labelledby="showtime-tab">
-                            <section className="lichChieu container-md ">
-                                <div className="row lichChieu__content mb-5" style={{ backgroundColor: 'white' }}>
-                                    <div className=" col-lg-1 lichChieu__LogoRap px-0">
-                                        <div className="nav nav-pills" id="v-pills-tab" role="tablist">
-                                            <div>
-                                                <a className="nav-link show active" id="v-pills-BHDStar-tab" data-toggle="pill" href="#v-pills-BHDStar" role="tab" aria-controls="v-pills-BHDStar" aria-selected="true">
-                                                    <div className="border-bottom logoRap__item">
-                                                        <img src="http://movie0706.cybersoft.edu.vn/hinhanh/bhd-star-cineplex.png" alt="rapbhd" className="img-fluid" />
-                                                    </div>
-                                                </a>
-                                            </div>
-                                            <div>
-                                                <a className="nav-link show" id="v-pills-CGV-tab" data-toggle="pill" href="#v-pills-CGV" role="tab" aria-controls="v-pills-CGV" aria-selected="true">
-                                                    <div className="border-bottom logoRap__item">
-                                                        <img src="http://movie0706.cybersoft.edu.vn/hinhanh/cgv.png" alt="rapbhd" className="img-fluid" />
-                                                    </div>
-                                                </a>
-                                            </div>
-                                            <div>
-                                                <a className="nav-link show" id="v-pills-CineStar-tab" data-toggle="pill" href="#v-pills-CineStar" role="tab" aria-controls="v-pills-CineStar" aria-selected="true">
-                                                    <div className="border-bottom logoRap__item">
-                                                        <img src="http://movie0706.cybersoft.edu.vn/hinhanh/cinestar.png" alt="rapbhd" className="img-fluid" />
-                                                    </div>
-                                                </a>
-                                            </div>
-                                            <div>
-                                                <a className="nav-link show" id="v-pills-Galaxy-tab" data-toggle="pill" href="#v-pills-Galaxy" role="tab" aria-controls="v-pills-Galaxy" aria-selected="true">
-                                                    <div className="border-bottom logoRap__item"><img src="http://movie0706.cybersoft.edu.vn/hinhanh/galaxy-cinema.png" alt="rapbhd" className="img-fluid" />
-                                                    </div>
-                                                </a>
-                                            </div>
-                                            <div>
-                                                <a className="nav-link show" id="v-pills-LotteCinima-tab" data-toggle="pill" href="#v-pills-LotteCinima" role="tab" aria-controls="v-pills-LotteCinima" aria-selected="true">
-                                                    <div className="border-bottom logoRap__item"><img src="http://movie0706.cybersoft.edu.vn/hinhanh/lotte-cinema.png" alt="rapbhd" className="img-fluid" />
-                                                    </div>
-                                                </a>
-                                            </div>
-                                            <div>
-                                                <a className="nav-link show" id="v-pills-MegaGS-tab" data-toggle="pill" href="#v-pills-MegaGS" role="tab" aria-controls="v-pills-MegaGS" aria-selected="true">
-                                                    <div className="border-bottom logoRap__item"><img src="http://movie0706.cybersoft.edu.vn/hinhanh/megags.png" alt="rapbhd" className="img-fluid" />
-                                                    </div>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="col-lg-11 p-0">
-                                        <div className="toDay">
-                                            <div className="dateOfYear text-center">
-                                                <p className={0} style={{ color: 'black' }}>Thứ 7</p>
-                                                <p className={0} style={{ color: 'black' }}>4</p>
-                                            </div>
-                                            <div className="dateOfYear text-center">
-                                                <p className={1} style={{ color: 'black' }}>Chủ Nhật</p>
-                                                <p className={1} style={{ color: 'black' }}>5</p>
-                                            </div>
-                                            <div className="dateOfYear text-center">
-                                                <p className={2} style={{ color: 'black' }}>Thứ 2</p>
-                                                <p className={2} style={{ color: 'black' }}>6</p>
-                                            </div>
-                                            <div className="dateOfYear text-center"><p className={3} style={{ color: 'black' }}>Thứ 3</p>
-                                                <p className={3} style={{ color: 'black' }}>7</p>
-                                            </div>
-                                            <div className="dateOfYear text-center"><p className={4} style={{ color: 'black' }}>Thứ 4</p>
-                                                <p className={4} style={{ color: 'black' }}>8</p>
-                                            </div>
-                                            <div className="dateOfYear text-center">
-                                                <p className={5} style={{ color: 'black' }}>Thứ 5</p>
-                                                <p className={5} style={{ color: 'black' }}>9</p>
-                                            </div>
-                                            <div className="dateOfYear text-center"><p className={6} style={{ color: 'black' }}>Thứ 6</p>
-                                                <p className={6} style={{ color: 'black' }}>10</p>
-                                            </div>
-                                            <div className="dateOfYear text-center">
-                                                <p className={7} style={{ color: 'black' }}>Thứ 7</p>
-                                                <p className={7} style={{ color: 'black' }}>11</p>
-                                            </div>
-                                            <div className="dateOfYear text-center">
-                                                <p className={8} style={{ color: 'black' }}>Chủ Nhật</p>
-                                                <p className={8} style={{ color: 'black' }}>12</p>
-                                            </div>
-                                            <div className="dateOfYear text-center">
-                                                <p className={9} style={{ color: 'black' }}>Thứ 2</p>
-                                                <p className={9} style={{ color: 'black' }}>13</p>
-                                            </div>
-                                        </div>
-                                        <div className="tab-content lichChieu__Phim" id="v-pills-tabContent"><div><div className="lichChieu__item">
-                                            <div className="row phim__item">
-                                                <div className="col-2 phim__img ">
-                                                    <img src="../images/rap-bhd.jpg" alt className="img-fluid" />
-                                                </div>
-                                                <div className="col-10 phim__thoiLuong">
-                                                    <p className="text-dark">
-                                                        <span className="doTuoi">P</span>CGV - CGV Saigonres Nguyễn Xí</p>
-                                                    <span>371 Nguyen Kiem Go Vap</span>
-                                                </div>
-                                            </div>
-                                            <h4>2D Digital</h4>
-                                            <div className="row">
-                                                <div className="ml-4 my-2">
-                                                    <div className="thoiGianChieu px-3">
-                                                        <p><span>10:10</span>~12:10</p>
-                                                    </div>
-                                                </div>
-                                                <div className="ml-4 my-2">
-                                                    <div className="thoiGianChieu px-3">
-                                                        <p><span>12:10</span>~14:10</p>
-                                                    </div>
-                                                </div>
-                                                <div className="ml-4 my-2">
-                                                    <div className="thoiGianChieu px-3">
-                                                        <p><span>14:10</span>~16:10</p>
-                                                    </div>
-                                                </div>
-                                                <div className="ml-4 my-2">
-                                                    <div className="thoiGianChieu px-3">
-                                                        <p><span>16:10</span>~18:10</p>
-                                                    </div>
-                                                </div>
-                                                <div className="ml-4 my-2">
-                                                    <div className="thoiGianChieu px-3">
-                                                        <p><span>18:10</span>~20:10</p>
-                                                    </div>
-                                                </div>
-                                                <div className="ml-4 my-2">
-                                                    <div className="thoiGianChieu px-3">
-                                                        <p><span>20:10</span>~22:10</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </section>
+                            
                         </div>
                         <div className="tab-pane fade mt-5 content__Infomation" id="infomation" role="tabpanel" aria-labelledby="infomation-tab">
                             <div className="row">

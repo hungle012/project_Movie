@@ -176,7 +176,7 @@ export default function Register(props) {
                                             <MenuItem value={"GP03"}>GP03</MenuItem>
                                             <MenuItem value={"GP04"}>GP04</MenuItem>
                                         </Select>
-                                        <FormHelperText>{(formik.touched.maNhom) && (formik.errors.maNhom) ? formik.errors.maNhom : ""}</FormHelperText>
+                                         <FormHelperText>{(formik.touched.maNhom) && (formik.errors.maNhom) ? formik.errors.maNhom : ""}</FormHelperText>
                                     </CssSelect>
                                 </div>
 

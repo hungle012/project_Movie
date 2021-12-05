@@ -1,0 +1,38 @@
+.stepHeader {
+    height: 80px;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 10px 0 $color-boxShawdom;
+
+    .stepHeader__content {
+        height: 100%;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        font-size: $fs-2;
+        color: #292525;
+        font-weight: $fw-3;
+    }
+    .stepHeader__detail {
+        display: flex;
+        align-items: center;
+        .user {
+            background-color: $color-gray-1;
+            width: 30px;
+            height: 30px;
+            line-height: 30px;
+            border-radius: 50%;
+            text-align: center;
+            margin-right: 10px;
+
+            i {
+                color: $color-white;
+            }
+        }
+
+        .user-name p {
+            color: black;
+            margin: 0;
+        }
+    }
+}
