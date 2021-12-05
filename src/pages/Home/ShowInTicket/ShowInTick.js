@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
 import { Tabs } from 'antd';
 import 'antd/dist/antd.css';
-import { NavLink } from 'react-router-dom'; 
+import { NavLink } from 'react-router-dom';
 const { TabPane } = Tabs;
 
 export default function ShowInTick(props) {
