@@ -2,7 +2,6 @@ import React, { Fragment } from 'react';
 import { Tabs } from 'antd';
 import 'antd/dist/antd.css';
 import { NavLink } from 'react-router-dom';
-import { moment } from 'moment';
 const { TabPane } = Tabs;
 
 export default function ShowInTick(props) {
@@ -22,7 +21,7 @@ export default function ShowInTick(props) {
                             </div>
                         } key={index}>
                             {/* load phim tương ứng */}
-                            {cumRap.danhSachPhim.slice(0,4).map((phim, index) => {
+                            {cumRap.danhSachPhim.slice(0, 4).map((phim, index) => {
                                 return <Fragment key={index}>
                                     <div className="my-5">
                                         <div style={{ display: 'flex' }}>
@@ -30,16 +29,17 @@ export default function ShowInTick(props) {
                                             <div className="ml-2 ">
                                                 <p>{phim.tenPhim}</p>
                                                 <p>120 phút - TIX 9.1 - IMDb 0</p>
-                                                {/* <div>
-                                                    {phim.lstLichChieuTheoPhim?.slice(0, 12).map((lichChieu, index) => {
-                                                        return <NavLink key={index} to="/">
-                                                            {moment(lichChieu.ngayChieuGioChieu).format('hh:mm A')}
+                                                <div>
+                                                    {phim.lstLichChieuTheoPhim?.slice(0,8).map((lichChieu,index) => {
+                                                        return <NavLink to="/" key={index}>
+                                                             {new Date(lichChieu.ngayChieuGioChieu).getHours()}:{new Date(lichChieu.ngayChieuGioChieu).getMinutes()}~{new Date(lichChieu.ngayChieuGioChieu).getHours() + 2}:{new Date(lichChieu.ngayChieuGioChieu).getMinutes()}
                                                         </NavLink>
                                                     })}
-                                                </div> */}
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
+                                    <hr/>
                                 </Fragment>
                             })}
                         </TabPane>
