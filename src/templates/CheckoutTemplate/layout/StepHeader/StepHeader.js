@@ -17,9 +17,9 @@ export default function StepHeader() {
                 </div>
                 <div className="stepHeader__detail col-2 pl-5">
                     <div className="user">
-                        <a href="">
+                        <p>
                             <i className="fas fa-user" />
-                        </a>
+                        </p>
                     </div>
                     <div className="user-name">
                         <p className="">

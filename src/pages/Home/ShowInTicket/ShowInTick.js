@@ -1,22 +1,68 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { Tabs } from 'antd';
 import 'antd/dist/antd.css';
+import { NavLink } from 'react-router-dom';
+import { moment } from 'moment';
 const { TabPane } = Tabs;
 
 export default function ShowInTick(props) {
-    return (
-        <div id="cumRap">
-            <div className="container showInTicket mt-5 bg-white" >
-                <Tabs tabPosition={'left'} className="row">
-                    <TabPane className="col-1" tab={<img src="http://movieapi.cyberlearn.vn/hinhanh/cgv.png" className="lichChieu__LogoRap" alt="..." />} key="1">
-                    </TabPane>
-                    <TabPane tab={<img src="http://movieapi.cyberlearn.vn/hinhanh/cgv.png" className="lichChieu__LogoRap" alt="..." />} key="2">
-                    </TabPane>
-                    <TabPane tab={<img src="http://movieapi.cyberlearn.vn/hinhanh/cinestar.png" className="lichChieu__LogoRap" alt="..." />} key="3">
-                    </TabPane>
-                </Tabs>
-            </div>
+  const renderHeThongRap = () => {
+    return props.heThongRapChieu?.map((heThongRap, index) => {
+      return <TabPane tab={<img src={heThongRap.logo} className="theater__LogoRap" width="50" alt="..." />} key={index}>
+        <Tabs tabPosition={'left'}>
+          {heThongRap.lstCumRap?.map((cumRap, index) => {
+            return <TabPane tab={
+              <div className="theater__rap" >
+                <img src="https://s3img.vcdn.vn/123phim/2018/09/bhd-star-vincom-3-2-15379527367766.jpg" width="50" height="50" alt="..." />
+                <div className="rap--info text-left pl-2">
+                  <span className="rap--name">{cumRap.tenCumRap}</span><br />
+                  <span className="rap--address">{cumRap.diaChi}</span>
+                  <p style={{ color: 'red' }}><b>[Chi Tiết]</b></p>
+                </div>
+              </div>
+            } key={index}>
+              {/* load phim tương ứng */}
+              {cumRap.danhSachPhim.slice(0, 4).map((phim, index) => {
+                return <Fragment key={index}>
+                  <div className="theater__movie">
+                    <div className="row">
+                      <div className="col-2 p-0 pl-4">
+                        <img width={70} height={80} src={phim.hinhAnh} alt={phim.tenPhim} />
+                      </div>
+                      <div className="movie--info col-10 pr-0">
+                        <p className="movie--infoName">{phim.tenPhim}</p>
+                        <p>120 phút - TIX 9.1 - IMDb 0</p>
+                        <span style={{fontSize:"20px",color:"red"}}>2D Digital</span>
+                        <div className="theater__time">
+                          {phim.lstLichChieuTheoPhim?.slice(0, 8).map((lichChieu, index) => {
+                            return <NavLink key={index} to="/">
+                              <div className="btn px-1">
+                              <span className="hightlight">{new Date(lichChieu.ngayChieuGioChieu).getHours()}:{new Date(lichChieu.ngayChieuGioChieu).getMinutes()}</span> ~ {new Date(lichChieu.ngayChieuGioChieu).getHours() + 2}:{new Date(lichChieu.ngayChieuGioChieu).getMinutes()}
+                              </div>
+                            </NavLink>
+                          })}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </Fragment>
+              })}
+            </TabPane>
+          })}
+        </Tabs>
+      </TabPane>
+    })
+  }
+  return (
+    <div id="cumRap">
+      <section className="theater container py-5">
+        <div className="theater_content my-5 py-4 bg-white" >
+          <Tabs tabPosition={'left'}>
+            {renderHeThongRap()}
+          </Tabs>
         </div>
+      </section>
+    </div>
 
-    )
+  )
 }

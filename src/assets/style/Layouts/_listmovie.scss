@@ -26,7 +26,7 @@
           left: -6%;
         }
         .movie__item {
-          padding: $pd-2;
+          padding: $pd-3;
           &:hover {
             .movie__img {
               box-shadow: none;
@@ -129,7 +129,7 @@
           }
         }
         .movie__itemSapChieu {
-          padding: $pd-2;
+          padding: $pd-3;
           &:hover {
             .movie__img {
               box-shadow: none;
@@ -144,13 +144,13 @@
             }
           }
           .movie__img {
-            position: relative !important;
+            // height: 300px;
+            position: relative;
             box-shadow: 0px 1px 10px 0px $color-boxShawdom;
             transition: all 0.5s;
             img {
               width: 100%;
-
-              min-height: 300px;
+              height: 300px;
               @include reponsiveMax("small") {
                 height: 270px;
               }
@@ -219,9 +219,10 @@
               text-overflow: ellipsis;
               white-space: nowrap;
               width: 100%;
+              color: white !important;
             }
             .thoiLuong {
-              @include styleText($fs-1, $fw-2, $color-gray-1);
+              @include styleText($fs-1, $fw-2, $color-orange-dark);
             }
             .movie__btnMuaVe {
               display: none;
