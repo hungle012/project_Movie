@@ -34,8 +34,6 @@ export default function HomeCarousel(props) {
                     <li data-target="#carouselMovie" data-slide-to={0} className="active" />
                     <li data-target="#carouselMovie" data-slide-to={1} />
                     <li data-target="#carouselMovie" data-slide-to={2} />
-                    <li data-target="#carouselMovie" data-slide-to={3} />
-                    <li data-target="#carouselMovie" data-slide-to={4} />
                 </ol>
                 <div className="carousel-inner home_carousel">
                     {renderCarousel()}

@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function SelectSeat() {
+export default function Checkout() {
     return (
         <div>
             checkout
