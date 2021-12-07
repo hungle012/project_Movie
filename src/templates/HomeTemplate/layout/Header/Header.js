@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { StickyNav } from 'react-js-stickynav'
 import 'react-js-stickynav/dist/index.css'
 
@@ -20,16 +20,32 @@ export default function Header() {
                         <div className="collapse navbar-collapse" id="navbarSupportedContent">
                             <ul className="navbar-nav mt-0 mx-auto">
                                 <li className="nav-item">
-                                    <a className="nav-link text-left px-4 text-md-center" href="/">Lịch chiếu</a>
+                                    <Link className="nav-link text-left px-4 text-md-center" to="#" href="#" onClick={() => {
+                                document
+                                .getElementById("lichChieu")
+                                .scrollIntoView({ behavior: "smooth" });
+                            }}>Lịch chiếu</Link>
                                 </li>
                                 <li className="nav-item  ">
-                                    <a className="nav-link text-left px-4 text-md-center" href="/">Cụm rạp </a>
+                                    <Link className="nav-link text-left px-4 text-md-center" to="#" href="#" onClick={() => {
+                                document
+                                .getElementById("cumRap")
+                                .scrollIntoView({ behavior: "smooth" });
+                            }}>Cụm rạp </Link>
                                 </li>
                                 <li className="nav-item ">
-                                    <a className="nav-link text-left px-4 text-md-center" href="/">Tin tức </a>
+                                    <Link className="nav-link text-left px-4 text-md-center" to="#" href="#" onClick={() => {
+                                document
+                                .getElementById("tinTuc")
+                                .scrollIntoView({ behavior: "smooth" });
+                            }}>Tin tức </Link>
                                 </li>
                                 <li className="nav-item">
-                                    <a className="nav-link text-left px-4 text-md-center" href="/">Ứng dụng</a>
+                                    <Link className="nav-link text-left px-4 text-md-center" to="#" href="#" onClick={() => {
+                                document
+                                .getElementById("ungDung")
+                                .scrollIntoView({ behavior: "smooth" });
+                            }}>Ứng dụng</Link>
                                 </li>
                             </ul>
                         </div>
