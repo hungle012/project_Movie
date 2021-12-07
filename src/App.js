@@ -1,28 +1,29 @@
 import './App.css';
 import './assets/style/main.scss';
 import { createBrowserHistory } from 'history';
-import { HomeTemplate } from './templates/HomeTemplate/HomeTemplate';
-import { BrowserRouter, Switch } from 'react-router-dom';
+import { Route, Router } from 'react-router';
+import { Switch } from 'react-router-dom';
+import HomeTemplate from './templates/HomeTemplate/HomeTemplate';
+import UserTemplate from './templates/UserTemplate/UserTemplate';
+import CheckoutTemplate from './templates/CheckoutTemplate/CheckoutTemplate';
 import Home from './pages/Home/Home';
 import Login from './templates/UserTemplate/Layout/Login/Login'
-import { UserTemplate } from './templates/UserTemplate/UserTemplate';
 import Register from './templates/UserTemplate/Layout/Register/Register';
 import Detail from './pages/Detail/Detail'
-import { CheckoutTemplate } from './templates/CheckoutTemplate/CheckoutTemplate';
-import SelectSeat from './Components/SelectSeat/SelectSeat';
+import Checkout from './Components/Checkout/Checkout';
 
 export const history = createBrowserHistory();
 function App() {
   return (
-    <BrowserRouter history={history}>
+    <Router history={history}>
       <Switch>
         <HomeTemplate exact path="/" Component={Home} />
         <HomeTemplate exact path="/detail/:id" Component={Detail} />
         <UserTemplate exact path="/login" Component={Login} />
         <UserTemplate exact path="/register" Component={Register} />
-        <CheckoutTemplate exact path="/checkout/" Component={SelectSeat} />
+        <CheckoutTemplate exact path="/checkout" Component={Checkout} />
       </Switch>
-    </BrowserRouter>
+    </Router>
   );
 }
 

@@ -2,7 +2,7 @@ import React from 'react'
 
 export default function StepHeader() {
     return (
-        <div>
+        <div className="container-fluid">
             <div className="stepHeader row">
                 <div className="stepHeader__content col-10 pr-5">
                     <div>

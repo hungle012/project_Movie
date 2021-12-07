@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react'
 import { Route } from 'react-router'
 
-export const UserTemplate = (props) => {
+const UserTemplate = (props) => {
     const {Component,...restProps} = props;
 
 
@@ -11,3 +11,6 @@ export const UserTemplate = (props) => {
         </Fragment>
     }}/>
 }
+
+
+export default UserTemplate;

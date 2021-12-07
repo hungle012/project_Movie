@@ -3,7 +3,7 @@ import { Route } from "react-router";
 import Footer from "./layout/Footer/Footer";
 import Header from "./layout/Header/Header";
 
-export const HomeTemplate = (props) => {
+const HomeTemplate = (props) => {
     const { Component, ...restProps } = props;
 
 
@@ -15,3 +15,5 @@ export const HomeTemplate = (props) => {
         </Fragment>
     }} />
 }
+
+export default HomeTemplate;

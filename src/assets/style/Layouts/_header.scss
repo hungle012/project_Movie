@@ -1,11 +1,28 @@
 .header {
     width: 100%;
-    padding: 5px 5%;
     background-color: transparent;
     position: fixed;
     z-index: 999;
     box-shadow: inset 10em 19em rgba(0, 0, 0, 0.3);
     top: 0;
+
+    .nav:only-child {
+        width: 100%;
+        padding: 5px 5%;
+        display: block;
+    }
+    .scrollNav {
+        background-color: #101010 !important;
+        border-bottom: none;
+        box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.05);
+        transition: all 0.4s ease 0s;
+        
+        .header__nav {
+            .navbar {
+                height: 70px;
+            }
+        }
+    }
 
     .header__logo img {
         height: 75px;
@@ -20,6 +37,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            transition: all 0.4s;
 
             .navbar-nav {
                 transition: all 0.5s;
