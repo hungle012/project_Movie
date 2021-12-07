@@ -1,26 +1,44 @@
-import React from 'react'
+import React, {useEffect} from 'react';
+import { Tabs } from 'antd';
+import 'antd/dist/antd.css';
+import { useDispatch, useSelector } from 'react-redux';
+import { layThongTinChiTietPhimAction } from '../../redux/action/QuanLyRapAction';
+import { Link } from "react-router-dom";
 
+const { TabPane } = Tabs;
 export default function Detail(props) {
+    const filmDetail = useSelector(state => state.QuanLyPhimReducer.filmDetail);
+    const dispatch = useDispatch();
+    useEffect(() => {
+       let {id} = props.match.params;
+       dispatch(layThongTinChiTietPhimAction(id)); 
+    }, [])
     return (
         <div>
-            <div className="detailMovie">
-                <div className="detail__banner"></div>
+            <section className="detailMovie">
+                <div className="detail__banner" style={{backgroundImage:`url(${filmDetail.hinhAnh})`,backgroundRepeat:'no-repeat'}}></div>
                 <div className="overlay__banner"></div>
                 <div className="container detailMovie__info">
                     <div className="row">
                         <div className="col-6 col-md-3 detail__img">
-                            <img src="http://movie0706.cybersoft.edu.vn/hinhanh/mad-max-fury-roads_gp05.jpg" alt="..." className="img-fluid w-100" />
+                            <img src={`${filmDetail.hinhAnh}`} alt={`${filmDetail.tenPhim}`} className="img-fluid w-100" />
                             <div className="icon__play">
-                                <a className="popup-youtube" href="https://www.youtube.com/watch?v=0PvazM8D1XE" lity>
+                                <a className="popup-youtube" href={`${filmDetail.trailer}`} data-lity>
                                     <i className="fa fa-play" />
                                 </a>
                             </div>
                         </div>
                         <div className="col-md-5 infoText my-auto">
-                            <p className="date">23/7/2021</p>
-                            <p><span>P</span>Mad Max Fury Roads</p>
+                            <p className="date">{new Date(filmDetail.ngayKhoiChieu).toLocaleDateString()}</p>
+                            <p><span>P</span>{`${filmDetail.tenPhim}`}</p>
                             <span>120 phút - 0 IMDb - 2D/Digital</span><br />
-                            <button className="button__muaVe">Mua Vé</button>
+                            <button className="button__muaVe"><Link style={{color:'while !important'}} to="#" href="#" onClick={() => {
+                                document
+                                .getElementById("showtime")
+                                .scrollIntoView({ behavior: "smooth" });
+                            }}>
+                                Mua Vé
+                            </Link></button>
                         </div>
                         <div className="col-md-4">
                             <div className="progress-pie-chart gt-50" data-percent={10}>
@@ -29,7 +47,7 @@ export default function Detail(props) {
                                 </div>
                                 <div className="ppc-percents">
                                     <div className="pcc-percents-wrapper">
-                                        <span>10</span>
+                                        <span>{`${filmDetail.danhGia}`}</span>
                                     </div>
                                 </div>
                                 <div className="icon__star">
@@ -40,42 +58,56 @@ export default function Detail(props) {
 
                     </div>
                 </div>
-            </div>
-            <div className="detailMovie_ShowTimes">
+            </section>
+            <section className="detailMovie_ShowTimes">
                 <div className="container">
                     <ul className="nav nav-tabs justify-content-center" id="myTab" role="tablist">
                         <li className="nav-item" role="presentation">
                             <a className="nav-link active" id="showtime-tab" data-toggle="tab" href="#showtime" role="tab" aria-controls="home" aria-selected="true">Lịch Chiếu</a>
                         </li>
-                        <li className="nav-item" role="presentation"><a className="nav-link" id="infomation-tab" data-toggle="tab" href="#infomation" role="tab" aria-controls="infomation" aria-selected="false">Thông Tin</a>
+                        <li className="nav-item" role="presentation">
+                            <a className="nav-link" id="infomation-tab" data-toggle="tab" href="#infomation" role="tab" aria-controls="infomation" aria-selected="false">Thông Tin</a>
                         </li>
-                        <li className="nav-item" role="presentation"><a className="nav-link" id="vote-tab" data-toggle="tab" href="#vote" role="tab" aria-controls="vote" aria-selected="false">Đánh Giá</a>
+                        <li className="nav-item" role="presentation">
+                            <a className="nav-link" id="vote-tab" data-toggle="tab" href="#vote" role="tab" aria-controls="vote" aria-selected="false">Đánh Giá</a>
                         </li>
                     </ul>
-                    <div className="tab-content detailShowtime__content" id="myTabContent">
-                        <div className="tab-pane fade mt-5" id="showtime" role="tabpanel" aria-labelledby="showtime-tab">
-                            
+                    <div className="tab-content detailShowtime__content" id="myTabContent" >
+                        <div className="tab-pane fade show active  mt-5" id="showtime" role="tabpanel" aria-labelledby="showtime-tab" style={{backgroundColor:'white'}}>
+                            <Tabs tabPosition={'left'}>
+                                <TabPane tab="Tab 1" key="1">
+                                    Content of Tab 1
+                                </TabPane>
+                                <TabPane tab="Tab 2" key="2">
+                                    Content of Tab 2
+                                </TabPane>
+                                <TabPane tab="Tab 3" key="3">
+                                    Content of Tab 3
+                                </TabPane>
+                            </Tabs>
                         </div>
                         <div className="tab-pane fade mt-5 content__Infomation" id="infomation" role="tabpanel" aria-labelledby="infomation-tab">
-                            <div className="row">
-                                <div className="col-md-6 text-center"><p>Tên Phim : <span className="ml-5">Batman vs Superman: Dawn of Justice 2</span></p>
-                                    <p>Bí Danh : <span className="ml-5">batman-vs-superman-dawn-of-justice-2</span></p>
-                                    <p>Ngày Khời Chiếu : <span className="ml-5">11/1/2021</span></p>
+                            <div className="row" style={{display:'flex'}}>
+                                <div className="col-md-6">
+                                    <p style={{display:'flex'}}>Tên Phim : <span className="ml-5">{`${filmDetail.tenPhim}`}</span></p>
+                                    <p>Bí Danh : <span className="ml-5">{`${filmDetail.biDanh}`}</span></p>
+                                    <p>Ngày Khời Chiếu : <span className="ml-5">{new Date(filmDetail.ngayKhoiChieu).toLocaleDateString()}</span></p>
                                     <p>Thời Lượng : <span className="ml-5">120 phút</span></p>
                                     <p>Định Dạng : <span className="ml-5">2D/Digital</span></p>
                                 </div>
                                 <div className="col-md-6">
-                                    <p className="description">&lt;p&gt;Fearing the actions of a god-like Super Hero left unchecked, Gotham City's own formidable, forceful vigilante takes on Metropolis most revered, modern-day savior, while the world wrestles with what sort of hero it really needs. And with Batman and Superman at war with one another, a new threat quickly arises, putting mankind in greater danger than it's ever known before.&lt;/p&gt;</p>
+                                    <p className="description">{`${filmDetail.moTa}`}</p>
                                 </div>
                             </div>
                         </div>
-                        <div className="tab-pane fade mt-5 content__Vote active show" id="vote" role="tabpanel" aria-labelledby="vote-tab">
+                        <div className="tab-pane fade  mt-5 content__Vote" id="vote" role="tabpanel" aria-labelledby="vote-tab">
                             <div className="myVote" data-toggle="modal" data-target="#VoteModal">
                                 <div className="row">
                                     <div className="col-1">
                                         <i className="fa fa-user avatar" />
                                     </div>
-                                    <div className="col-8"><p className="text-secondary">Bạn nghĩ gì về phim này?</p>
+                                    <div className="col-8">
+                                        <p className="text-secondary">Bạn nghĩ gì về phim này?</p>
                                     </div>
                                     <div className="col-3 d-none d-md-block">
                                         <p>
@@ -88,107 +120,33 @@ export default function Detail(props) {
                                     </div>
                                 </div>
                             </div>
-                            <div className="myVote">
-                                <div className="row">
-                                    <div className="col-9">
-                                        <p><img src="../images/userCatLovely.png" alt="imageFilm" />
-                                            <span className="pl-1 user">Quyên Cute</span>
-                                        </p>
-                                        <p className="py-2 pl-5">Phim này hay lắm, rất đáng để coi!</p>
-                                    </div>
-                                    <div className="col-3">
-                                        <p className="text-center score">9</p>
-                                        <div className="row justify-content-center star">
-                                            <i className="fa fa-star" />
-                                            <i className="fa fa-star d-none d-md-block" />
-                                            <i className="fa fa-star d-none d-md-block" />
-                                            <i className="fa fa-star d-none d-md-block" />
-                                            <i className="fa fa-star d-none d-md-block" />
+                            {/* {renderComment()} */}
+                            <div className="modal fade" id="VoteModal" tabIndex={-1} aria-labelledby="VoteModalLabel" aria-hidden="true">
+                                <div className="modal-dialog modal-dialog-centered">
+                                    <div className="modal-content">
+                                        <div className="modal-header" style={{ padding: "0px" }}>
+                                            <h5 className="modal-title text-dark text-center " id="VoteModalLabel" >
+                                                <p >
+                                                    {/* <HoverRating /> */}
+                                                </p>
+                                            </h5>
+                                            <button type="button" className="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">×</span>
+                                            </button>
+                                        </div>
+                                        <div className=" modal-body m-1 h-100">
+                                            <textarea placeholder="Nói cho mọi người biết bạn nghĩ gì về phim này..." className="w-100  text-dark" style={{ height: "100px" }} />
+                                        </div>
+                                        <div className=" modal-footer">
+                                            <button type="button" className="btn btn-danger" data-dismiss="modal">Đăng</button>
                                         </div>
                                     </div>
                                 </div>
-                                <div className="pl-3 border-top py-2">
-                                    <i className="far fa-thumbs-up like" style={{ color: 'rgb(73, 80, 87)' }} /><span>  0 Thích</span>
-                                </div>
                             </div>
-                            <div className="myVote"><div className="row">
-                                <div className="col-9">
-                                    <p>
-                                        <img src="../images/userCatLovely.png" alt="imageFilm" />
-                                        <span className="pl-1 user">Vũ quần đùi</span>
-                                    </p>
-                                    <p className="py-2 pl-5">Kết phim hụt hẫng, khó hiểu, phim hơi nhạt, mọi người cân nhắc trước khi coi phim!
-                                    </p>
-                                </div>
-                                <div className="col-3">
-                                    <p className="text-center score">5</p>
-                                    <div className="row justify-content-center star">
-                                        <i className="fa fa-star" />
-                                        <i className="fa fa-star d-none d-md-block" />
-                                        <i className="fa fa-star d-none d-md-block" />
-                                        <i className="fa fa-star d-none d-md-block" />
-                                        <i className="fa fa-star d-none d-md-block" />
-                                    </div>
-                                </div>
-                            </div>
-                                <div className="pl-3 border-top py-2">
-                                    <i className="far fa-thumbs-up like" style={{ color: 'rgb(73, 80, 87)' }} />
-                                    <span>  0 Thích</span>
-                                </div>
-                            </div>
-                            <div className="myVote">
-                                <div className="row">
-                                    <div className="col-9">
-                                        <p>
-                                            <img src="../images/userCatLovely.png" alt="imageFilm" />
-                                            <span className="pl-1 user">Ánh ngáo</span>
-                                        </p>
-                                        <p className="py-2 pl-5">Phim cũng bình thường, không có gì đáng để chú ý, cốt truyện không đặc săc, diễn viên cũng không khủng</p>
-                                    </div>
-                                    <div className="col-3">
-                                        <p className="text-center score">7</p>
-                                        <div className="row justify-content-center star">
-                                            <i className="fa fa-star" />
-                                            <i className="fa fa-star d-none d-md-block" />
-                                            <i className="fa fa-star d-none d-md-block" />
-                                            <i className="fa fa-star d-none d-md-block" />
-                                            <i className="fa fa-star d-none d-md-block" />
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="pl-3 border-top py-2">
-                                    <i className="far fa-thumbs-up like" style={{ color: 'rgb(73, 80, 87)' }} />
-                                    <span>  0 Thích</span>
-                                </div>
-                            </div>
-                            <div className="myVote">
-                                <div className="row">
-                                    <div className="col-9">
-                                        <p><img src="../images/userCatLovely.png" alt="imageFilm" /><span className="pl-1 user">Vân mỏ chu</span>
-                                        </p>
-                                        <p className="py-2 pl-5">Phim hay xuất sắc, cho 10 điểm</p>
-                                    </div>
-                                    <div className="col-3">
-                                        <p className="text-center score">10</p>
-                                        <div className="row justify-content-center star">
-                                            <i className="fa fa-star" />
-                                            <i className="fa fa-star d-none d-md-block" />
-                                            <i className="fa fa-star d-none d-md-block" />
-                                            <i className="fa fa-star d-none d-md-block" />
-                                            <i className="fa fa-star d-none d-md-block" />
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="pl-3 border-top py-2">
-                                    <i className="far fa-thumbs-up like" style={{ color: 'rgb(73, 80, 87)' }} />
-                                    <span>  0 Thích</span>
-                                </div>
-                            </div>
-
                         </div>
                     </div>
                 </div>
-            </div>
+            </section>
         </div>
     )
 }

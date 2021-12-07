@@ -38,13 +38,13 @@ export default function Footer() {
                 <div className="row pb-2">
                   <div className="col">
                     <Link
-                      to="#"
+                      to='/'
                       href="https://www.cgv.vn"
                       title="cgv"
                       target="_blank"
                     >
                       <LazyLoadImage
-                        src="./img/footer/cgv.png"
+                        src="../img/footer/cgv.png"
                         alt="cgv"
                         className="img-fluid"
                       />
@@ -59,7 +59,7 @@ export default function Footer() {
                     >
                       {" "}
                       <LazyLoadImage
-                        src="./img/footer/bhd.png"
+                        src="../img/footer/bhd.png"
                         alt="bhd"
                         className="img-fluid"
                       />
@@ -74,7 +74,7 @@ export default function Footer() {
                     >
                       {" "}
                       <LazyLoadImage
-                        src="./img/footer/galaxycine.png"
+                        src="../img/footer/galaxycine.png"
                         alt="galaxy"
                         className="img-fluid"
                       />
@@ -88,7 +88,7 @@ export default function Footer() {
                       target="_blank"
                     >
                       <LazyLoadImage
-                        src="./img/footer/cinestar.png"
+                        src="../img/footer/cinestar.png"
                         alt="cinestar"
                         className="img-fluid w-100"
                       />
@@ -102,7 +102,7 @@ export default function Footer() {
                       target="_blank"
                     >
                       <LazyLoadImage
-                        src="./img/footer/megags.png"
+                        src="../img/footer/megags.png"
                         alt="megags"
                         className="img-fluid"
                       />
@@ -118,7 +118,7 @@ export default function Footer() {
                       target="_blank"
                     >
                       <LazyLoadImage
-                        src="./img/footer/bt.jpg"
+                        src="../img/footer/bt.jpg"
                         alt="bt"
                         className="img-fluid"
                       />
@@ -138,7 +138,7 @@ export default function Footer() {
                       target="_blank"
                     >
                       <LazyLoadImage
-                        src="./img/footer/dongdacinema.png"
+                        src="../img/footer/dongdacinema.png"
                         alt="ddc"
                         className="img-fluid"
                       />
@@ -152,7 +152,7 @@ export default function Footer() {
                       target="_blank"
                     >
                       <LazyLoadImage
-                        src="./img/footer/TOUCH.png"
+                        src="../img/footer/TOUCH.png"
                         alt="touch"
                         className="img-fluid"
                       />
@@ -166,7 +166,7 @@ export default function Footer() {
                       target="_blank"
                     >
                       <LazyLoadImage
-                        src="./img/footer/cnx.jpg"
+                        src="../img/footer/cnx.jpg"
                         alt="cinemax"
                         className="img-fluid"
                       />
@@ -181,7 +181,7 @@ export default function Footer() {
                     >
                       {" "}
                       <LazyLoadImage
-                        src="./img/footer/STARLIGHT.png"
+                        src="../img/footer/STARLIGHT.png"
                         alt="starlight"
                         className="img-fluid"
                       />
@@ -197,7 +197,7 @@ export default function Footer() {
                       target="_blank"
                     >
                       <LazyLoadImage
-                        src="./img/footer/dcine.png"
+                        src="../img/footer/dcine.png"
                         alt="dcine"
                         className="img-fluid"
                       />
@@ -211,7 +211,7 @@ export default function Footer() {
                       target="_blank"
                     >
                       <LazyLoadImage
-                        src="./img/footer/lotte.png"
+                        src="../img/footer/lotte.png"
                         alt="lotte"
                         className="img-fluid"
                       />
@@ -225,7 +225,7 @@ export default function Footer() {
                       target="_blank"
                     >
                       <LazyLoadImage
-                        src="./img/footer/payoo.jpg"
+                        src="../img/footer/payoo.jpg"
                         alt="payoo"
                         className="img-fluid"
                       />
@@ -240,7 +240,7 @@ export default function Footer() {
                     >
                       {" "}
                       <LazyLoadImage
-                        src="./img/footer/zalopay_icon.png"
+                        src="../img/footer/zalopay_icon.png"
                         alt="zalo"
                         className="img-fluid"
                       />
@@ -254,7 +254,7 @@ export default function Footer() {
                       target="_blank"
                     >
                       <LazyLoadImage
-                        src="./img/footer/AGRIBANK.png"
+                        src="../img/footer/AGRIBANK.png"
                         alt="Agribank"
                         className="img-fluid"
                       />
@@ -270,7 +270,7 @@ export default function Footer() {
                       target="_blank"
                     >
                       <LazyLoadImage
-                        src="./img/footer/VCB.png"
+                        src="../img/footer/VCB.png"
                         alt="Vietcombank"
                         className="img-fluid"
                       />
@@ -284,7 +284,7 @@ export default function Footer() {
                       target="_blank"
                     >
                       <LazyLoadImage
-                        src="./img/footer/VIETTINBANK.png"
+                        src="../img/footer/VIETTINBANK.png"
                         alt="Viettinbank"
                         className="img-fluid"
                       />
@@ -298,7 +298,7 @@ export default function Footer() {
                       target="_blank"
                     >
                       <LazyLoadImage
-                        src="./img/footer/IVB.png"
+                        src="../img/footer/IVB.png"
                         alt="IVB"
                         className="img-fluid"
                       />
@@ -312,7 +312,7 @@ export default function Footer() {
                       target="_blank"
                     >
                       <LazyLoadImage
-                        src="./img/footer/123go.png"
+                        src="../img/footer/123go.png"
                         alt="123go"
                         className="img-fluid"
                       />
@@ -326,7 +326,7 @@ export default function Footer() {
                       target="_blank"
                     >
                       <LazyLoadImage
-                        src="./img/footer/laban.png"
+                        src="../img/footer/laban.png"
                         alt="laban"
                         className="img-fluid"
                       />
@@ -377,7 +377,7 @@ export default function Footer() {
                   target="_blank"
                 >
                   <LazyLoadImage
-                    src="./img/footer/bocong thuong.png"
+                    src="../img/footer/bocong thuong.png"
                     alt="bocongthuong"
                     className="img-fluid"
                   />

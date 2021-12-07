@@ -17,7 +17,7 @@ function App() {
     <BrowserRouter history={history}>
       <Switch>
         <HomeTemplate exact path="/" Component={Home} />
-        <HomeTemplate exact path="/detail" Component={Detail} />
+        <HomeTemplate exact path="/detail/:id" Component={Detail} />
         <UserTemplate exact path="/login" Component={Login} />
         <UserTemplate exact path="/register" Component={Register} />
         <CheckoutTemplate exact path="/checkout/" Component={SelectSeat} />
