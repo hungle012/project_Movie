@@ -5,6 +5,8 @@ import React from 'react'
 import { Link } from 'react-router-dom';
 import { useFormik } from 'formik';
 import * as Yup from 'yup'
+import { useDispatch, useSelector } from 'react-redux';
+import { dangNhapAction } from '../../../../redux/action/QuanLyNguoiDungAction';
 
 
 const TextFieldCustom = styled(TextField)({
@@ -59,6 +61,12 @@ const CssTextField = styled(TextField)({
 
 export default function Login() {
 
+    const dispatch = useDispatch();
+
+    const {userLogin} = useSelector(state=>state.QuanLyNguoiDungReducer);
+
+    console.log("user", userLogin);
+
     const formik = useFormik({
         initialValues: {
             taiKhoan: '',
@@ -70,6 +78,8 @@ export default function Login() {
 
         }),
         onSubmit: (values) => {
+            const action = dangNhapAction(values);
+            dispatch(action)
             console.log('values', values);
         }
     })
@@ -88,11 +98,12 @@ export default function Login() {
 
                 <div className="login__form pt-4">
                     <p className="text-center">Đăng nhập để được nhiều ưu đãi, mua vé và bảo mật thông tin!</p>
-                    <form action="">
+                    <form onSubmit={formik.handleSubmit}>
                         <div className="login__acc login__field">
                             <TextFieldCustom
                                 label="Tài khoản"
                                 id="taiKhoan"
+                                name="taiKhoan"
                                 fullWidth
                                 variant="outlined"
                                 onChange={formik.handleChange}
@@ -105,6 +116,7 @@ export default function Login() {
                             <CssTextField
                                 label="Mật khẩu"
                                 id="matKhau"
+                                name="matKhau"
                                 type="password"
                                 fullWidth
                                 variant="outlined"

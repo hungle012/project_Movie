@@ -1,8 +1,8 @@
 import './App.css';
 import './assets/style/main.scss';
 import { createBrowserHistory } from 'history';
-import { Route } from 'react-router';
-import { BrowserRouter, Switch } from 'react-router-dom';
+import { Route, Router } from 'react-router';
+import { Switch } from 'react-router-dom';
 import HomeTemplate from './templates/HomeTemplate/HomeTemplate';
 import UserTemplate from './templates/UserTemplate/UserTemplate';
 import CheckoutTemplate from './templates/CheckoutTemplate/CheckoutTemplate';
@@ -15,7 +15,7 @@ import Checkout from './Components/Checkout/Checkout';
 export const history = createBrowserHistory();
 function App() {
   return (
-    <BrowserRouter history={history}>
+    <Router history={history}>
       <Switch>
         <HomeTemplate exact path="/" Component={Home} />
         <HomeTemplate exact path="/detail" Component={Detail} />
@@ -23,7 +23,7 @@ function App() {
         <UserTemplate exact path="/register" Component={Register} />
         <CheckoutTemplate exact path="/checkout" Component={Checkout} />
       </Switch>
-    </BrowserRouter>
+    </Router>
   );
 }
 
