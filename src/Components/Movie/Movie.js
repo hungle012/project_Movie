@@ -9,7 +9,8 @@ function Movie(props) {
         <div>
             <div className={LichChieu === "before" ? "movie__item" : "movie__itemSapChieu"}>
                 <div className="movie__img">
-                    <LazyLoadImage src={props.movie.hinhAnh} alt="film-1" className="img-fluid" />
+                    <LazyLoadImage src={props.movie.hinhAnh} alt="film-1" className="img-fluid" onError={(e) => {e.target.onerror = null; e.target.src = "https://picsum.photos/255/379"
+                }}/>
                     <div className="icon__play">
                         <a className="popup-youtube" href={props.movie.trailer} data-lity>
                             <i className="fa fa-play" />
