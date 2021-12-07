@@ -1,7 +1,7 @@
 import './App.css';
 import './assets/style/main.scss';
 import { createBrowserHistory } from 'history';
-import { Route, Router } from 'react-router';
+import { Router } from 'react-router';
 import { Switch } from 'react-router-dom';
 import HomeTemplate from './templates/HomeTemplate/HomeTemplate';
 import UserTemplate from './templates/UserTemplate/UserTemplate';
@@ -18,10 +18,10 @@ function App() {
     <Router history={history}>
       <Switch>
         <HomeTemplate exact path="/" Component={Home} />
-        <HomeTemplate exact path="/detail" Component={Detail} />
+        <HomeTemplate exact path="/detail/:id" Component={Detail} />
         <UserTemplate exact path="/login" Component={Login} />
         <UserTemplate exact path="/register" Component={Register} />
-        <CheckoutTemplate exact path="/checkout" Component={Checkout} />
+        <CheckoutTemplate exact path="/checkout/:id" Component={Checkout} />
       </Switch>
     </Router>
   );

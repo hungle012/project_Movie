@@ -12,7 +12,7 @@ export default function Header() {
                 <div className="header__nav " id="nav-test">
                     <nav className="navbar navbar-expand-md ">
                         <NavLink className="header__logo" to="/">
-                            <img src="./img/logo.png" alt="anh_LOGO" className="mb-0" />
+                            <img src="../img/logo.png" alt="anh_LOGO" className="mb-0" />
                         </NavLink>
                         <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                             <span className="navbar-toggler-icon" />
