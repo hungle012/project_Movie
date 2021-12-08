@@ -26,17 +26,19 @@ export default function ShowInTick(props) {
                   <div className="theater__movie">
                     <div className="row">
                       <div className="col-2 p-0 pl-4">
-                        <img width={70} height={80} src={phim.hinhAnh} alt={phim.tenPhim} />
+                        <img width={70} height={80} src={phim.hinhAnh} alt={phim.tenPhim} onError={(e) => {
+                          e.target.onerror = null; e.target.src = "https://picsum.photos/70/80"
+                        }} />
                       </div>
                       <div className="movie--info col-10 pr-0">
                         <p className="movie--infoName">{phim.tenPhim}</p>
                         <p>120 phút - TIX 9.1 - IMDb 0</p>
-                        <span style={{fontSize:"20px",color:"red"}}>2D Digital</span>
+                        <span style={{ fontSize: "20px", color: "red" }}>2D Digital</span>
                         <div className="theater__time">
                           {phim.lstLichChieuTheoPhim?.slice(0, 8).map((lichChieu, index) => {
                             return <NavLink key={index} to={`/checkout/${lichChieu.maLichChieu}`}>
                               <div className="btn px-1">
-                              <span className="hightlight">{new Date(lichChieu.ngayChieuGioChieu).getHours()}:{new Date(lichChieu.ngayChieuGioChieu).getMinutes()}</span> ~ {new Date(lichChieu.ngayChieuGioChieu).getHours() + 2}:{new Date(lichChieu.ngayChieuGioChieu).getMinutes()}
+                                <span className="hightlight">{new Date(lichChieu.ngayChieuGioChieu).getHours()}:{new Date(lichChieu.ngayChieuGioChieu).getMinutes()}</span> ~ {new Date(lichChieu.ngayChieuGioChieu).getHours() + 2}:{new Date(lichChieu.ngayChieuGioChieu).getMinutes()}
                               </div>
                             </NavLink>
                           })}

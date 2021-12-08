@@ -1,27 +1,31 @@
-import React, {useEffect} from 'react';
-import { Tabs } from 'antd';
+import React, { useEffect } from 'react';
+import { Tabs, Rate } from 'antd';
 import 'antd/dist/antd.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { layThongTinChiTietPhimAction } from '../../redux/action/QuanLyRapAction';
 import { Link } from "react-router-dom";
+import { NavLink } from 'react-router-dom';
 
 const { TabPane } = Tabs;
 export default function Detail(props) {
     const filmDetail = useSelector(state => state.QuanLyPhimReducer.filmDetail);
     const dispatch = useDispatch();
     useEffect(() => {
-       let {id} = props.match.params;
-       dispatch(layThongTinChiTietPhimAction(id)); 
+        let { id } = props.match.params;
+        dispatch(layThongTinChiTietPhimAction(id));
     }, [])
     return (
         <div>
             <section className="detailMovie">
-                <div className="detail__banner" style={{backgroundImage:`url(${filmDetail.hinhAnh})`,backgroundRepeat:'no-repeat'}}></div>
+                <div className="detail__banner" style={{ backgroundImage: `url(${filmDetail.hinhAnh})`, backgroundRepeat: 'no-repeat' }} onError={(e) => {e.target.onerror = null; e.target.src = "https://picsum.photos/255/379"
+                }}></div>
                 <div className="overlay__banner"></div>
                 <div className="container detailMovie__info">
                     <div className="row">
                         <div className="col-6 col-md-3 detail__img">
-                            <img src={`${filmDetail.hinhAnh}`} alt={`${filmDetail.tenPhim}`} className="img-fluid w-100" />
+                            <img src={`${filmDetail.hinhAnh}`} alt={`${filmDetail.tenPhim}`} className="img-fluid w-100" onError={(e) => {
+                                e.target.onerror = null; e.target.src = "https://picsum.photos/255/379"
+                            }} />
                             <div className="icon__play">
                                 <a className="popup-youtube" href={`${filmDetail.trailer}`} data-lity>
                                     <i className="fa fa-play" />
@@ -32,10 +36,10 @@ export default function Detail(props) {
                             <p className="date">{new Date(filmDetail.ngayKhoiChieu).toLocaleDateString()}</p>
                             <p><span>P</span>{`${filmDetail.tenPhim}`}</p>
                             <span>120 phút - 0 IMDb - 2D/Digital</span><br />
-                            <button className="button__muaVe"><Link style={{color:'while !important'}} to="#" href="#" onClick={() => {
+                            <button className="button__muaVe"><Link style={{ color: 'while !important' }} to="#" href="#" onClick={() => {
                                 document
-                                .getElementById("showtime")
-                                .scrollIntoView({ behavior: "smooth" });
+                                    .getElementById("showtime")
+                                    .scrollIntoView({ behavior: "smooth" });
                             }}>
                                 Mua Vé
                             </Link></button>
@@ -47,11 +51,11 @@ export default function Detail(props) {
                                 </div>
                                 <div className="ppc-percents">
                                     <div className="pcc-percents-wrapper">
-                                        <span>{`${filmDetail.danhGia}`}</span>
+                                        <span>{`${filmDetail.danhGia * 10}`}%</span>
                                     </div>
                                 </div>
                                 <div className="icon__star">
-                                    <i className="fa fa-star" /><i className="fa fa-star" /><i className="fa fa-star" /><i className="fa fa-star" /><i className="fa fa-star" />
+                                    <i><Rate allowHalf value={filmDetail.danhGia / 2} /></i>
                                 </div>
                             </div>
                         </div>
@@ -73,23 +77,46 @@ export default function Detail(props) {
                         </li>
                     </ul>
                     <div className="tab-content detailShowtime__content" id="myTabContent" >
-                        <div className="tab-pane fade show active  mt-5" id="showtime" role="tabpanel" aria-labelledby="showtime-tab" style={{backgroundColor:'white'}}>
+                        <div className="tab-pane fade show active  mt-5" id="showtime" role="tabpanel" aria-labelledby="showtime-tab" style={{ backgroundColor: 'white', height: '480px' }}>
                             <Tabs tabPosition={'left'}>
-                                <TabPane tab="Tab 1" key="1">
-                                    Content of Tab 1
-                                </TabPane>
-                                <TabPane tab="Tab 2" key="2">
-                                    Content of Tab 2
-                                </TabPane>
-                                <TabPane tab="Tab 3" key="3">
-                                    Content of Tab 3
-                                </TabPane>
+                                {filmDetail.heThongRapChieu?.map((heThongRap, index) => {
+                                    return <TabPane tab={<img src={heThongRap.logo} className="theater__LogoRap" width="50" alt="..." />} key={index}>
+                                        {heThongRap.cumRapChieu?.slice(0, 5).map((cumRap, index) => {
+                                            return <div className="theater__LichChieu" key={index}>
+                                                <div className="row">
+                                                    <div className="theater__rap" >
+                                                        <img src="https://s3img.vcdn.vn/123phim/2018/09/bhd-star-vincom-3-2-15379527367766.jpg" width="50" height="50" alt="..." />
+                                                        <div className="rap--info text-left pl-2">
+                                                            <span className="rap--name">{cumRap.tenCumRap}</span><br />
+                                                            <span className="rap--address">{cumRap.diaChi}</span>
+                                                        </div>
+                                                    </div>
+                                                    <div className="w-100">
+                                                        <span style={{ fontSize: "20px", color: "red", marginTop: '10px' }}>2D Digital</span>
+                                                        <div className="movie--info col-10 pr-0">
+                                                            {cumRap.lichChieuPhim?.slice(0, 10).map((lichChieu, index) => {
+                                                                return <div className="theater__time" key={index}>
+                                                                    <NavLink to="/">
+                                                                        <div className="btn px-1">
+                                                                            <span className="hightlight">{new Date(lichChieu.ngayChieuGioChieu).getHours()}:{new Date(lichChieu.ngayChieuGioChieu).getMinutes()}</span> ~ {new Date(lichChieu.ngayChieuGioChieu).getHours() + 2}:{new Date(lichChieu.ngayChieuGioChieu).getMinutes()}
+                                                                        </div>
+                                                                    </NavLink>
+                                                                </div>
+                                                            })}
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        })}
+                                    </TabPane>
+                                })}
                             </Tabs>
                         </div>
                         <div className="tab-pane fade mt-5 content__Infomation" id="infomation" role="tabpanel" aria-labelledby="infomation-tab">
-                            <div className="row" style={{display:'flex'}}>
+                            <div className="row" style={{ display: 'flex' }}>
                                 <div className="col-md-6">
-                                    <p style={{display:'flex'}}>Tên Phim : <span className="ml-5">{`${filmDetail.tenPhim}`}</span></p>
+                                    <p style={{ display: 'flex' }}>Tên Phim : <span className="ml-5">{`${filmDetail.tenPhim}`}</span></p>
                                     <p>Bí Danh : <span className="ml-5">{`${filmDetail.biDanh}`}</span></p>
                                     <p>Ngày Khời Chiếu : <span className="ml-5">{new Date(filmDetail.ngayKhoiChieu).toLocaleDateString()}</span></p>
                                     <p>Thời Lượng : <span className="ml-5">120 phút</span></p>
