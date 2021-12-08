@@ -26,11 +26,6 @@ export default function Detail(props) {
                             <img src={`${filmDetail.hinhAnh}`} alt={`${filmDetail.tenPhim}`} className="img-fluid w-100" onError={(e) => {
                                 e.target.onerror = null; e.target.src = "https://picsum.photos/255/379"
                             }} />
-                            <div className="icon__play">
-                                <a className="popup-youtube" href={`${filmDetail.trailer}`} data-lity>
-                                    <i className="fa fa-play" />
-                                </a>
-                            </div>
                         </div>
                         <div className="col-md-5 infoText my-auto">
                             <p className="date">{new Date(filmDetail.ngayKhoiChieu).toLocaleDateString()}</p>

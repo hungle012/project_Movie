@@ -7,20 +7,7 @@ const CountDown = (props) => {
     const [seconds, setSeconds] = useState(Seconds);
     useEffect(() => {
         let countDown = setInterval(() => {
-            // if (minutes > 0) {
-            //     if (seconds > 0) {
-            //         setSeconds(seconds - 1);
-            //     } else {
-            //         setMinutes(minutes - 1);
-            //         setSeconds(59);
-            //     }
-            // } else {
-            //     if (seconds > 0) {
-            //         setSeconds(seconds - 1);
-            //     } else {
-            //         clearInterval(countDown);
-            //     }
-            // }
+
             if (seconds > 0) {
                 setSeconds(seconds - 1);
             } else {

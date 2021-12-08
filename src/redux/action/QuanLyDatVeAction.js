@@ -19,7 +19,7 @@ export const layChiTietPhongVeAction = (maLichChieu) => {
                 });
 
             }
-            console.log('result', result);
+            // console.log('result', result);
         } catch (error) {
             console.log('error', error);
             console.log('error', error.response?.data);

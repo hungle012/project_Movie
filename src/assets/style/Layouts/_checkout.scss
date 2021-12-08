@@ -7,6 +7,7 @@
         height: 100%;
 
         .checkout__reservations {
+            overflow-x: hidden;
             .checkout__top {
                 .checkout__theater {
                     display: flex;
@@ -24,7 +25,7 @@
                 }
                 .checkout__countdown {
                     text-align: center;
-                    p{
+                    p {
                         margin: 0;
                         color: $color-gray-2;
                     }
@@ -34,11 +35,44 @@
                     }
                 }
             }
+            .checkout__seat {
+                text-align: center;
+                .ghe {
+                    color: $color-seats;
+                    margin: $mg-1;
+                    font-size: $fs-3;
+                    line-height: 20px;
+                }
+                .gheVip {
+                    color: $color-orange-dark !important;
+                }
+                .gheDaDat {
+                    color: $color-gray-3 !important;
+                    cursor: no-drop;
+                }
+                .gheDangChon {
+                    color: $color-green !important;
+                }
+                .seat--col {
+                    width: 12%;
+                    position: absolute;
+                    left: 0;
+                    text-align: right;
+                    button {
+                        width: 20px;
+                        font-size: $fs-3;
+                        line-height: 20px;
+                        margin: $mg-1;
+                        font-weight: bolder;
+                    }
+                }
+            }
         }
 
         .checkout__bills {
             height: 100vh;
-            // border-left: $color-overlay 1px solid;
+            position: fixed;
+            right: 0;
             box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
 
             .checkout__money {
@@ -61,7 +95,7 @@
                     line-height: $pd-3;
                 }
             }
-            .checkout__seat {
+            .checkout__selected {
                 .seat {
                     color: $color-red;
                 }
@@ -69,7 +103,6 @@
                     color: $color-green;
                     font-weight: bold;
                     text-align: center;
-                    
                 }
             }
             .checkout__client {
