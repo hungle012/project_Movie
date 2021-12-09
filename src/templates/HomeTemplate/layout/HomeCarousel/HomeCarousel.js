@@ -12,7 +12,7 @@ export default function HomeCarousel(props) {
     const renderCarousel = () => {
         return arrCarousel.map((item, index) => {
             let classname = ``;
-            if (index == 0) {
+            if (index === 0) {
                 classname = "carousel-item active"
             } else {
                 classname = "carousel-item"

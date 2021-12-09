@@ -1,38 +1,153 @@
-.stepHeader {
-    height: 80px;
-    justify-content: space-between;
-    align-items: center;
-    box-shadow: 0 2px 10px 0 $color-boxShawdom;
-
-    .stepHeader__content {
-        height: 100%;
-        display: flex;
-        justify-content: space-around;
-        align-items: center;
-        font-size: $fs-2;
-        color: #292525;
-        font-weight: $fw-3;
+.checkout {
+    hr {
+        margin: 10px 0;
     }
-    .stepHeader__detail {
-        display: flex;
-        align-items: center;
-        .user {
-            background-color: $color-gray-1;
-            width: 30px;
-            height: 30px;
-            line-height: 30px;
-            border-radius: 50%;
-            text-align: center;
-            margin-right: 10px;
 
-            i {
-                color: $color-white;
+    .checkout__content {
+        height: 100%;
+
+        .checkout__reservations {
+            overflow-x: hidden;
+            .checkout__top {
+                .checkout__theater {
+                    display: flex;
+                    padding-left: 100px;
+
+                    .theater--name {
+                        font-weight: bold;
+                        color: $color-black;
+                        margin-bottom: 0;
+                    }
+                    .theater--date {
+                        color: $color-gray-2;
+                        margin-bottom: 0;
+                    }
+                }
+                .checkout__countdown {
+                    text-align: center;
+                    p {
+                        margin: 0;
+                        color: $color-gray-2;
+                    }
+                    h2 {
+                        color: $color-red;
+                        margin: 0;
+                    }
+                }
+            }
+            .checkout__seat {
+                text-align: center;
+                .ghe {
+                    color: $color-seats;
+                    margin: $mg-1;
+                    font-size: $fs-3;
+                    line-height: 20px;
+                }
+                .gheVip {
+                    color: $color-orange-dark !important;
+                }
+                .gheDaDat {
+                    color: $color-gray-3 !important;
+                    cursor: no-drop;
+                }
+                .gheDangChon {
+                    color: $color-green !important;
+                }
+                .seat--col {
+                    width: 12%;
+                    position: absolute;
+                    left: 0;
+                    text-align: right;
+                    button {
+                        width: 20px;
+                        font-size: $fs-3;
+                        line-height: 20px;
+                        margin: $mg-1;
+                        font-weight: bolder;
+                    }
+                }
             }
         }
 
-        .user-name p {
-            color: black;
-            margin: 0;
+        .checkout__bills {
+            height: 100vh;
+            position: fixed;
+            right: 0;
+            box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+
+            .checkout__money {
+                h2 {
+                    color: $color-green;
+                    font-weight: bold;
+                }
+            }
+            .checkout__info {
+                color: $color-gray-2;
+                // font-weight: bold;
+                font-size: $fs-2;
+                .info--name {
+                    font-weight: bold;
+                    color: $color-black;
+                    font-size: $fs-3;
+                }
+                p {
+                    margin-bottom: $mg-1;
+                    line-height: $pd-3;
+                }
+            }
+            .checkout__selected {
+                .seat {
+                    color: $color-red;
+                }
+                .money {
+                    color: $color-green;
+                    font-weight: bold;
+                    text-align: center;
+                }
+            }
+            .checkout__client {
+                span {
+                    font-size: $fs-1;
+                    font-weight: $fw-2;
+                    color: $color-gray-2;
+                }
+                p {
+                    margin-bottom: $mg-1;
+                    line-height: $pd-5;
+                }
+            }
+            .checkout__bottom {
+                position: absolute;
+                bottom: 0;
+                right: 0;
+                transform: translate(0, 0);
+                .checkout__note {
+                    font-size: $fs-1;
+                    display: flex;
+
+                    p {
+                        margin-bottom: 0;
+                        line-height: $pd-5;
+                    }
+
+                    i {
+                        font-size: $fs-3;
+                        color: $color-red;
+                    }
+
+                    span {
+                        color: $color-orange-dark;
+                    }
+                }
+                .checkout__btn {
+                    text-align: center;
+                    line-height: 60px;
+                    background-color: $color-green;
+                    color: $color-white;
+                    font-size: 20px;
+                    font-weight: $fw-3;
+                }
+            }
         }
     }
 }

@@ -1,14 +1,12 @@
 import React from 'react';
 import { Link, NavLink } from 'react-router-dom';
-import { StickyNav } from 'react-js-stickynav'
-import 'react-js-stickynav/dist/index.css'
-
+import { Sticky } from './Sticky';
 
 export default function Header() {
 
     return (
         <header className="header">
-            <StickyNav length='20'>
+            <Sticky length='20'>
                 <div className="header__nav " id="nav-test">
                     <nav className="navbar navbar-expand-md ">
                         <NavLink className="header__logo" to="/">
@@ -68,7 +66,7 @@ export default function Header() {
                         </div>
                     </nav>
                 </div>
-            </StickyNav>
+            </Sticky>
         </header>
 
     )

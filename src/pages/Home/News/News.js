@@ -82,7 +82,6 @@ export default class News extends Component {
                       />
                       <Link
                         to="#"
-                        to="#"
                         href="#"
                         className="text-decoration-none"
                       >
