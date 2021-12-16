@@ -11,6 +11,13 @@ import Login from './templates/UserTemplate/Layout/Login/Login'
 import Register from './templates/UserTemplate/Layout/Register/Register';
 import Detail from './pages/Detail/Detail'
 import Checkout from './Components/Checkout/Checkout';
+import AdminTemplate from './templates/AdminTemplate/AdminTemplate';
+import films from './pages/admin/films/Films';
+import AddFilm from './pages/admin/films/addFilm/AddFilm';
+import EditFilm from './pages/admin/films/editFilm/EditFilm'
+import Showtime from './pages/admin/films/showtime/Showtime';
+import Users from './pages/admin/Users/Users'
+import AddUsers from './pages/admin/Users/addUsers/AddUsers';
 
 export const history = createBrowserHistory();
 function App() {
@@ -21,7 +28,16 @@ function App() {
         <HomeTemplate exact path="/detail/:id" Component={Detail} />
         <UserTemplate exact path="/login" Component={Login} />
         <UserTemplate exact path="/register" Component={Register} />
+
         <CheckoutTemplate exact path="/checkout/:id" Component={Checkout} />
+
+        <AdminTemplate path="/admin/films" exact Component={films} />
+        <AdminTemplate path="/admin/films/addfilm" exact Component={AddFilm} />
+        <AdminTemplate path="/admin/films/editFilm/:id" exact Component={EditFilm} />
+        <AdminTemplate path="/admin/films/showtime/:id/:tenPhim" exact Component={Showtime} />
+
+        <AdminTemplate path="/admin/users" exact Component={Users} />
+        <AdminTemplate path="/admin/users/addUser" exact Component={AddUsers} />
       </Switch>
     </Router>
   );

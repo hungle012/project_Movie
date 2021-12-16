@@ -7,6 +7,7 @@ import Slider from "react-slick";
 import { layDanhSachPhimDangChieuAction, layDanhSachPhimSapChieuAction } from "../../redux/action/QuanLyPhimAction";
 
 
+
 const ListMovieComponents = (props) => {
     const setting = {
         infinite: true,
@@ -61,7 +62,7 @@ const ListMovieComponents = (props) => {
                 return <Movie key={item.maPhim} movie={item} LichChieu={"after"} />
             })
         }
-    };
+    };  
     return (
         <div id="lichChieu">
             <section className="listMovie container">
@@ -74,7 +75,7 @@ const ListMovieComponents = (props) => {
                             href="#pills-dangChieu"
                             role="tab"
                             aria-controls="pills-dangChieu"
-                            aria-selected="true"
+                            aria-selected="true" 
                         >
                             Phim đang chiếu
                         </a>

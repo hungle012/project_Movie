@@ -17,7 +17,8 @@ export default function Detail(props) {
     return (
         <div>
             <section className="detailMovie">
-                <div className="detail__banner" style={{ backgroundImage: `url(${filmDetail.hinhAnh})`, backgroundRepeat: 'no-repeat' }} onError={(e) => {e.target.onerror = null; e.target.src = "https://picsum.photos/255/379"
+                <div className="detail__banner" style={{ backgroundImage: `url(${filmDetail.hinhAnh})`, backgroundRepeat: 'no-repeat' }} onError={(e) => {
+                    e.target.onerror = null; e.target.src = "https://picsum.photos/255/379"
                 }}></div>
                 <div className="overlay__banner"></div>
                 <div className="container detailMovie__info">
@@ -26,6 +27,11 @@ export default function Detail(props) {
                             <img src={`${filmDetail.hinhAnh}`} alt={`${filmDetail.tenPhim}`} className="img-fluid w-100" onError={(e) => {
                                 e.target.onerror = null; e.target.src = "https://picsum.photos/255/379"
                             }} />
+                            <div className="icon__play">
+                                <a className="video" href={filmDetail.trailer} data-lity>
+                                    <i className="fa fa-play"></i>
+                                </a>
+                            </div>
                         </div>
                         <div className="col-md-5 infoText my-auto">
                             <p className="date">{new Date(filmDetail.ngayKhoiChieu).toLocaleDateString()}</p>
@@ -91,7 +97,7 @@ export default function Detail(props) {
                                                         <div className="movie--info col-10 pr-0">
                                                             {cumRap.lichChieuPhim?.slice(0, 10).map((lichChieu, index) => {
                                                                 return <div className="theater__time" key={index}>
-                                                                    <NavLink to="/">
+                                                                    <NavLink to={`/checkout/${lichChieu.maLichChieu}`}>
                                                                         <div className="btn px-1">
                                                                             <span className="hightlight">{new Date(lichChieu.ngayChieuGioChieu).getHours()}:{new Date(lichChieu.ngayChieuGioChieu).getMinutes()}</span> ~ {new Date(lichChieu.ngayChieuGioChieu).getHours() + 2}:{new Date(lichChieu.ngayChieuGioChieu).getMinutes()}
                                                                         </div>

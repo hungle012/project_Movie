@@ -1,17 +1,13 @@
 import { quanLyNguoiDungService } from "../../services/QuanLyNguoiDungService"
-import { DANG_NHAP_ACION } from "../types/QuanLyNguoiDungType";
-import {history} from '../../App'
+import { DANG_NHAP_ACION, SET_THONG_TIN_NGUOI_DUNG } from "../types/QuanLyNguoiDungType";
+import { history } from '../../App'
+import Swal from "sweetalert2";
 
 
 export const dangNhapAction = (thongTinDangNhap) => {
-
-
-
     return async (dispatch) => {
-
         try {
             const result = await quanLyNguoiDungService.dangNhap(thongTinDangNhap);
-
             if (result.data.statusCode === 200) {
                 dispatch({
                     type: DANG_NHAP_ACION,
@@ -19,12 +15,51 @@ export const dangNhapAction = (thongTinDangNhap) => {
                 });
                 // chuyển hướng đăng nhập về trang trước đó
                 history.goBack();
-
             }
-            
             // console.log('result', result);
         } catch (error) {
             console.log('error', error);
         }
     }
+}
+
+export const layDanhSachNguoiDungAction = (tuKhoa = '') => {
+    return async (dispatch) => {
+        try {
+            const result = await quanLyNguoiDungService.layDanhSachNguoiDung(tuKhoa);
+            // đưa lên reducer
+            dispatch({
+                type: SET_THONG_TIN_NGUOI_DUNG,
+                thongTinNguoiDung: result.data.content
+            })
+        } catch (error) {
+            console.log('errors', error);
+        }
+    };
+}
+
+export const themNguoiDungAction = (formData) => {
+    return async (dispatch) => {
+        try {
+            const result = await quanLyNguoiDungService.themNguoiDung(formData);
+            Swal.fire(
+                'Thông Báo!',
+                'Thêm User Thành Công',
+                'success'
+            )
+        } catch (error) {
+            console.log('errors', error);
+        }
+    };
+}
+export const xoaNguoiDungAction = (taiKhoan) => {
+    return async (dispatch) => {
+        try {
+            const result = await quanLyNguoiDungService.xoaNguoiDung(taiKhoan);
+            //Sau khi xoá load lại danh sách người dùng mới;
+            dispatch(layDanhSachNguoiDungAction())
+        } catch (error) {
+            console.log('errors',  error.response?.data);
+        }
+    };
 }
