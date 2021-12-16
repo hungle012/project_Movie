@@ -13,7 +13,10 @@ export default function Detail(props) {
     useEffect(() => {
         let { id } = props.match.params;
         dispatch(layThongTinChiTietPhimAction(id));
-    }, [])
+    }, []);
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    })
     return (
         <div>
             <section className="detailMovie">
@@ -37,13 +40,13 @@ export default function Detail(props) {
                             <p className="date">{new Date(filmDetail.ngayKhoiChieu).toLocaleDateString()}</p>
                             <p><span>P</span>{`${filmDetail.tenPhim}`}</p>
                             <span>120 phút - 0 IMDb - 2D/Digital</span><br />
-                            <button className="button__muaVe"><Link style={{ color: 'while !important' }} to="#" href="#" onClick={() => {
-                                document
-                                    .getElementById("showtime")
-                                    .scrollIntoView({ behavior: "smooth" });
-                            }}>
-                                Mua Vé
-                            </Link></button>
+                            <button className="button__muaVe" onClick={() => {
+                                    document
+                                        .getElementById("calendar")
+                                        .scrollIntoView({ behavior: "smooth" });
+                                }}>
+                                    Mua Vé
+                            </button>
                         </div>
                         <div className="col-md-4">
                             <div className="progress-pie-chart gt-50" data-percent={10}>
@@ -64,7 +67,7 @@ export default function Detail(props) {
                     </div>
                 </div>
             </section>
-            <section className="detailMovie_ShowTimes">
+            <section className="detailMovie_ShowTimes" id="calendar">
                 <div className="container">
                     <ul className="nav nav-tabs justify-content-center" id="myTab" role="tablist">
                         <li className="nav-item" role="presentation">

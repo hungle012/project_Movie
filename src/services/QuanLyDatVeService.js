@@ -1,6 +1,7 @@
+import { ThongTinDatVe } from "../_core/models/ThongTinDatVe";
 import { baseServices } from "./baseService";
 
-export class QuanLyDatVeService extends baseServices{
+export class QuanLyDatVeService extends baseServices {
     constructor() {
         super();
     }
@@ -11,6 +12,19 @@ export class QuanLyDatVeService extends baseServices{
     taoLichChieu = (thongTinLichChieu) => {
         return this.post(`/api/QuanLyDatVe/TaoLichChieu`,thongTinLichChieu)
     }
-    
+    /*thongTinDatVe = {
+        "maLichChieu": 0,
+        "danhSachVe": [
+            {
+                "maGhe": 0,
+                "giaVe": 0
+            }
+        ]
+    } */
+    datVe = (thongTinDatVe = new ThongTinDatVe()) => {
+        return this.post(`/api/QuanLyDatVe/DatVe`,thongTinDatVe);
+
+    }
 } 
+    
 export const quanLyDatVeService = new QuanLyDatVeService();
