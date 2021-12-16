@@ -3,7 +3,6 @@ export class QuanLyNguoiDungService extends baseServices{
     constructor() {
         super();
     }
-
     dangNhap = (thongTinDangNhap) => { // {taiKhoan:'', matKhau:''}
         return this.post(`/api/QuanLyNguoiDung/DangNhap`,thongTinDangNhap);
     }

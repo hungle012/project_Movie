@@ -2,6 +2,7 @@ import { applyMiddleware } from "redux";
 import { combineReducers, createStore } from "redux";
 import thunk from "redux-thunk";
 import { CarouselReducers } from './reducers/CarouselReducers';
+import { LoadingReducers } from "./reducers/LoadingReducers";
 import { QuanLyDatVeReducer } from "./reducers/QuanLyDatVeReducer";
 import { QuanLyNguoiDungReducer } from "./reducers/QuanLyNguoiDungReducer";
 import { QuanLyPhimReducer } from './reducers/QuanLyPhimReducer';
@@ -13,6 +14,7 @@ const rootReducer = combineReducers({
     QuanLyPhimReducer,
     QuanLyRapReducer,
     QuanLyNguoiDungReducer,
-    QuanLyDatVeReducer
+    QuanLyDatVeReducer,
+    LoadingReducers
 })
 export const store = createStore(rootReducer, applyMiddleware(thunk));

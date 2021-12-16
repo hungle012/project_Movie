@@ -74,13 +74,13 @@ export default function Login() {
         },
         validationSchema: Yup.object().shape({
             taiKhoan: Yup.string().required('Tài khoản không được bỏ trống !').trim(),
-            matKhau: Yup.string().required('Mật khẩu không được bỏ trống !').trim().min(6, 'Mật tối thiểu 6 ký tự').max(32, 'Mật khẩu tối đa 32 ký tự'),
+            matKhau: Yup.string().required('Mật khẩu không được bỏ trống !').trim().min(4, 'Mật tối thiểu 4 ký tự').max(32, 'Mật khẩu tối đa 32 ký tự'),
 
         }),
         onSubmit: (values) => {
             const action = dangNhapAction(values);
             dispatch(action)
-            console.log('values', values);
+            // console.log('values', values);
         }
     })
 
