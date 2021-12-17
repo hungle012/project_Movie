@@ -20,6 +20,7 @@ import AddUsers from './pages/admin/Users/addUsers/AddUsers';
 import Checkout from './pages/Checkout/Checkout';
 import Profile from './pages/Profile/Profile';
 import Loading from './Components/Loading/Loading';
+import EditUsers from './pages/admin/Users/editUsers/EditUsers'
 
 export const history = createBrowserHistory();
 function App() {
@@ -42,6 +43,7 @@ function App() {
 
         <AdminTemplate path="/admin/users" exact Component={Users} />
         <AdminTemplate path="/admin/users/addUser" exact Component={AddUsers} />
+        <AdminTemplate path="/admin/users/editUser/:taiKhoan" exact Component={EditUsers} />
       </Switch>
     </Router>
   );

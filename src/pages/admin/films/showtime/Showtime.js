@@ -45,7 +45,6 @@ export default function Showtime(props) {
         } catch (error) {
         }
     }, [])
-    console.log('hệ thống rạp chiếu', state.heThongRapChieu);
     const handleChangeHeThongRap = async (value) => {
         // từ hệ thống rạp call api lấy thông tin rạp
         try {

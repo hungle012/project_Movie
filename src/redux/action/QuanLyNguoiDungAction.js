@@ -1,5 +1,5 @@
 import { quanLyNguoiDungService } from "../../services/QuanLyNguoiDungService"
-import { DANG_NHAP_ACION, SET_THONG_TIN_NGUOI_DUNG } from "../types/QuanLyNguoiDungType";
+import { DANG_NHAP_ACION, SET_DANH_SACH_NGUOI_DUNG, SET_LAY_THONG_TIN_NGUOI_DUNG } from "../types/QuanLyNguoiDungType";
 import { history } from '../../App'
 import Swal from "sweetalert2";
 
@@ -29,8 +29,21 @@ export const layDanhSachNguoiDungAction = (tuKhoa = '') => {
             const result = await quanLyNguoiDungService.layDanhSachNguoiDung(tuKhoa);
             // đưa lên reducer
             dispatch({
-                type: SET_THONG_TIN_NGUOI_DUNG,
+                type: SET_DANH_SACH_NGUOI_DUNG,
                 thongTinNguoiDung: result.data.content
+            })
+        } catch (error) {
+            console.log('errors', error);
+        }
+    };
+}
+export const layThongTinNguoiDungAction = (taiKhoan) => {
+    return async (dispatch) => {
+        try {
+            const result = await quanLyNguoiDungService.layThongTinNguoiDung(taiKhoan);
+            dispatch({
+                type: SET_LAY_THONG_TIN_NGUOI_DUNG,
+                chiTietNguoiDung: result.data.content
             })
         } catch (error) {
             console.log('errors', error);
@@ -59,7 +72,10 @@ export const xoaNguoiDungAction = (taiKhoan) => {
             //Sau khi xoá load lại danh sách người dùng mới;
             dispatch(layDanhSachNguoiDungAction())
         } catch (error) {
-            console.log('errors',  error.response?.data);
+            Swal.fire({
+                icon: 'error',
+                title: 'Người dùng này đã đặt vé xem phim không thể xóa!',
+            })
         }
     };
 }
