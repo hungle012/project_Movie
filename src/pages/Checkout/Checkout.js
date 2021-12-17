@@ -63,13 +63,13 @@ function Checkout(props) {
 
             let classGheDangChon = '';
             let indexGheDangChon = danhSachGheDangChon.findIndex((gheDangChon) => gheDangChon.maGhe === ghe.maGhe);
-            if (indexGheDangChon != -1) {
+            if (indexGheDangChon !== -1) {
                 classGheDangChon = "gheDangChon";
             }
 
             let classGheNguoiKhacDat = '';
             let indexGheNguoiKhacDat = danhSachGheNguoiKhacDat.findIndex((gheNguoiKhacDat) => gheNguoiKhacDat.maGhe === ghe.maGhe);
-            if (indexGheNguoiKhacDat != -1) {
+            if (indexGheNguoiKhacDat !== -1) {
                 classGheNguoiKhacDat = "gheNguoiKhacDat";
             }
 
