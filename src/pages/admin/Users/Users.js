@@ -21,12 +21,6 @@ export default function Users(props) {
         // gọi api lấy danh sách phim
         dispatch(layDanhSachNguoiDungAction(value));
     }
-    const handleDeleteUser = (taiKhoan) => {
-        let token = "";
-        if (localStorage.getItem("userAdmin")) {
-            token = JSON.parse(localStorage.getItem("userAdmin")).TOKEN;
-        }
-    }
     // table
     const columns = [
         // {
@@ -65,14 +59,14 @@ export default function Users(props) {
             dataIndex: 'taiKhoan',
             render: (text, users) => {
                 return <Fragment>
-                    <NavLink key={1} className="mr-2" style={{ fontSize: '20px' }} to=''><EditOutlined style={{ color: 'blue' }} /> </NavLink>
+                    <NavLink key={1} className="mr-2" style={{ fontSize: '20px'}} to={`/admin/users/editUser/${users.taiKhoan}`} ><EditOutlined style={{ color: 'blue' }} /></NavLink>
                     <span style={{ cursor: 'pointer', fontSize: '20px', marginRight: '0.5rem' }} key={2} onClick={() => {
                         //Gọi action xoá
                         if (Swal.fire('Thông Báo!',
                             'Xóa Phim Thành Công',
-                            'error')) {
+                            'success')) {
                             // dispatch action xóa
-                            dispatch(xoaNguoiDungAction(users.taiKhoan))
+                            dispatch(xoaNguoiDungAction(users.taiKhoan)) 
                         }
                     }}><DeleteOutlined style={{ color: 'red' }} /> </span>
                 </Fragment>

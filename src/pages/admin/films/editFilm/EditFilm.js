@@ -9,7 +9,7 @@ import {
 import * as Yup from 'yup';
 import { useFormik } from 'formik';
 import { useDispatch, useSelector } from 'react-redux';
-import { capNhatPhimUploadAction, layThongTinPhimAction, themPhimUploadHinhAction } from '../../../../redux/action/QuanLyPhimAction';
+import { capNhatPhimUploadAction, layThongTinPhimAction } from '../../../../redux/action/QuanLyPhimAction';
 import { GROUPID } from '../../../../util/settings/config';
 import moment from 'moment';
 import TextArea from 'antd/lib/input/TextArea';
@@ -22,7 +22,6 @@ export default function EditFilm(props) {
         let { id } = props.match.params;
         dispatch(layThongTinPhimAction(id));
     }, [])
-
     const formik = useFormik({
         enableReinitialize: true,
         initialValues: {
