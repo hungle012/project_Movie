@@ -33,7 +33,7 @@ function App() {
         <UserTemplate exact path="/login" Component={Login} />
         <UserTemplate exact path="/register" Component={Register} />
 
-        <CheckoutTemplate exact path="/checkout/:id" Component={Checkout} />
+        <CheckoutTemplate exact path="/checkout/:id/:maPhim" Component={Checkout} />
 
         <AdminTemplate path="/admin/films" exact Component={films} />
         <AdminTemplate path="/admin/films/addfilm" exact Component={AddFilm} />

@@ -36,7 +36,7 @@ export default function ShowInTick(props) {
                         <span style={{ fontSize: "20px", color: "red" }}>2D Digital</span>
                         <div className="theater__time">
                           {phim.lstLichChieuTheoPhim?.slice(0, 8).map((lichChieu, index) => {
-                            return <NavLink key={index} to={`/checkout/${lichChieu.maLichChieu}`}>
+                            return <NavLink key={index} to={`/checkout/${lichChieu.maLichChieu}/${phim.maPhim}`}>
                               <div className="btn px-1">
                                 <span className="hightlight">{new Date(lichChieu.ngayChieuGioChieu).getHours()}:{new Date(lichChieu.ngayChieuGioChieu).getMinutes()}</span> ~ {new Date(lichChieu.ngayChieuGioChieu).getHours() + 2}:{new Date(lichChieu.ngayChieuGioChieu).getMinutes()}
                               </div>

@@ -8,6 +8,19 @@
 
         .checkout__reservations {
             overflow-x: hidden;
+
+            .backToHome {
+                position: absolute;
+                top: 100px;
+                left: 20px;
+                font-size: 20px;
+                z-index: 99;
+            
+                &:hover {
+                    color: $color-orange;
+                }
+            }
+
             .checkout__top {
                 .checkout__theater {
                     display: flex;
@@ -143,6 +156,7 @@
                     }
                 }
                 .checkout__btn {
+                    width: 100%;
                     text-align: center;
                     line-height: 60px;
                     background-color: $color-green;
@@ -155,6 +169,7 @@
         }
     }
 }
+
 .ant-tabs-top {
     .ant-tabs-nav {
         height: 80px;

@@ -3,7 +3,6 @@ export class ThongTinLichChieu {
     danhSachGhe = [];
 }
 
-
 export class ThongTinPhim {
     diaChi: '';
     gioChieu: '';
@@ -13,4 +12,32 @@ export class ThongTinPhim {
     tenCumRap: '';
     tenPhim: '';
     tenRap: '';
+}
+
+export class ThongTinLichChieuPhim {
+    heThongRapChieu = [new heThongRapChieu()]
+}
+
+export class heThongRapChieu {
+    cumRapChieu = new cumRapChieu();
+    maHeThongRap = '';
+    tenHeThongRap = '';
+    logo = ''
+}
+
+export class cumRapChieu {
+    lichChieuPhim = new lichChieuPhim();
+    maCumRap: "";
+    tenCumRap: "";
+    hinhAnh: "";
+    diaChi:""
+}
+
+export class lichChieuPhim {
+    maLichChieu: "";
+    maRap: "";
+    tenRap: "";
+    ngayChieuGioChieu: "";
+    giaVe: '';
+    thoiLuong: ''
 }

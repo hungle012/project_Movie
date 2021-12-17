@@ -1,19 +1,20 @@
 import React, { Fragment, useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { datVeAction, layChiTietPhongVeAction } from '../../redux/action/QuanLyDatVeAction';
-import { DAT_GHE } from '../../redux/types/QuanLyDatVeType';
+import { datVeAction, layChiTietPhongVeAction, layLogoRapAction } from '../../redux/action/QuanLyDatVeAction';
+import { CHUYEN_TAB_ACTIVE, DAT_GHE } from '../../redux/types/QuanLyDatVeType';
 import { ThongTinDatVe } from '../../_core/models/ThongTinDatVe';
 import CountDown from './CountDown';
 import _ from 'lodash';
 import { Tabs } from 'antd';
 import { Link } from 'react-router-dom';
 import { history } from "../../App";
+import Swal from 'sweetalert2';
 
 function Checkout(props) {
 
     const { userLogin } = useSelector(state => state.QuanLyNguoiDungReducer);
 
-    const { chiTietPhongVe, danhSachGheDangChon, danhSachGheNguoiKhacDat } = useSelector(state => state.QuanLyDatVeReducer);
+    const { chiTietPhongVe, danhSachGheDangChon, danhSachGheNguoiKhacDat, logoRap } = useSelector(state => state.QuanLyDatVeReducer);
 
     const dispatch = useDispatch();
 
@@ -21,11 +22,38 @@ function Checkout(props) {
         const action = layChiTietPhongVeAction(props.match.params.id);
 
         dispatch(action)
+    }, []);
+
+    useEffect(() => {
+        const action = layLogoRapAction(props.match.params.maPhim);
+
+        dispatch(action)
     }, [])
 
-    console.log(chiTietPhongVe);
+    // console.log(logoRap);
+    // console.log(chiTietPhongVe);
 
     const { thongTinPhim, danhSachGhe } = chiTietPhongVe;
+    const { heThongRapChieu } = logoRap;
+    // console.log(heThongRapChieu);
+    let maRap = thongTinPhim.tenCumRap?.slice(0,3);
+    // console.log(maRap);
+    const renderLogo = () => {
+        return heThongRapChieu?.map((item,index) => {
+            let newMaRap = item.maHeThongRap?.slice(0,3);
+            if (newMaRap === 'Cin') {
+                newMaRap = 'CNS';
+            } else if (newMaRap === 'Gal') {
+                newMaRap = 'GLX'
+            }
+
+            if (maRap === newMaRap ) {
+                return <img src={item.logo} alt="" width={70} height={70} />
+            }
+            
+            
+        })
+    }
 
     const renderSeats = () => {
         return danhSachGhe.map((ghe, index) => {
@@ -64,11 +92,18 @@ function Checkout(props) {
 
     return (
         <div className="container-fluid checkout">
+            
             <div className="row checkout__content">
                 <div className="checkout__reservations">
+                    <button className='backToHome' onClick={() => {
+                        history.goBack();
+                    }}>
+                        <i class="fas fa-arrow-left"></i>
+                        <i class="far fa-window-minimize" style={{ transform: 'rotate(90deg)' }}></i>
+                    </button>
                     <div className="checkout__top p-3 row">
                         <div className="checkout__theater col-7">
-                            <img src="https://picsum.photos/70" alt="" />
+                            {renderLogo()}
                             <div className="ml-3 py-2">
                                 <p className="theater--name">{thongTinPhim.tenCumRap}</p>
                                 <p className="theater--date">
@@ -224,18 +259,26 @@ function Checkout(props) {
                                 </p>
                             </div>
                         </div>
-                        <div onClick={() => {
-                            const thongTinDatVe = new ThongTinDatVe();
-                            thongTinDatVe.maLichChieu = props.match.params.id;
-                            thongTinDatVe.danhSachVe = danhSachGheDangChon;
+                        <button
+                            onClick={() => {
+                                const thongTinDatVe = new ThongTinDatVe();
+                                thongTinDatVe.maLichChieu = props.match.params.id;
+                                thongTinDatVe.danhSachVe = danhSachGheDangChon;
+                               
+                                if (danhSachGheDangChon.length === 0) {
+                                    Swal.fire({
+                                        icon: 'error',
+                                        title: 'Bạn chưa chọn vé!',
+                                        text: 'Bạn phải chọn vé trước khi đặt',
+                                    })
+                                } else {
+                                    dispatch(datVeAction(thongTinDatVe))
+                                }
 
-                            console.log(thongTinDatVe);
-
-                            dispatch(datVeAction(thongTinDatVe))
-
-                        }} className="checkout__btn">
+                            }}
+                            className="checkout__btn">
                             Đặt vé
-                        </div>
+                        </button>
                     </div>
 
                 </div>
@@ -253,9 +296,21 @@ const { TabPane } = Tabs;
 // eslint-disable-next-line import/no-anonymous-default-export
 export default function (props) {
     const { userLogin } = useSelector(state => state.QuanLyNguoiDungReducer);
+    const tabActive = useSelector(state => state.QuanLyDatVeReducer.tabActive);
+    const widthCustom = useSelector(state => state.QuanLyDatVeReducer.widthCustom);
+    const dispatch = useDispatch();
 
-    const operations = (
-        <div className="user--acc pr-2">
+    useEffect(() => {
+        return () => {
+            dispatch({
+                type: CHUYEN_TAB_ACTIVE,
+                number: "1"
+            })
+        }
+    }, [])
+
+    const userAccount = (
+        <div className="user--acc pr-5">
             <span>{userLogin.taiKhoan.slice(0, 1)}</span>
             <p className="mb-0 ml-1 user--name">
                 {userLogin.taiKhoan}
@@ -263,13 +318,8 @@ export default function (props) {
         </div>
     );
 
-    const tabActive = useSelector(state => state.QuanLyDatVeReducer.tabActive);
-    const widthCustom = useSelector(state => state.QuanLyDatVeReducer.widthCustom);
-
     return <div classname="tab__checkout">
-        <Tabs defaultActiveKey={tabActive} activeKey={tabActive} tabBarExtraContent={operations} style={{width:widthCustom}} onChange={(key) => {
-            
-        }} >
+        <Tabs defaultActiveKey={tabActive} activeKey={tabActive} tabBarExtraContent={userAccount} style={{ width: widthCustom }} >
             <TabPane tab="01 CHỌN GHẾ VÀ THANH TOÁN" key="1">
                 <Checkout {...props} />
             </TabPane>
@@ -277,9 +327,6 @@ export default function (props) {
                 <KetQuaDatVe {...props} />
             </TabPane>
         </Tabs>
-
-
-
     </div >
 
 
@@ -288,9 +335,28 @@ export default function (props) {
 
 
 function KetQuaDatVe(props) {
-    const { chiTietPhongVe } = useSelector(state => state.QuanLyDatVeReducer);
+    const { chiTietPhongVe, logoRap } = useSelector(state => state.QuanLyDatVeReducer);
 
     const { thongTinPhim } = chiTietPhongVe;
+
+    const { heThongRapChieu } = logoRap;
+    let maRap = thongTinPhim.tenCumRap?.slice(0,3);
+    const renderLogo = () => {
+        return heThongRapChieu?.map((item,index) => {
+            let newMaRap = item.maHeThongRap?.slice(0,3);
+            if (newMaRap === 'Cin') {
+                newMaRap = 'CNS';
+            } else if (newMaRap === 'Gal') {
+                newMaRap = 'GLX'
+            }
+
+            if (maRap === newMaRap ) {
+                return <img src={item.logo} alt="" width={70} height={70} />
+            }
+            
+            
+        })
+    }
 
     return <div className='checkout__result container-fluid row m-0'>
         <div className="back col-2 text-center pt-3">
@@ -302,16 +368,16 @@ function KetQuaDatVe(props) {
         <div className="col-8 pt-3 text-center d-flex justify-content-center">
             <div className="film my-4">
                 <div className='logo-rap'>
-                    <img src="https://picsum.photos/70" alt="" />
+                    {renderLogo()}
                     <div className=''>
                         <p>{thongTinPhim.tenCumRap}</p>
                         <p>
-                            {thongTinPhim.gioChieu} - {thongTinPhim.ngayChieu}
+                            {thongTinPhim.gioChieu} - {thongTinPhim.ngayChieu} - {thongTinPhim.tenRap}
                         </p>
                     </div>
                 </div>
                 <div className='film-img'>
-                    <img src="https://picsum.photos/325/400" alt="" />
+                    <img src={thongTinPhim.hinhAnh} width={325} height={400} alt="" />
                 </div>
                 <div className="film-bottom pt-3">
                     <p>Chúc bạn xem phim vui vẻ</p>

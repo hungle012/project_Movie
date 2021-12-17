@@ -13,11 +13,24 @@ export const dangNhapAction = (thongTinDangNhap) => {
                     type: DANG_NHAP_ACION,
                     thongTinDangNhap: result.data.content
                 });
+                await Swal.fire({
+                    icon: 'success',
+                    title: 'Đăng nhập thành công',
+                    showConfirmButton: false,
+                    timer: 1500,
+                });
                 // chuyển hướng đăng nhập về trang trước đó
                 history.goBack();
             }
             // console.log('result', result);
         } catch (error) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Đăng nhập thất bại',
+                text: 'Tên tài khoản hoặc mật khẩu không đúng',
+                showConfirmButton: false,
+                timer: 1500,
+            })
             console.log('error', error);
         }
     }

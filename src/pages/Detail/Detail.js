@@ -100,7 +100,7 @@ export default function Detail(props) {
                                                         <div className="movie--info col-10 pr-0">
                                                             {cumRap.lichChieuPhim?.slice(0, 10).map((lichChieu, index) => {
                                                                 return <div className="theater__time" key={index}>
-                                                                    <NavLink to={`/checkout/${lichChieu.maLichChieu}`}>
+                                                                    <NavLink to={`/checkout/${lichChieu.maLichChieu}/${filmDetail.maPhim}`}>
                                                                         <div className="btn px-1">
                                                                             <span className="hightlight">{new Date(lichChieu.ngayChieuGioChieu).getHours()}:{new Date(lichChieu.ngayChieuGioChieu).getMinutes()}</span> ~ {new Date(lichChieu.ngayChieuGioChieu).getHours() + 2}:{new Date(lichChieu.ngayChieuGioChieu).getMinutes()}
                                                                         </div>
