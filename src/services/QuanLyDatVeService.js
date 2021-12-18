@@ -25,6 +25,9 @@ export class QuanLyDatVeService extends baseServices {
         return this.post(`/api/QuanLyDatVe/DatVe`,thongTinDatVe);
 
     }
+    layLogoRap = (maPhim) => { // mã phim lấy từ url
+        return this.get(`/api/QuanLyRap/LayThongTinLichChieuPhim?MaPhim=${maPhim}`);
+    }
 } 
     
 export const quanLyDatVeService = new QuanLyDatVeService();

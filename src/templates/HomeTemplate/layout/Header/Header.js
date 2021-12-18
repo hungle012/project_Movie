@@ -73,7 +73,7 @@ export default function Header() {
                                 </li>
                                 <li className="nav-item  ">
                                     <Link className="nav-link text-left px-4 text-md-center" to="/" onClick={() => {
-                                         let scroll = () => {
+                                        let scroll = () => {
                                             let lichChieu = document.getElementById("cumRap");
                                             lichChieu.scrollIntoView({ behavior: 'smooth' })
                                         }
@@ -82,7 +82,7 @@ export default function Header() {
                                 </li>
                                 <li className="nav-item ">
                                     <Link className="nav-link text-left px-4 text-md-center" to="/" onClick={() => {
-                                         let scroll = () => {
+                                        let scroll = () => {
                                             let lichChieu = document.getElementById("tinTuc");
                                             lichChieu.scrollIntoView({ behavior: 'smooth' })
                                         }
@@ -91,7 +91,7 @@ export default function Header() {
                                 </li>
                                 <li className="nav-item">
                                     <Link className="nav-link text-left px-4 text-md-center" to="/" onClick={() => {
-                                         let scroll = () => {
+                                        let scroll = () => {
                                             let lichChieu = document.getElementById("ungDung");
                                             lichChieu.scrollIntoView({ behavior: 'smooth' })
                                         }
