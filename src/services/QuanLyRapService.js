@@ -16,5 +16,8 @@ export class QuanLyRapService extends baseServices{
     layThongTinCumRap = (maHeThongRap) => {
         return this.get(`/api/QuanLyRap/LayThongTinCumRapTheoHeThong?maHeThongRap=${maHeThongRap}`);
     }
+    taoLichChieu = (values) => {
+        return this.post(`/api/QuanLyDatVe/TaoLichChieu`,values)
+    }
 } 
 export const  quanLyRapService = new QuanLyRapService();

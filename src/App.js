@@ -27,7 +27,7 @@ export const history = createBrowserHistory();
 function App() {
   return (
     <Fragment>
-      {/* <div className="snowflakes" aria-hidden="true">
+      <div className="snowflakes" aria-hidden="true">
           <div className="snowflake">
             ❅
           </div>
@@ -64,7 +64,7 @@ function App() {
           <div className="snowflake">
             ❆
           </div>
-        </div> */}
+        </div>
       <Router history={history}>
         <Loading />
         <Switch>

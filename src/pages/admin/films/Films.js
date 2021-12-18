@@ -1,8 +1,8 @@
 import React, { Fragment, useEffect } from 'react';
 import 'antd/dist/antd.css';
-import { Button, Table } from 'antd';
+import { Button, Table, Tooltip } from 'antd';
 import { Input } from 'antd';
-import { EditOutlined, SearchOutlined, DeleteOutlined, CalendarOutlined } from '@ant-design/icons';
+import { EditOutlined, DeleteOutlined, CalendarOutlined } from '@ant-design/icons';
 import { useSelector, useDispatch } from 'react-redux';
 import { layDanhSachPhimDangChieuAction, xoaPhimAction } from '../../../redux/action/QuanLyPhimAction';
 import { NavLink } from 'react-router-dom';
@@ -11,7 +11,7 @@ import Swal from 'sweetalert2';
 const { Search } = Input;
 
 
-export default function Films(props) {
+export default function Films(props) { 
     const { arrFilm } = useSelector(state => state.QuanLyPhimReducer);
     const dispatch = useDispatch();
     useEffect(() => {
@@ -71,18 +71,18 @@ export default function Films(props) {
             dataIndex: 'maPhim',
             render: (text, movie) => {
                 return <Fragment>
-                    <NavLink key={1} className="mr-2" style={{ fontSize: '20px' }} to={`/admin/films/editFilm/${movie.maPhim}`}><EditOutlined style={{ color: 'blue' }} /> </NavLink>
+                    <NavLink key={1} className="mr-2" style={{ fontSize: '20px' }} to={`/admin/films/editFilm/${movie.maPhim}`}><Tooltip title="Edit Film" color='blue'><EditOutlined style={{ color: 'blue' }} /></Tooltip></NavLink>
                     <span style={{ cursor: 'pointer', fontSize: '20px', marginRight: '0.5rem' }} key={2} onClick={() => {
                         //Gọi action xoá
                         if (Swal.fire('Thông Báo!',
                             'Xóa Phim Thành Công',
                             'error')) {
-                                dispatch(xoaPhimAction(movie.maPhim));
+                            dispatch(xoaPhimAction(movie.maPhim));
                         }
-                    }}><DeleteOutlined style={{ color: 'red' }} /> </span>
+                    }}><Tooltip title="Xóa Film" color="red"><DeleteOutlined style={{ color: 'red' }} /></Tooltip></span>
                     <NavLink key={3} className="mr-2" style={{ fontSize: '20px' }} to={`/admin/films/showtime/${movie.maPhim}/${movie.tenPhim}`} onClick={() => {
                         localStorage.setItem('filmParams', JSON.stringify(movie));
-                    }}><CalendarOutlined style={{ color: 'green' }} /> </NavLink>
+                    }}><Tooltip title="Thêm Lịch Chiếu" color="green"><CalendarOutlined style={{ color: 'green' }} /></Tooltip> </NavLink>
                 </Fragment>
             },
             sortDirections: ['descend', 'ascend'],
@@ -100,7 +100,7 @@ export default function Films(props) {
                 <Button className='mb-3' onClick={() => {
                     history.push('/admin/films/addFilm');
                 }}>Thêm Phim</Button>
-                <Search className='pb-3' style={{ width: '20%' }} placeholder="input search text" onSearch={onSearch} enterButton />
+                <Search className='pb-3' style={{ width: '20%' }} placeholder="Tìm Kiếm Phim" onSearch={onSearch} enterButton />
             </div>
             <Table columns={columns} dataSource={data} onChange={onChange} rowKey={"maPhim"} />
         </div>

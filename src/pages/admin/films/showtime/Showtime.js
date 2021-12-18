@@ -1,12 +1,11 @@
-import React, { useEffect, useState } from 'react';
-import { Form, Input, Button, Checkbox, Select } from 'antd';
+import React, { useEffect } from 'react';
+import { Form, Button, Select } from 'antd';
 import { useFormik } from 'formik';
 import { DatePicker } from 'antd';
 import { InputNumber } from 'antd';
 import moment from 'moment';
-import { quanLyRapService } from '../../../../services/QuanLyRapService';
-import { quanLyDatVeService } from '../../../../services/QuanLyDatVeService';
-import Swal from 'sweetalert2';
+import { useDispatch, useSelector } from 'react-redux';
+import { layThongTinCumRapAction, layThongTinHeThongRapAction, taoLichChieuAction } from '../../../../redux/action/QuanLyRapAction';
 
 export default function Showtime(props) {
     const formik = useFormik({
@@ -16,47 +15,20 @@ export default function Showtime(props) {
             maRap: '',
             giaVe: ''
         },
-        onSubmit: async (values) => {
-            // console.log('values', values);
-            try {
-                const result = await quanLyDatVeService.taoLichChieu(values);
-                Swal.fire(
-                    'Thông Báo!',
-                    'Thêm Lịch Chiếu Thành Công',
-                    'success'
-                )
-            } catch (error) {
-                console.log('error', error.response?.data)
-            }
+        onSubmit: (values) => {
+            console.log('values',values);
+            dispatch(taoLichChieuAction(values));
         }
     })
-    const [state, setState] = useState({
-        heThongRapChieu: [],
-        cumRapChieu: []
-    })
-
-    useEffect(async () => {
-        try {
-            let result = await quanLyRapService.layThongTinHeThongRap();
-            setState({
-                ...state,
-                heThongRapChieu: result.data.content
-            })
-        } catch (error) {
-        }
-    }, [])
-    const handleChangeHeThongRap = async (value) => {
-        // từ hệ thống rạp call api lấy thông tin rạp
-        try {
-            let result = await quanLyRapService.layThongTinCumRap(value);
-            //Gán giá trị cụm rạp vào state.cumRap
-            setState({
-                ...state,
-                cumRapChieu: result.data.content
-            })
-        } catch (error) {
-            console.log('error', error.response?.data);
-        }
+    const dispatch = useDispatch();
+    useEffect(() => {
+        dispatch(layThongTinHeThongRapAction());
+    },[]) 
+    const {heThongRapChieu} = useSelector(state => state.QuanLyRapReducer);
+    const {thongTinCumRap} = useSelector(state => state.QuanLyRapReducer);
+    console.log(heThongRapChieu);
+    const handleChangeHeThongRap = (value) => {
+        dispatch(layThongTinCumRapAction(value));
     }
 
     const handleChangeCumRap = (value) => {
@@ -76,8 +48,7 @@ export default function Showtime(props) {
     }
 
     const convertSelectHTR = () => {
-        // state.heThongRapChieu?.map((htr, index) => ({ label: htr.tenHeThongRap, value: htr.tenHeThongRap }))
-        return state.heThongRapChieu?.map((htr, index) => {
+        return heThongRapChieu?.map((htr, index) => {
             return { label: htr.tenHeThongRap, value: htr.maHeThongRap }
         })
     }
@@ -105,7 +76,7 @@ export default function Showtime(props) {
                         <Select options={convertSelectHTR()} onChange={handleChangeHeThongRap} placeholder="Chọn hệ thống rạp" />
                     </Form.Item>
                     <Form.Item label="Cụm rạp">
-                        <Select options={state.cumRapChieu?.map((cumRap, index) => ({ label: cumRap.tenCumRap, value: cumRap.maCumRap }))} placeholder="Chọn cụm rạp" onChange={handleChangeCumRap} />
+                        <Select options={thongTinCumRap?.map((cumRap, index) => ({ label: cumRap.tenCumRap, value: cumRap.maCumRap }))} placeholder="Chọn cụm rạp" onChange={handleChangeCumRap} />
                     </Form.Item>
 
                     <Form.Item label="Ngày chiếu giờ chiếu">

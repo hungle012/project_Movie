@@ -1,6 +1,6 @@
 import React, { Fragment, useEffect } from 'react';
 import 'antd/dist/antd.css';
-import { Button, Table } from 'antd';
+import { Button, Table, Tooltip } from 'antd';
 import { Input } from 'antd';
 import { EditOutlined, DeleteOutlined } from '@ant-design/icons';
 import { useSelector, useDispatch } from 'react-redux';
@@ -31,6 +31,7 @@ export default function Users(props) {
         {
             title: 'Tài Khoản',
             dataIndex: 'taiKhoan',
+            sorter: (a, b) => a.taiKhoan - b.taiKhoan,
             sortDirections: ['descend', 'ascend'],
             width: '10%'
         },
@@ -42,7 +43,7 @@ export default function Users(props) {
         {
             title: 'Họ Tên',
             dataIndex: 'hoTen',
-            width: '20%'
+            width: '15%'
         },
         {
             title: 'Email',
@@ -59,7 +60,7 @@ export default function Users(props) {
             dataIndex: 'taiKhoan',
             render: (text, users) => {
                 return <Fragment>
-                    <NavLink key={1} className="mr-2" style={{ fontSize: '20px'}} to={`/admin/users/editUser/${users.taiKhoan}`} ><EditOutlined style={{ color: 'blue' }} /></NavLink>
+                    <NavLink key={1} className="mr-2" style={{ fontSize: '20px'}} to={`/admin/users/editUser/${users.taiKhoan}`} ><Tooltip title="Edit User" color='blue'><EditOutlined style={{ color: 'blue' }} /></Tooltip></NavLink>
                     <span style={{ cursor: 'pointer', fontSize: '20px', marginRight: '0.5rem' }} key={2} onClick={() => {
                         //Gọi action xoá
                         if (Swal.fire('Thông Báo!',
@@ -68,7 +69,7 @@ export default function Users(props) {
                             // dispatch action xóa
                             dispatch(xoaNguoiDungAction(users.taiKhoan)) 
                         }
-                    }}><DeleteOutlined style={{ color: 'red' }} /> </span>
+                    }}><Tooltip title="Xóa User" color='red'><DeleteOutlined style={{ color: 'red' }} /></Tooltip> </span>
                 </Fragment>
             },
             sortDirections: ['descend', 'ascend'],
@@ -86,7 +87,7 @@ export default function Users(props) {
                 <Button className='mb-3' onClick={() => {
                     history.push('/admin/users/addUser');
                 }}>Thêm Người Dùng</Button>
-                <Search className='pb-3' style={{ width: '20%' }} placeholder="input search text" onSearch={onSearch} enterButton />
+                <Search className='pb-3' style={{ width: '20%' }} placeholder="Tìm Kiếm Tài Khoản" onSearch={onSearch} enterButton />
             </div>
             <Table columns={columns} dataSource={data} onChange={onChange} rowKey={"taiKhoan"} />
         </div>
