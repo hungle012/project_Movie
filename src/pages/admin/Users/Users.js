@@ -2,7 +2,7 @@ import React, { Fragment, useEffect } from 'react';
 import 'antd/dist/antd.css';
 import { Button, Table } from 'antd';
 import { Input } from 'antd';
-import { EditOutlined, SearchOutlined, DeleteOutlined, CalendarOutlined } from '@ant-design/icons';
+import { EditOutlined, DeleteOutlined } from '@ant-design/icons';
 import { useSelector, useDispatch } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import { history } from '../../../App';

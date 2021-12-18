@@ -21,31 +21,72 @@ import Checkout from './pages/Checkout/Checkout';
 import Profile from './pages/Profile/Profile';
 import Loading from './Components/Loading/Loading';
 import EditUsers from './pages/admin/Users/editUsers/EditUsers'
+import { Fragment } from 'react';
 
 export const history = createBrowserHistory();
 function App() {
   return (
-    <Router history={history}>
-      <Loading />
-      <Switch>
-        <HomeTemplate exact path="/" Component={Home} />
-        <HomeTemplate exact path="/detail/:id" Component={Detail} />
-        <HomeTemplate exact path="/profile" Component={Profile} />
-        <UserTemplate exact path="/login" Component={Login} />
-        <UserTemplate exact path="/register" Component={Register} />
+    <Fragment>
+      {/* <div className="snowflakes" aria-hidden="true">
+          <div className="snowflake">
+            ❅
+          </div>
+          <div className="snowflake">
+            ❆
+         </div>
+          <div className="snowflake">
+            ❅
+          </div>
+          <div className="snowflake">
+            ❆
+          </div>
+          <div className="snowflake">
+            ❅
+          </div>
+          <div className="snowflake">
+            ❆
+          </div>
+          <div className="snowflake">
+            ❅
+          </div>
+          <div className="snowflake">
+            ❆
+          </div>
+          <div className="snowflake">
+            ❅
+          </div>
+          <div className="snowflake">
+            ❆
+          </div>
+          <div className="snowflake">
+            ❅
+          </div>
+          <div className="snowflake">
+            ❆
+          </div>
+        </div> */}
+      <Router history={history}>
+        <Loading />
+        <Switch>
+          <HomeTemplate exact path="/" Component={Home} />
+          <HomeTemplate exact path="/detail/:id" Component={Detail} />
+          <HomeTemplate exact path="/profile" Component={Profile} />
+          <UserTemplate exact path="/login" Component={Login} />
+          <UserTemplate exact path="/register" Component={Register} />
 
-        <CheckoutTemplate exact path="/checkout/:id" Component={Checkout} />
+          <CheckoutTemplate exact path="/checkout/:id" Component={Checkout} />
 
-        <AdminTemplate path="/admin/films" exact Component={films} />
-        <AdminTemplate path="/admin/films/addfilm" exact Component={AddFilm} />
-        <AdminTemplate path="/admin/films/editFilm/:id" exact Component={EditFilm} />
-        <AdminTemplate path="/admin/films/showtime/:id/:tenPhim" exact Component={Showtime} />
+          <AdminTemplate path="/admin/films" exact Component={films} />
+          <AdminTemplate path="/admin/films/addfilm" exact Component={AddFilm} />
+          <AdminTemplate path="/admin/films/editFilm/:id" exact Component={EditFilm} />
+          <AdminTemplate path="/admin/films/showtime/:id/:tenPhim" exact Component={Showtime} />
 
-        <AdminTemplate path="/admin/users" exact Component={Users} />
-        <AdminTemplate path="/admin/users/addUser" exact Component={AddUsers} />
-        <AdminTemplate path="/admin/users/editUser/:taiKhoan" exact Component={EditUsers} />
-      </Switch>
-    </Router>
+          <AdminTemplate path="/admin/users" exact Component={Users} />
+          <AdminTemplate path="/admin/users/addUser" exact Component={AddUsers} />
+          <AdminTemplate path="/admin/users/editUser/:taiKhoan" exact Component={EditUsers} />
+        </Switch>
+      </Router>
+    </Fragment>
   );
 }
 

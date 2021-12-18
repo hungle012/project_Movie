@@ -1,5 +1,5 @@
 import { TOKEN, USER_LOGIN } from "../../util/settings/config";
-import { DANG_NHAP_ACION, SET_LAY_THONG_TIN_NGUOI_DUNG, SET_DANH_SACH_NGUOI_DUNG } from "../types/QuanLyNguoiDungType"
+import { DANG_NHAP_ACION, SET_LAY_THONG_TIN_NGUOI_DUNG, SET_DANH_SACH_NGUOI_DUNG, SET_MA_LOAI_NGUOI_DUNG } from "../types/QuanLyNguoiDungType"
 
 let user = {};
 if (localStorage.getItem(USER_LOGIN)) {
@@ -9,7 +9,8 @@ if (localStorage.getItem(USER_LOGIN)) {
 const stateDefault = {
     userLogin: user,
     thongTinNguoiDung: [],
-    chiTietNguoiDung: {}
+    chiTietNguoiDung: {},
+    maLoaiNguoiDung: []
 }
 
 
@@ -29,7 +30,11 @@ export const QuanLyNguoiDungReducer = (state = stateDefault, action) => {
             return {...state}
         }
         case SET_LAY_THONG_TIN_NGUOI_DUNG: {
-            state.thongTinNguoiDung = action.thongTinNguoiDung;
+            state.chiTietNguoiDung = action.chiTietNguoiDung;
+            return {...state}
+        }
+        case SET_MA_LOAI_NGUOI_DUNG: {
+            state.maLoaiNguoiDung = action.maLoaiNguoiDung;
             return {...state}
         }
         default:
