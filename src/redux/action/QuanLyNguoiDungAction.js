@@ -92,6 +92,22 @@ export const themNguoiDungAction = (values) => {
         }
     };
 }
+export const suaNguoiDungAction = (values) => {
+    return async (dispatch) => {
+        try {
+            const result = await quanLyNguoiDungService.capNhatThongTinNguoiDung(values);
+            Swal.fire(
+                'Thông Báo!',
+                'Sửa User Thành Công',
+                'success'
+            )
+            dispatch(layDanhSachNguoiDungAction());
+            history.push('/admin/users')
+        } catch (error) {
+            console.log('errors', error);
+        }
+    };
+}
 export const xoaNguoiDungAction = (taiKhoan) => {
     return async (dispatch) => {
         try {

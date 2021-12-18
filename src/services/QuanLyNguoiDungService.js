@@ -1,5 +1,6 @@
 import { baseServices } from "./baseService";
 import { GROUPID } from '../util/settings/config';
+import { values } from "lodash";
 export class QuanLyNguoiDungService extends baseServices {
     constructor() {
         super();
@@ -23,8 +24,8 @@ export class QuanLyNguoiDungService extends baseServices {
     themNguoiDung = (values) => {
         return this.post(`/api/QuanLyNguoiDung/ThemNguoiDung`,values);
     }
-    capNhatThongTinNguoiDung = (formData) => {
-        return this.post(`/api/QuanLyNguoiDung/CapNhatThongTinNguoiDung`, formData);
+    capNhatThongTinNguoiDung = (values) => {
+        return this.post(`/api/QuanLyNguoiDung/CapNhatThongTinNguoiDung`, values);
     }
     xoaNguoiDung = (taiKhoan) => {
         return this.delete(`/api/QuanLyNguoiDung/XoaNguoiDung?TaiKhoan=${taiKhoan}`)
