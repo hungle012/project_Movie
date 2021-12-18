@@ -26,6 +26,29 @@ export default function Header() {
             </Fragment>
         }
 
+        if (userLogin.maLoaiNguoiDung === 'QuanTri') {
+            return <Fragment>
+                <div className="user logged">
+                    <p>
+                        {userLogin.taiKhoan.slice(0, 1)}
+                    </p>
+                </div>
+                <div className="user-name">
+                    <p type="button" className="btn dropdown-toggle" id="dropdownMenuOffset" data-toggle="dropdown" aria-expanded="false" data-offset="10,20">
+                        {userLogin.taiKhoan}
+                    </p>
+                    <div className="dropdown-menu drop-menu" aria-labelledby="dropdownMenuOffset">
+                        <NavLink className="dropdown-item" to="/admin/users">Admin</NavLink>
+                        <button className="dropdown-item" onClick={() => {
+                            localStorage.removeItem(USER_LOGIN);
+                            localStorage.removeItem(TOKEN);
+                            history.push('/');
+                            window.location.reload();
+                        }}>Đăng xuất</button>
+                    </div>
+                </div>
+            </Fragment>
+        }
         return <Fragment>
             <div className="user logged">
                 <p>

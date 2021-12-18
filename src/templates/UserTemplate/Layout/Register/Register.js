@@ -7,6 +7,8 @@ import React, { useState } from 'react'
 import { Link } from 'react-router-dom';
 import { useFormik } from 'formik';
 import * as Yup from 'yup'
+import { dangKyAction, dangNhapAction } from '../../../../redux/action/QuanLyNguoiDungAction';
+import { useDispatch } from 'react-redux';
 
 
 const CssTextField = styled(TextField)({
@@ -55,6 +57,8 @@ export default function Register(props) {
         setGroup(event.target.value);
     };
 
+    const dispatch = useDispatch();
+
     const formik = useFormik({
         initialValues: {
             taiKhoan: '',
@@ -72,14 +76,16 @@ export default function Register(props) {
             hoTen: Yup.string().required('Họ tên không được bỏ trống !').trim(),
         }),
         onSubmit: (values) => {
-            console.log('values', values);
+            const action = dangKyAction(values);
+            dispatch(action)
+            // console.log('values', values);
         }
     })
 
     return (
         <div className="register">
             <div className="register__content col-7 mx-auto px-5">
-                <Link to="/" exact>
+                <Link to="/" >
                     <IconButton className="register__close nav-link" aria-label="delete" color="error" size="large">
                         <CancelIcon fontSize="large" />
                     </IconButton>
@@ -156,7 +162,6 @@ export default function Register(props) {
                                     />
                                 </div>
                                 <div className="field--row">
-
                                     <CssSelect
                                         fullWidth
                                         onChange={formik.handleChange}
@@ -185,7 +190,7 @@ export default function Register(props) {
                             </div>
                         </div>
                         <div className="register__button">
-                            <Link to="/login" exact className="button--login">
+                            <Link to="/login"  className="button--login">
                                 <Button variant="contained">ĐĂNG NHẬP</Button>
                             </Link>
                             <Button type="submit" variant="contained">ĐĂNG KÝ</Button>

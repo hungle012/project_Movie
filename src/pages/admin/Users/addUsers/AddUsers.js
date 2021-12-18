@@ -30,7 +30,7 @@ export default function AddUsers(props) {
             hoTen: Yup.string().required('Họ tên không được bỏ trống !').matches(/[^a-z0-9A-Z_ÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂưăạảấầẩẫậắằẳẵặẹẻẽềềểỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹ]/u,'Tên không đúng định dạng !'),
         }),
         onSubmit: (values) => {
-            console.log('values', values);
+            // console.log('values', values);
             values.maNhom = GROUPID;
             dispatch(themNguoiDungAction(values));
         }

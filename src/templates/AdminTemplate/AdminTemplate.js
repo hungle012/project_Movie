@@ -47,10 +47,10 @@ const AdminTemplate = (props) => { //path, exact, Component
     const operations = <Fragment>
         {!_.isEmpty(userLogin) ? <Fragment> <button onClick={() => {
             history.push('/profile')
-        }}> <div className="rounded-full">{userLogin.taiKhoan.substr(0, 1)}</div></button> <button onClick={() => {
+        }}> <div className="user--acc"><span>{userLogin.taiKhoan.slice(0, 1)}</span></div></button> <button onClick={() => {
             localStorage.removeItem(USER_LOGIN);
             localStorage.removeItem(TOKEN);
-            history.push('/home');
+            history.push('/');
             window.location.reload();
         }} className="logout">Đăng xuất</button> </Fragment> : ''}
     </Fragment>

@@ -1,5 +1,5 @@
 import { quanLyNguoiDungService } from "../../services/QuanLyNguoiDungService"
-import { DANG_NHAP_ACION, SET_DANH_SACH_NGUOI_DUNG, SET_LAY_THONG_TIN_NGUOI_DUNG, SET_MA_LOAI_NGUOI_DUNG } from "../types/QuanLyNguoiDungType";
+import { DANG_KY_ACTION, DANG_NHAP_ACION, SET_DANH_SACH_NGUOI_DUNG, SET_LAY_THONG_TIN_NGUOI_DUNG, SET_MA_LOAI_NGUOI_DUNG } from "../types/QuanLyNguoiDungType";
 import { history } from '../../App'
 import Swal from "sweetalert2";
 
@@ -105,4 +105,36 @@ export const xoaNguoiDungAction = (taiKhoan) => {
             })
         }
     };
+}
+
+export const dangKyAction = (thongTinDangKy) => {
+    return async (dispatch) => {
+        try {
+            const result = await quanLyNguoiDungService.dangKy(thongTinDangKy);
+            if (result.data.statusCode === 200) {
+                dispatch({
+                    type: DANG_KY_ACTION,
+                    thongTinDangKy: result.data.content
+                });
+                await Swal.fire({
+                    icon: 'success',
+                    title: 'Đăng ký thành công',
+                    showConfirmButton: false,
+                    timer: 1500,
+                });
+                // chuyển hướng đăng nhập về trang trước đó
+                history.goBack();
+            }
+            // console.log('result', result);
+        } catch (error) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Đăng ký thất bại',
+                text: 'Tên tài khoản hoặc email bị trùng',
+                showConfirmButton: false,
+                timer: 1500,
+            })
+            console.log('error', error);
+        }
+    }
 }
