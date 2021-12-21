@@ -76,16 +76,6 @@ function App() {
         <div className="snowflake">
           ❆
         </div>
-<<<<<<< HEAD
-      <Router history={history}>
-        <Loading />
-        <Switch>
-          <HomeTemplate exact path="/" Component={Home} />
-          <HomeTemplate exact path="/detail/:id" Component={Detail} />
-          <UserTemplate exact path="/profile" Component={Profile} />
-          <UserTemplate exact path="/login" Component={Login} />
-          <UserTemplate exact path="/register" Component={Register} />
-=======
       </div>
       <Suspense fallback={<LoadingHome/>}>
         <Router history={history}>
@@ -95,7 +85,6 @@ function App() {
             <HomeTemplate exact path="/profile" Component={Profile} />
             <UserTemplate exact path="/login" Component={Login} />
             <UserTemplate exact path="/register" Component={Register} />
->>>>>>> 1678c189f9f5d4ce9fb1e34ebcaea4ab70dc0d6a
 
             <CheckoutTemplate exact path="/checkout/:id/:maPhim" Component={Checkout} />
 
