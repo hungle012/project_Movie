@@ -1,5 +1,5 @@
 import Axios from "axios";
-import { CYBER_TOKEN, DOMAIN ,TOKEN} from "../util/settings/config";
+import { CYBER_TOKEN, DOMAIN, TOKEN } from "../util/settings/config";
 
 export class baseServices {
     //put json về phía backend
@@ -12,7 +12,7 @@ export class baseServices {
         }) 
     }
 
-    post = (url,model) => {
+    post = (url, model) => {
         return Axios({
             url:`${DOMAIN}${url}`,
             method:'POST',
