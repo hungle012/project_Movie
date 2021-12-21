@@ -8,7 +8,7 @@ export class baseServices {
             url:`${DOMAIN}${url}`,
             method:'PUT',
             data:model,
-            headers: {'Authorization': 'Bearer ' + CYBER_TOKEN,'TokenCybersoft': CYBER_TOKEN} //JWT
+            headers: {'Authorization': 'Bearer ' + (localStorage.getItem(TOKEN)),'TokenCybersoft': CYBER_TOKEN} //JWT
         }) 
     }
 
@@ -17,7 +17,7 @@ export class baseServices {
             url:`${DOMAIN}${url}`,
             method:'POST',
             data:model,
-            headers: {'Authorization': 'Bearer ' + CYBER_TOKEN,'TokenCybersoft': CYBER_TOKEN} //JWT
+            headers: {'Authorization': 'Bearer ' + (localStorage.getItem(TOKEN)),'TokenCybersoft': CYBER_TOKEN} //JWT
         }) 
     }
 
@@ -26,7 +26,7 @@ export class baseServices {
         return Axios({
             url:`${DOMAIN}${url}`,
             method:'GET',
-            headers: {'Authorization': 'Bearer ' + CYBER_TOKEN,'TokenCybersoft': CYBER_TOKEN} //token yêu cầu từ backend chứng minh user đã đăng nhập rồi
+            headers: {'Authorization': 'Bearer ' + (localStorage.getItem(TOKEN)),'TokenCybersoft': CYBER_TOKEN} //token yêu cầu từ backend chứng minh user đã đăng nhập rồi
         })
     }
 
@@ -34,7 +34,7 @@ export class baseServices {
         return Axios({
             url:`${DOMAIN}${url}`,
             method:'DELETE',
-            headers: {'Authorization': 'Bearer ' + CYBER_TOKEN,'TokenCybersoft': CYBER_TOKEN} //token yêu cầu từ backend chứng minh user đã đăng nhập rồi
+            headers: {'Authorization': 'Bearer ' + (localStorage.getItem(TOKEN)),'TokenCybersoft': CYBER_TOKEN} //token yêu cầu từ backend chứng minh user đã đăng nhập rồi
         })
     }
 }

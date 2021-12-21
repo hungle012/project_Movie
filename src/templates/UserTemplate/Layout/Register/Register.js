@@ -7,7 +7,7 @@ import React, { useState } from 'react'
 import { Link } from 'react-router-dom';
 import { useFormik } from 'formik';
 import * as Yup from 'yup'
-import { dangKyAction, dangNhapAction } from '../../../../redux/action/QuanLyNguoiDungAction';
+import { dangKyAction } from '../../../../redux/action/QuanLyNguoiDungAction';
 import { useDispatch } from 'react-redux';
 
 
@@ -164,8 +164,6 @@ export default function Register(props) {
                                 <div className="field--row">
                                     <CssSelect
                                         fullWidth
-                                        onChange={formik.handleChange}
-                                        error={(formik.touched.maNhom) && (formik.errors.maNhom) ? true : false}
                                     >
                                         <InputLabel id="maNhomLabel">Mã nhóm</InputLabel>
                                         <Select
@@ -174,7 +172,6 @@ export default function Register(props) {
                                             value={group}
                                             label="Mã nhóm"
                                             onChange={selectGroup}
-                                            error={(formik.touched.maNhom) && (formik.errors.maNhom) ? true : false}
                                         >
                                             <MenuItem value={"GP01"}>GP01</MenuItem>
                                             <MenuItem value={"GP02"}>GP02</MenuItem>
