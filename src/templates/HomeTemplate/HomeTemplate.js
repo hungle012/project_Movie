@@ -6,9 +6,9 @@ import Header from "./layout/Header/Header";
 const HomeTemplate = (props) => {
     const { Component, ...restProps } = props;
 
-    useEffect(() => {
-        window.scrollTo(0,0);
-    })
+    // useEffect(() => {
+    //     window.scrollTo(0,0);
+    // })
 
     return <Route {...restProps} render={(propsRoute) => {
         return <Fragment>
