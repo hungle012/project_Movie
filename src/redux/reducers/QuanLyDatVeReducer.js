@@ -6,7 +6,7 @@ import { CHUYEN_TAB, CHUYEN_TAB_ACTIVE, DAT_GHE, DAT_VE_HOAN_TAT, SET_CHI_TIET_P
 const stateDefault = {
     chiTietPhongVe: new ThongTinLichChieu(),
     danhSachGheDangChon: [],
-    danhSachGheNguoiKhacDat:[{maGhe:50010}],
+    danhSachGheNguoiKhacDat:[],
     tabActive: "1",
     widthCustom: '75%', 
     logoRap: new ThongTinLichChieuPhim()

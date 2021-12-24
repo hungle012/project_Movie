@@ -1,5 +1,5 @@
 import { quanLyNguoiDungService } from "../../services/QuanLyNguoiDungService"
-import { DANG_KY_ACTION, DANG_NHAP_ACION, SET_DANH_SACH_NGUOI_DUNG, SET_LAY_THONG_TIN_NGUOI_DUNG, SET_MA_LOAI_NGUOI_DUNG } from "../types/QuanLyNguoiDungType";
+import { DANG_KY_ACTION, DANG_NHAP_ACION, DOI_MAT_KHAU_ACTION, SET_DANH_SACH_NGUOI_DUNG, SET_LAY_THONG_TIN_NGUOI_DUNG, SET_MA_LOAI_NGUOI_DUNG, SET_THONG_TIN_TAI_KHOAN_ND } from "../types/QuanLyNguoiDungType";
 import { history } from '../../App'
 import Swal from "sweetalert2";
 
@@ -31,7 +31,7 @@ export const dangNhapAction = (thongTinDangNhap) => {
                 showConfirmButton: false,
                 timer: 1500,
             })
-            console.log('error', error);
+            console.log('error', error.response?.data.content);
         }
     }
 }
@@ -46,7 +46,7 @@ export const layDanhSachNguoiDungAction = (tuKhoa = '') => {
                 thongTinNguoiDung: result.data.content
             })
         } catch (error) {
-            console.log('errors', error);
+            console.log('errors', error.response?.data.content);
         }
     };
 }
@@ -59,7 +59,7 @@ export const layThongTinNguoiDungAction = (taiKhoan) => {
                 chiTietNguoiDung: result.data.content
             })
         } catch (error) {
-            console.log('errors', error);
+            console.log('errors', error.response?.data.content);
         }
     };
 }
@@ -73,7 +73,7 @@ export const layThongTinLoaiNguoiDungAction = () => {
                 maLoaiNguoiDung: result.data.content
             })
         } catch (error) {
-            console.log('errors', error);
+            console.log('errors', error.response?.data.content);
         }
     };
 }
@@ -88,7 +88,7 @@ export const themNguoiDungAction = (values) => {
                 'success'
             )
         } catch (error) {
-            console.log('errors', error);
+            console.log('errors', error.response?.data.content);
         }
     };
 }
@@ -104,7 +104,7 @@ export const suaNguoiDungAction = (values) => {
             dispatch(layDanhSachNguoiDungAction());
             history.push('/admin/users')
         } catch (error) {
-            console.log('errors', error);
+            console.log('errors', error.response?.data.content);
         }
     };
 }
@@ -127,6 +127,7 @@ export const dangKyAction = (thongTinDangKy) => {
     return async (dispatch) => {
         try {
             const result = await quanLyNguoiDungService.dangKy(thongTinDangKy);
+            console.log(thongTinDangKy)
             if (result.data.statusCode === 200) {
                 dispatch({
                     type: DANG_KY_ACTION,
@@ -150,6 +151,46 @@ export const dangKyAction = (thongTinDangKy) => {
                 showConfirmButton: false,
                 timer: 1500,
             })
+            console.log('error', error.response?.data.content);
+        }
+    }
+}
+
+export const layThongTinTaiKhoanNDAction = () => {
+    return async (dispatch) => {
+        try {
+            const result = await quanLyNguoiDungService.layThongTinTaiKhoanND();
+
+            if (result.data.statusCode === 200) {
+                dispatch({
+                    type: SET_THONG_TIN_TAI_KHOAN_ND,
+                    thongTinTaiKhoanND: result.data.content
+                });
+            }
+        } catch (error) {
+            console.log('error', error.response?.data.content);
+        }
+    };
+}
+export const doiMatKhauAction = (thongTinThayDoi) => {
+    return async (dispatch) => {
+        try {
+            const result = await quanLyNguoiDungService.doiMatKhau(thongTinThayDoi);
+            if (result.data.statusCode === 200) {
+                dispatch({
+                    type: DOI_MAT_KHAU_ACTION,
+                    thongTinThayDoi: result.data.content
+                });
+                await Swal.fire({
+                    icon: 'success',
+                    title: 'Đổi mật khẩu thành công',
+                    showConfirmButton: false,
+                    timer: 1500,
+                });
+            }
+            // console.log('result', result);
+        } catch (error) {
+            console.log(thongTinThayDoi);
             console.log('error', error);
         }
     }

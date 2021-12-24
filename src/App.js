@@ -82,7 +82,7 @@ function App() {
           <Switch>
             <HomeTemplate exact path="/" Component={Home} />
             <HomeTemplate exact path="/detail/:id" Component={Detail} />
-            <HomeTemplate exact path="/profile" Component={Profile} />
+            <UserTemplate exact path="/profile" Component={Profile} />
             <UserTemplate exact path="/login" Component={Login} />
             <UserTemplate exact path="/register" Component={Register} />
 
