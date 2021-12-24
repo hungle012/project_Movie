@@ -1,8 +1,14 @@
 .listMovie {
   padding-top: $pd-6;
+  @include reponsiveMax("small") {
+    padding-top: $pd-7;
+  }
   .nav {
     margin-top: $mg-1;
     justify-content: center;
+    .nav-item a:hover {
+      color: white !important;
+    }
   }
   .listMovie__content {
     width: 100%;
@@ -12,9 +18,12 @@
         .slick-prev:before,
         .slick-next:before {
           color: $color-orange-dark;
-          font-size: 40px;  
+          font-size: 40px;
           font-weight: $fw-4;
           transition: all 0.5s;
+          @include reponsiveMax("small"){
+            display: none;
+          }
         }
         .slick-next,
         .slick-prev {
@@ -28,6 +37,9 @@
         }
         .movie__item {
           padding: $pd-3;
+          @include reponsiveMax("small") {
+            padding: $pd-2;
+          }
           &:hover {
             .movie__img {
               box-shadow: none;
@@ -56,7 +68,8 @@
               width: 100%;
               height: 300px;
               @include reponsiveMax("small") {
-                height: 270px;
+                height: 200px;
+                max-width: 100%;
               }
               @include between-sizes("medium", "large") {
                 height: 270px;
@@ -106,6 +119,9 @@
           .movie__info {
             padding-top: $pd-2;
             position: relative;
+            @include reponsiveMax("small"){
+              text-align: center;
+          }
             .tenPhim {
               font-weight: $fw-3;
               margin: 0;
@@ -131,6 +147,9 @@
         }
         .movie__itemSapChieu {
           padding: $pd-3;
+          @include reponsiveMax("small") {
+            padding: $pd-2;
+          }
           &:hover {
             .movie__img {
               box-shadow: none;
@@ -153,7 +172,8 @@
               width: 100%;
               height: 300px;
               @include reponsiveMax("small") {
-                height: 270px;
+                height: 200px;
+                max-width: 100%;
               }
               @include between-sizes("medium", "large") {
                 height: 270px;
@@ -213,6 +233,9 @@
           .movie__info {
             padding-top: $pd-2;
             position: relative;
+            @include reponsiveMax("small"){
+                text-align: center;
+            }
             .tenPhim {
               font-weight: $fw-3;
               margin: 0;
@@ -275,3 +298,8 @@
     transform: translate(1px, -2px) rotate(-1deg);
   }
 }
+// @media (max-width: small ){
+//   .listMovie{
+//     padding-top: 100px;
+//   }
+// }

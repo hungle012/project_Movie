@@ -122,10 +122,11 @@ export default function Header() {
                                     }}>Ứng dụng</Link>
                                 </li>
                             </ul>
+                            <div className="header__detail">
+                                {renderLogin()}
+                            </div>
                         </div>
-                        <div className="header__detail">
-                            {renderLogin()}
-                        </div>
+
                     </nav>
                 </div>
             </Sticky>
