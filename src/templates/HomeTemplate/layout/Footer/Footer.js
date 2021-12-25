@@ -33,7 +33,7 @@ export default function Footer() {
                 </span>
               </p>
             </div>
-            <div className="col-md-4">
+            <div className="col-md-4 doiTac">
               <h4>ĐỐI TÁC</h4>
               <div className="row pb-2">
                 <div className="col">

@@ -21,7 +21,7 @@ export default class News extends Component {
         <section className="readmore">
           <div className="container readmore__content">
             <ul
-              className="nav nav-pills mb-3 justify-content-center pt-5"
+              className="nav nav-pills justify-content-center py-5"
               id="pills-tab"
               role="tablist"
             >
@@ -74,20 +74,22 @@ export default class News extends Component {
               >
                 <div className="container">
                   <div className="row">
-                    <div className="col-md-6 readmore__img">
+                    <div className="col-md-6 readmore__img readmore__bot">
                       <LazyLoadImage
                         src="./img/news/new2.jpg"
                         alt="anh_new1"
                         className="img-fluid "
                       />
-                      <Link
-                        to="#"
-                        href="#"
-                        className="text-decoration-none"
-                      >
-                        [ANTEBELLUM] - 4 lý do không thể bỏ lỡ siêu phẩm kinh dị
-                        Antebellum: Bẫy Thực Tại Kinh Hoàng
-                      </Link>
+                      <p>
+                        <Link
+                          to="#"
+                          href="#"
+                          className="text-decoration-none"
+                        >
+                          [ANTEBELLUM] - 4 lý do không thể bỏ lỡ siêu phẩm kinh dị
+                          Antebellum: Bẫy Thực Tại Kinh Hoàng
+                        </Link>
+                      </p>
                       <p>
                         Không đi theo lối mòn máu me, hù dọa mà đầu tư khai thác
                         những mảng tối của xã hội trên nền một câu chuyện kinh
@@ -103,16 +105,18 @@ export default class News extends Component {
                         1
                       </p>
                     </div>
-                    <div className="col-md-6 readmore__img">
+                    <div className="col-md-6 readmore__img readmore__bot">
                       <LazyLoadImage
                         src="./img/news/news1.png"
                         alt="anh_new2"
                         className="img-fluid "
                       />
-                      <Link to="#" href="#" className="text-decoration-none">
-                        Ác Quỷ Đối Đầu soán ngôi Peninsula, trở thành phim đứng
-                        đầu doanh thu tại Hàn Quốc mùa dịch
-                      </Link>
+                      <p>
+                        <Link to="#" href="#" className="text-decoration-none">
+                          Ác Quỷ Đối Đầu soán ngôi Peninsula, trở thành phim đứng
+                          đầu doanh thu tại Hàn Quốc mùa dịch
+                        </Link>
+                      </p>
                       <p>
                         Vượt mặt Peninsula, Ác Quỷ Đối Đầu trở thành phim ăn
                         khách nhất mùa hè 2020 tại Hàn Quốc. Chỉ sau 12 ngày, Ác
@@ -234,15 +238,17 @@ export default class News extends Component {
                     </div>
                   </div>
                   <div className="row " id="r__hidden">
-                    <div className="col-md-6 readmore__img">
+                    <div className="col-md-6 readmore__img readmore__bot">
                       <LazyLoadImage
                         src="./img/news/new9.png"
                         alt="anh_new1"
                         className="img-fluid "
                       />
-                      <Link to="#" href="#" className="text-decoration-none">
-                        TENET công bố ngày khởi chiếu chính thức tại Việt Nam
-                      </Link>
+                      <p>
+                        <Link to="#" href="#" className="text-decoration-none">
+                          TENET công bố ngày khởi chiếu chính thức tại Việt Nam
+                        </Link>
+                      </p>
                       <p>
                         Đêm qua theo giờ Việt Nam, hãng phim Warner Bros. đưa ra
                         thông báo chính thức về ngày khởi chiếu cho bom tấn
@@ -258,15 +264,17 @@ export default class News extends Component {
                         2
                       </p>
                     </div>
-                    <div className="col-md-6 readmore__img">
+                    <div className="col-md-6 readmore__img readmore__bot">
                       <LazyLoadImage
                         src="./img/news/new10.jpg"
                         alt="anh_new2"
                         className="img-fluid "
                       />
-                      <Link to="#" href="#" className="text-decoration-none">
-                        Khi phụ nữ không còn ở thế trốn chạy của nạn nhân
-                      </Link>
+                      <p>
+                        <Link to="#" href="#" className="text-decoration-none">
+                          Khi phụ nữ không còn ở thế trốn chạy của nạn nhân
+                        </Link>
+                      </p>
                       <p>
                         Là bộ phim tâm lý li kỳ với chủ đề tội phạm, Bằng Chứng
                         Vô Hình mang đến một góc nhìn mới về hình ảnh những
@@ -302,16 +310,18 @@ export default class News extends Component {
               >
                 <div className="container">
                   <div className="row">
-                    <div className="col-md-6 readmore__img">
+                    <div className="col-md-6 readmore__img readmore__bot">
                       <LazyLoadImage
                         src="./img/news/review1.png"
                         alt="anh_new1"
                         className="img-fluid "
                       />
+                      <p>
                       <Link to="#" href="#" className="text-decoration-none">
                         Review: Tàn Tích Quỷ Ám (Relic) - Ba thế hệ và mối liên
                         kết
                       </Link>
+                      </p>
                       <p>
                         Điểm nhấn của phim kinh dị năm 2020 chính là Tàn Tích
                         Quỷ Ám{" "}
@@ -325,15 +335,17 @@ export default class News extends Component {
                         6
                       </p>
                     </div>
-                    <div className="col-md-6 readmore__img">
+                    <div className="col-md-6 readmore__img readmore__bot">
                       <LazyLoadImage
                         src="./img/news/review2.png"
                         alt="anh_new2"
                         className="img-fluid "
                       />
+                      <p>
                       <Link to="#" href="#" className="text-decoration-none">
                         Review: Dinh Thự Oan Khuất (Ghost Of War)
                       </Link>
+                      </p>
                       <p>
                         Tuy là một bộ phim có chất lượng tốt, nhưng có vẻ Dinh
                         Thự Oan Khuất vẫn chưa đủ để đem khán giả trở lại phòng
@@ -411,6 +423,7 @@ export default class News extends Component {
                           alt=""
                           className="img-fluid"
                         />
+                        <p>
                         <Link
                           to="#"
                           href="#"
@@ -418,6 +431,7 @@ export default class News extends Component {
                         >
                           Review: Spider-Man: Into The Spider-Vesre{" "}
                         </Link>
+                        </p>
                       </div>
                       <div className="row mb-3 mb-md-0 mb-lg-2">
                         <LazyLoadImage
@@ -494,10 +508,12 @@ export default class News extends Component {
                         alt="anh_new2"
                         className="img-fluid "
                       />
+                      <p>
                       <Link to="#" href="#" className="text-decoration-none">
                         [Review] Onward - Khi phép thuật mạnh mẽ nhất chính là
                         tình thân{" "}
                       </Link>
+                      </p>
                       <p>
                         Tác phẩm mới nhất của Pixar tiếp tục là câu chuyện hài
                         hước và cảm xúc về tình cảm gia đình.{" "}
@@ -530,15 +546,17 @@ export default class News extends Component {
               >
                 <div className="container">
                   <div className="row">
-                    <div className="col-md-6 readmore__img">
+                    <div className="col-md-6 readmore__img readmore__bot">
                       <LazyLoadImage
                         src="./img/news/sales1.png"
                         alt="anh_new1"
                         className="img-fluid "
                       />
+                      <p>
                       <Link to="#" href="#" className="text-decoration-none">
                         ĐỒNG GIÁ 1K/VÉ KHI MUA VÉ QUA TIX
                       </Link>
+                      </p>
                       <p>
                         ĐỒNG GIÁ 1K/VÉ KHI MUA VÉ QUA TIX Hành trình tìm Ròm và
                         Phúc chỉ với 1k cả tuần + nhận thêm 02 voucher khi đặt
@@ -553,15 +571,17 @@ export default class News extends Component {
                         3
                       </p>
                     </div>
-                    <div className="col-md-6 readmore__img">
+                    <div className="col-md-6 readmore__img readmore__bot">
                       <LazyLoadImage
                         src="./img/news/sales2.jpg"
                         alt="anh_new2"
                         className="img-fluid "
                       />
+                      <p>
                       <Link to="#" href="#" className="text-decoration-none">
                         BHD STAR VÉ CHỈ 59.000Đ CẢ TUẦN!
                       </Link>
+                      </p>
                       <p>
                         Tận hưởng Ưu Đãi lên đến 3 VÉ BHD Star mỗi tuần chỉ với
                         giá 59k/vé khi mua vé trên TIX và thanh toán bằng
@@ -696,9 +716,11 @@ export default class News extends Component {
                         alt="anh_new1"
                         className="img-fluid "
                       />
+                      <p>
                       <Link to="#" href="#" className="text-decoration-none">
                         [123Phim] TixShop trở lại, quà ‘xịn’ hơn xưa
                       </Link>
+                      </p>
                       <p>
                         Nhiều Tix làm gì, để tiêu vào TixShop chứ còn chờ chi.
                       </p>
@@ -717,9 +739,11 @@ export default class News extends Component {
                         alt="anh_new2"
                         className="img-fluid "
                       />
+                      <p>
                       <Link to="#" href="#" className="text-decoration-none">
                         [Galaxy Tràng Thi] Xem Phim Hay, Say Quà Tặng
                       </Link>
+                      </p>
                       <p>
                         Nhân dịp khai trương Galaxy Tràng Thi, Galaxy Cinema
                         dành tặng các Stars Hà Nội loạt phần quà siêu hấp dẫn.{" "}

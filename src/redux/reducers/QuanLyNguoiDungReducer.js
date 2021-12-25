@@ -1,5 +1,5 @@
 import { TOKEN, USER_LOGIN } from "../../util/settings/config";
-import { DANG_NHAP_ACION, SET_LAY_THONG_TIN_NGUOI_DUNG, SET_DANH_SACH_NGUOI_DUNG, SET_MA_LOAI_NGUOI_DUNG, DANG_KY_ACTION } from "../types/QuanLyNguoiDungType"
+import { DANG_NHAP_ACION, SET_LAY_THONG_TIN_NGUOI_DUNG, SET_DANH_SACH_NGUOI_DUNG, SET_MA_LOAI_NGUOI_DUNG, DANG_KY_ACTION, SET_THONG_TIN_TAI_KHOAN_ND, DOI_MAT_KHAU_ACTION } from "../types/QuanLyNguoiDungType"
 
 let user = {};
 if (localStorage.getItem(USER_LOGIN)) {
@@ -10,7 +10,8 @@ const stateDefault = {
     userLogin: user,
     thongTinNguoiDung: [],
     chiTietNguoiDung: {},
-    maLoaiNguoiDung: []
+    maLoaiNguoiDung: [],
+    thongTinTaiKhoanND: {}
 }
 
 
@@ -20,6 +21,7 @@ export const QuanLyNguoiDungReducer = (state = stateDefault, action) => {
 
         case DANG_NHAP_ACION : {
             const {thongTinDangNhap} = action;
+            // console.log(thongTinDangNhap);
             localStorage.setItem(USER_LOGIN,JSON.stringify(thongTinDangNhap));
             localStorage.setItem(TOKEN,thongTinDangNhap.accessToken)
 
@@ -42,6 +44,15 @@ export const QuanLyNguoiDungReducer = (state = stateDefault, action) => {
 
             return {...state}
         }
+        case SET_THONG_TIN_TAI_KHOAN_ND: {
+            state.thongTinTaiKhoanND = action.thongTinTaiKhoanND;
+
+            return {...state}
+        }
+        case DOI_MAT_KHAU_ACTION: {
+            return {...state}
+        }
+
         default:
             return { ...state }
     }
