@@ -67,7 +67,6 @@ function Profile() {
             matKhau2: Yup.string().oneOf([Yup.ref("matKhau")], "Mật khẩu không khớp").required('Mật khẩu không được bỏ trống !').trim(),
         }),
         onSubmit: (values) => {
-            console.log(thongTinTaiKhoanND.matKhau)
             if (values.matKhauCu !== thongTinTaiKhoanND.matKhau) {
                 Swal.fire({
                     icon: 'error',
@@ -83,7 +82,8 @@ function Profile() {
                     maLoaiNguoiDung: values.maLoaiNguoiDung,
                     hoTen: values.hoTen,
                 });
-                dispatch(action)
+                dispatch(action);
+                setDisplay("none");
             }
             // console.log('values', values);
         }

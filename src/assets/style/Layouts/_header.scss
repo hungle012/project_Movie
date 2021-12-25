@@ -127,10 +127,29 @@
         }
     }
 }
-.header__fixed {
-    background-color: #101010;
-    border-bottom: none;
-    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.05);
-    z-index: 99 !important;
-    transition: all 0.4s ease 0s;
+@include reponsiveMax("small") {
+    .header {
+        background-color: #101010;
+        .header__nav {
+            .navbar {
+                height: 70px;
+                .header__logo img {
+                    height: 60px;
+                }
+                .navbar-toggler {
+                    border: 1px solid white !important;
+                }
+                .navbar-collapse {
+                    background-color: #101010 !important;
+                    .navbar-nav {
+                        border-bottom: none;
+                    }
+                    .header__detail {
+                        padding: 10px;
+                        justify-content: center;
+                    }
+                }
+            }
+        }
+    }
 }

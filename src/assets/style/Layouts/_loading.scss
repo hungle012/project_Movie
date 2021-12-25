@@ -11,7 +11,10 @@ $med: new-breakpoint(min-width 768px);
 $lg: new-breakpoint(min-width 1024px);
 
 .loader {
-	position: relative;
+	position: fixed;
+	top: 0;
+    left: 50%;
+    transform: translate(-50%,-50%);
 	display: grid;
 	grid-template-columns: 33% 33% 33%;
 	grid-gap: 2px;

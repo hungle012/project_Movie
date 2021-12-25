@@ -10,7 +10,6 @@ import { displayLoadingAction, hideLoadingAction } from "./LoadingAction";
 export const layChiTietPhongVeAction = (maLichChieu) => {
 
     return async (dispatch) => {
-
         try {
             const result = await quanLyDatVeService.layChiTietPhongVe(maLichChieu)
 
@@ -90,7 +89,7 @@ export const layLogoRapAction = (maPhim) => {
             const result = await quanLyDatVeService.layLogoRap(maPhim)
 
             if (result.data.statusCode === 200) {
-                console.log(result.data.content);
+                // console.log(result.data.content);
                 dispatch({
                     type: SET_LOGO_RAP,
                     logoRap: result.data.content
