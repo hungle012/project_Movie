@@ -78,8 +78,10 @@ function Header() {
                     <img src="../img/logo.png" alt="anh_LOGO" className="mb-0" />
                 </NavLink>
                 <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span className="navbar-toggler-icon" />
-                </button> 
+                    <span>
+                        <i className="fas fa-bars" style={{color:'white'}}></i>
+                    </span>
+                </button>
                 <div className="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul className="navbar-nav mt-0 mx-auto">
                         <li className="nav-item">
@@ -119,14 +121,12 @@ function Header() {
                             }}>Ứng dụng</Link>
                         </li>
                     </ul>
-                </div>
-                <div className="header__detail">
-                    {renderLogin()}
+                    <div className="header__detail">
+                        {renderLogin()}
+                    </div>
                 </div>
             </nav>
-        </div>
-
-
+        </div> 
     )
 }
 
@@ -150,7 +150,7 @@ export default function (props) {
 
     useEffect(() => {
         window.addEventListener('scroll', handleScroll)
-    },[window.pageYOffset])
+    }, [window.pageYOffset])
 
     return (
         <header className="header">
