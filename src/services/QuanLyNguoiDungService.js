@@ -36,8 +36,8 @@ export class QuanLyNguoiDungService extends baseServices {
     layThongTinTaiKhoanND = () => {
         return this.post(`/api/QuanLyNguoiDung/ThongTinTaiKhoan`)
     }
-    doiMatKhau = () => {
-        return this.put(`/api/QuanLyNguoiDung/CapNhatThongTinNguoiDung`)
+    doiMatKhau = (thongTinThayDoi) => {
+        return this.put(`/api/QuanLyNguoiDung/CapNhatThongTinNguoiDung`,thongTinThayDoi)
     }
 
 }

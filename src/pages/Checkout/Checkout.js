@@ -48,7 +48,7 @@ function Checkout(props) {
             }
 
             if (maRap === newMaRap ) {
-                return <img src={item.logo} alt="" width={70} height={70} />
+                return <img key={index} src={item.logo} alt="" width={70} height={70} />
             }
             
             
@@ -82,7 +82,7 @@ function Checkout(props) {
                         })
                     }}
                     className={`ghe ${classGheVip} ${classGheDaDat} ${classGheDangChon} ${classGheNguoiKhacDat}`} >
-                    <i class="fas fa-couch"></i>
+                    <i className="fas fa-couch"></i>
                 </button>
 
                 {(index + 1) % 16 === 0 ? <br /> : ''}
@@ -91,15 +91,14 @@ function Checkout(props) {
     }
 
     return (
-        <div className="container-fluid checkout">
-            
+        <div className="container-fluid checkout">     
             <div className="row checkout__content">
                 <div className="checkout__reservations">
                     <button className='backToHome' onClick={() => {
                         history.goBack();
                     }}>
-                        <i class="fas fa-arrow-left"></i>
-                        <i class="far fa-window-minimize" style={{ transform: 'rotate(90deg)' }}></i>
+                        <i className="fas fa-arrow-left"></i>
+                        <i className="far fa-window-minimize" style={{ transform: 'rotate(90deg)' }}></i>
                     </button>
                     <div className="checkout__top p-3 row">
                         <div className="checkout__theater col-7">
@@ -136,30 +135,30 @@ function Checkout(props) {
                         <div className="seat--row col-10 p-0">
                             {renderSeats()}
                         </div>
-                        <div className="seat--note p-4 col-12">
+                        <div className="seat--note pt-4 col-12">
 
                             <button disabled className="ghe gheDangChon ml-4">
-                                <i class="fas fa-couch"></i>
+                                <i className="fas fa-couch"></i>
                             </button>
                             <span>: Ghế đang chọn</span>
 
                             <button disabled className="ghe ml-4">
-                                <i class="fas fa-couch"></i>
+                                <i className="fas fa-couch"></i>
                             </button>
                             <span>: Ghế thường</span>
 
                             <button disabled className="ghe gheVip ml-4">
-                                <i class="fas fa-couch"></i>
+                                <i className="fas fa-couch"></i>
                             </button>
                             <span>: Ghế vip</span>
 
                             <button style={{ cursor: "auto" }} disabled className="ghe gheDaDat ml-4">
-                                <i class="fas fa-couch"></i>
+                                <i className="fas fa-couch"></i>
                             </button>
                             <span>: Ghế đã đặt</span>
 
                             <button style={{ cursor: "auto" }} disabled className="ghe gheNguoiKhacDat ml-4">
-                                <i class="fas fa-couch"></i>
+                                <i className="fas fa-couch"></i>
                             </button>
                             <span>: Ghế đang được người khác đặt</span>
 
@@ -244,7 +243,7 @@ function Checkout(props) {
                     <div className="checkout__bottom">
                         <div className="checkout__note p-4">
                             <div className="left mt-1">
-                                <i class="fas fa-exclamation-circle"></i>
+                                <i className="fas fa-exclamation-circle"></i>
                             </div>
                             <div className="right text-center">
                                 <p>
@@ -318,7 +317,7 @@ export default function (props) {
         </div>
     );
 
-    return <div classname="tab__checkout">
+    return <div className="tab__checkout">
         <Tabs defaultActiveKey={tabActive} activeKey={tabActive} tabBarExtraContent={userAccount} style={{ width: widthCustom }} >
             <TabPane tab="01 CHỌN GHẾ VÀ THANH TOÁN" key="1">
                 <Checkout {...props} />
@@ -351,7 +350,7 @@ function KetQuaDatVe(props) {
             }
 
             if (maRap === newMaRap ) {
-                return <img src={item.logo} alt="" width={70} height={70} />
+                return <img key={index} src={item.logo} alt="" width={70} height={70} />
             }
             
             
@@ -361,7 +360,7 @@ function KetQuaDatVe(props) {
     return <div className='checkout__result container-fluid row m-0'>
         <div className="back col-2 text-center pt-3">
             <Link to="/">
-                <i class="fas fa-arrow-left"></i>
+                <i className="fas fa-arrow-left"></i>
                 Trở về trang chủ
             </Link>
         </div>
@@ -389,7 +388,7 @@ function KetQuaDatVe(props) {
                 history.goBack();
             }}>
                 Tiếp tục đặt vé
-                <i class="fas fa-arrow-right"></i>
+                <i className="fas fa-arrow-right"></i>
             </button>
         </div>
     </div>

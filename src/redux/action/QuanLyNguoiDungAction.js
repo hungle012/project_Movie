@@ -190,7 +190,6 @@ export const doiMatKhauAction = (thongTinThayDoi) => {
             }
             // console.log('result', result);
         } catch (error) {
-            console.log(thongTinThayDoi);
             console.log('error', error);
         }
     }
