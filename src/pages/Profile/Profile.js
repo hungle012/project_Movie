@@ -48,6 +48,14 @@ function Profile() {
     // console.log(thongTinTaiKhoanND);
 
     const [display, setDisplay] = useState('none');
+    const [positon, setPositon] = useState('0');
+
+    useEffect(() => {
+        const widthMH = window.screen.width;
+        if (widthMH < 576) {
+            setPositon('-50.5%');
+        }
+    },[])
 
     const formik = useFormik({
         initialValues: {
@@ -114,7 +122,16 @@ function Profile() {
 
     return (
         <div className="row profile__content">
-            <div className="col-2 profile--user text-center px-0">
+            <div className="col-lg-2 col-md-2 col-sm-2 col-6 profile--user text-center px-0" style={{left:positon}}>
+                <button className='openMenu' onClick={() => {
+                    if (positon === '0') {
+                        setPositon('-50.5%');
+                    } else {
+                        setPositon('0');
+                    }
+                }}>
+                    <i className="fas fa-fighter-jet"></i>
+                </button>
                 <div className="user--avatar m-auto">
                     <img src="https://i.pravatar.cc/150?img=5" alt="img" />
                 </div>
@@ -136,14 +153,14 @@ function Profile() {
                 </div>
 
             </div>
-            <div className="col-2"></div>
-            <div className="col-10 profile--info">
+            <div className="col-lg-2 col-md-2 col-sm-2"></div>
+            <div className="col-lg-10 col-md-10 col-sm-10 col-12 profile--info">
                 <div className="info--blur">
                     <div className="tab-content" style={{ height: '100%' }} id="v-pills-tabContent">
                         <div className="content--information tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
                             <h4>Thông tin cá nhân</h4>
                             <div className="row">
-                                <div className="col-6">
+                                <div className="col-lg-6 col-sm-12">
                                     <p>Bạn có thể xem toàn bộ thông tin đã đăng kí và thay đổi mật khẩu tại đây!</p>
                                     <div className="content--field">
                                         <div className="field--item">
@@ -184,7 +201,7 @@ function Profile() {
                                         </div>
                                     </div>
                                 </div>
-                                <div className="col-6 pt-2">
+                                <div className="col-lg-6 col-sm-12 pt-2">
                                     <button className="btnPass" onClick={() => {
                                         if (display === "none") {
                                             setDisplay("block")
@@ -288,7 +305,7 @@ export default function (props) {
                                     history.push('/');
                                     window.location.reload();
                                 }}>
-                                    <ExitToAppIcon></ExitToAppIcon>
+                                    <ExitToAppIcon fontSize="large"></ExitToAppIcon>
                                 </button>
                             </Tooltip>
                         </div>

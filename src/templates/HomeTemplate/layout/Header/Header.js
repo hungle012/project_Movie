@@ -37,7 +37,9 @@ function Header() {
                         {userLogin.taiKhoan}
                     </p>
                     <div className="dropdown-menu drop-menu" aria-labelledby="dropdownMenuOffset">
-                        <NavLink className="dropdown-item" to="/admin/users">Admin</NavLink>
+                        <button className="dropdown-item" onClick={() => {
+                            history.push('/admin/users')
+                        }}>Tài khoản</button>
                         <button className="dropdown-item" onClick={() => {
                             localStorage.removeItem(USER_LOGIN);
                             localStorage.removeItem(TOKEN);
@@ -59,7 +61,9 @@ function Header() {
                     {userLogin.taiKhoan}
                 </p>
                 <div className="dropdown-menu drop-menu" aria-labelledby="dropdownMenuOffset">
-                    <NavLink className="dropdown-item" to="/profile">Tài khoản</NavLink>
+                    <button className="dropdown-item" onClick={() => {
+                        history.push('/profile')
+                    }}>Tài khoản</button>
                     <button className="dropdown-item" onClick={() => {
                         localStorage.removeItem(USER_LOGIN);
                         localStorage.removeItem(TOKEN);

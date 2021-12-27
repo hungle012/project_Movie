@@ -55,7 +55,7 @@
                 &:focus {
                     outline: none;
                 }
-                a{
+                a {
                     color: white !important;
                 }
             }
@@ -133,4 +133,31 @@
 
 .progress-pie-chart {
     top: 25%;
+}
+
+// responsive
+@include reponsiveMax("small") {
+    .detailMovie {
+        .detail__banner {
+            height: 650px;
+            
+        }
+        .detailMovie__info {
+            top: 40% !important;
+            left: 50% !important;
+            transform: translate(-50%, -50%) !important;
+
+            .detail__img {
+                margin: auto;
+            }
+            .infoText {
+                padding-top: 10px;
+                text-align: center;
+            }
+        }
+        .overlay__banner {
+            height: 650px;
+            
+        }
+    }
 }
