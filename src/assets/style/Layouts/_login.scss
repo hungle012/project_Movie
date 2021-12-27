@@ -4,11 +4,14 @@
     background-size: 100%;
     object-fit: cover;
     height: 100vh;
-    padding-top: 25px;
+    position: relative;
     .login__content {
+        top: 50%;
+        left: 50%;
+        position: absolute;
+        width: 450px;
         padding: 20px 0;
-        display: flex;
-        flex-direction: column;
+        transform: translate(-50%, -50%);
         align-items: center;
         background-image: linear-gradient(180deg, rgba(20, 50, 93, 0.9), rgba(8, 22, 48, 0.9));
         color: $color-white;
@@ -27,6 +30,7 @@
                 width: 80px;
                 height: 80px;
             }
+            text-align: center;
         }
 
         .login__form {
@@ -59,4 +63,13 @@
             color: $color-white;
         }
     }
+}
+@include reponsiveMax("small"){
+    .login{
+        .login__content{
+            width: 85% !important;
+            font-size: $fs-1;
+        }
+    }
+    
 }

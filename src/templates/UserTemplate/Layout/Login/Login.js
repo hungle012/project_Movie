@@ -63,7 +63,7 @@ export default function Login() {
 
     const dispatch = useDispatch();
 
-    const {userLogin} = useSelector(state=>state.QuanLyNguoiDungReducer);
+    const { userLogin } = useSelector(state => state.QuanLyNguoiDungReducer);
 
     // console.log("user", userLogin);
 
@@ -86,14 +86,16 @@ export default function Login() {
 
     return (
         <div className="login">
-            <div className="login__content col-4 mx-auto px-5">
+            <div className="login__content mx-auto px-5">
                 <Link to="/" >
                     <IconButton className="login__close nav-link" aria-label="delete" color="error" size="large">
                         <CancelIcon fontSize="large" />
                     </IconButton>
                 </Link>
                 <div className="login__logo">
-                    <img src="./img/logo.png" alt="" />
+                    <Link to="/">
+                        <img src="./img/logo.png" alt="logo" />
+                    </Link>
                 </div>
 
                 <div className="login__form pt-4">
@@ -126,10 +128,10 @@ export default function Login() {
                                 error={(formik.touched.matKhau) && (formik.errors.matKhau) ? true : false}
                             />
                         </div>
-                        <FormControlLabel control={<Checkbox/>} label="Remember me" />
+                        <FormControlLabel control={<Checkbox />} label="Remember me" />
                         <div className="login__button">
                             <Button type="submit" variant="contained">ĐĂNG NHẬP</Button>
-                            <Link to="/register"  className="button--register">
+                            <Link to="/register" className="button--register">
                                 <Button variant="contained">ĐĂNG KÝ</Button>
                             </Link>
                         </div>

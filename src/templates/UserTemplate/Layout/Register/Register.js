@@ -84,7 +84,7 @@ export default function Register(props) {
 
     return (
         <div className="register">
-            <div className="register__content col-7 mx-auto px-5">
+            <div className="register__content col-12 col-sm-7 mx-auto px-5">
                 <Link to="/" >
                     <IconButton className="register__close nav-link" aria-label="delete" color="error" size="large">
                         <CancelIcon fontSize="large" />
@@ -97,7 +97,7 @@ export default function Register(props) {
                     <p className="text-center">Đăng ký để được nhiều ưu đãi, mua vé và bảo mật thông tin!</p>
                     <form onSubmit={formik.handleSubmit}>
                         <div className="register__field row">
-                            <div className="field--col col-6">
+                            <div className="field--col col-12 col-sm-6">
                                 <div className="field--row">
                                     <CssTextField
                                         label="Tài khoản"
@@ -135,7 +135,7 @@ export default function Register(props) {
                                     />
                                 </div>
                             </div>
-                            <div className="field--col col-6">
+                            <div className="field--col col-12 col-sm-6">
                                 <div className="field--row">
                                     <CssTextField
                                         label="Mật khẩu"
