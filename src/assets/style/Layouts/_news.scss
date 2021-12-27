@@ -1,5 +1,8 @@
 .readmore {
   padding-top: $pd-4;
+  @include reponsiveMax("small"){
+    padding-top: $pd-3;
+  }
   background-color: rgba(8, 1, 1, 0.5);
   #r__hidden,
   #r__hidden1,
