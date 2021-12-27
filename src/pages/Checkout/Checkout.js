@@ -117,7 +117,7 @@ function Checkout(props) {
                         </div>
                     </div>
                     <div className="checkout__screen text-center">
-                        <img src="../img/checkout/screen.png" alt="" />
+                        <img src="../../img/checkout/screen.png" alt="" />
                     </div>
                     <div className="checkout__seat row">
                         <div className="seat--col col-1 p-0">
