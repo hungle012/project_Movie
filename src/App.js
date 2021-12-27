@@ -23,7 +23,6 @@ import EditUsers from './pages/admin/Users/editUsers/EditUsers';
 import LoadingHome from './Components/Loading/LoadingHome'
 import { Fragment, Suspense, lazy } from 'react';
 
-// export const HomeTemplate = lazy(() => import('./templates/HomeTemplate/HomeTemplate'));
 export const HomeTemplate = lazy(() => {
   return new Promise(resolve => {
     setTimeout(() => resolve(import('./templates/HomeTemplate/HomeTemplate')), 1500);
@@ -77,7 +76,7 @@ function App() {
           ❆
         </div>
       </div>
-      <Suspense fallback={<LoadingHome/>}>
+      <Suspense fallback={<LoadingHome />}>
         <Router history={history}>
           <Switch>
             <HomeTemplate exact path="/" Component={Home} />

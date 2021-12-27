@@ -6,6 +6,8 @@
     height: 100vh;
     padding-top: 25px;
     .login__content {
+        position: relative;
+        width: 450px;
         padding: 20px 0;
         display: flex;
         flex-direction: column;

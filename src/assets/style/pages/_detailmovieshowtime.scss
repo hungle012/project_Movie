@@ -177,3 +177,40 @@
     }
   }
 }
+
+// resposive
+@include reponsiveMax("small") {
+  .detailMovie_ShowTimes {
+    .container {
+      padding: 0;
+      .nav {
+        .nav-item {
+          padding: 0 5px;
+        }
+      }
+      .detailShowtime__content {
+        width: 100%;
+        .ant-tabs-tab {
+          padding: 10px !important;
+        }
+        .ant-tabs-tabpane {
+          padding-left: 15px !important;
+        }
+        .theater__rap {
+          img {
+            display: none;
+          }
+          .rap--info {
+            opacity: 1;
+          }
+        }
+        .theater__LichChieu {
+          padding-bottom: 0 !important;
+          .theater__time {
+            width: 50%;
+          }
+        }
+      }
+    }
+  }
+}

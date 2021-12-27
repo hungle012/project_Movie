@@ -1,18 +1,10 @@
 .readmore {
   padding-top: $pd-4;
   background-color: rgba(8, 1, 1, 0.5);
-  // visibility: hidden;
-  // display: none;
   #r__hidden,
   #r__hidden1,
   #r__hidden2 {
     display: none;
-  }
-  .button.active {
-    background-image: linear-gradient(to right, #fbbd61, #ec7532);
-    color: white;
-    padding: 10px 25px;
-    border-radius: 30px !important;
   }
   .button {
     color: #ec7532;
@@ -23,6 +15,11 @@
   &__img {
     img {
       height: 300px;
+      padding-bottom: $pd-2;
+      @include reponsiveMax("small"){
+        height: 200px;
+        padding-bottom: $pd-1;
+      }
     }
     a {
       color: white;
@@ -67,9 +64,6 @@
         margin-bottom: 0 !important;
       }
     }
-    // @media screen and (max-width: 576px) {
-    //   margin: 0 15px !important;
-    // }
     @media screen and (max-width: 767px) {
       margin: 0 15px !important;
     }
@@ -77,15 +71,18 @@
   &__bot {
     a {
       font-size: 16px;
+      @include reponsiveMax("small"){
+        font-size: 13px;
+      }
     }
     img:first-child {
       width: 100%;
     }
     img {
-      height: 220px;
-      // @media screen and (max-width: 768px) {
-      //   height: 220px;
-      // }
+      // height: 220px;
+      @include reponsiveMax("small"){
+        height: 200px;
+      }
     }
   }
   &__button {

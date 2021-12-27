@@ -97,7 +97,7 @@ export default function Detail(props) {
                                                     </div>
                                                     <div className="w-100">
                                                         <span style={{ fontSize: "20px", color: "red", marginTop: '10px' }}>2D Digital</span>
-                                                        <div className="movie--info col-10 pr-0">
+                                                        <div className="movie--info col-lg-10 col-sm-12 pr-0">
                                                             {cumRap.lichChieuPhim?.slice(0, 10).map((lichChieu, index) => {
                                                                 return <div className="theater__time" key={index}>
                                                                     <NavLink to={`/checkout/${lichChieu.maLichChieu}/${filmDetail.maPhim}`}>
