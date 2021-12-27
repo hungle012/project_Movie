@@ -58,10 +58,11 @@
 
             .openMenu {
                 position: fixed;
+                top: 87px;
                 right: -55px;
                 color: #fff;
                 font-size: 25px;
-                background-color: crimson;
+                background-color: $color-orange-dark;
                 padding: 5px 10px;
                 border-radius: 10px;
                 display: none;
@@ -257,12 +258,29 @@
             }
         }
         .profile__content {
+            height: auto;
             .profile--user {
                 position: absolute;
                 backdrop-filter: blur(5px);
+                background-color: #101010;
+                height: 100%;
 
                 .openMenu {
                     display: block;
+                }
+            }
+            .profile--info {
+                height: auto;
+                padding: 87px 0 0;
+
+                .info--blur {
+                    height: 99%;
+
+                    .content--information {
+                        .field--item {
+                            margin: 20px 5px;
+                        }
+                    }
                 }
             }
         }

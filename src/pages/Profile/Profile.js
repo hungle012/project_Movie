@@ -48,14 +48,17 @@ function Profile() {
     // console.log(thongTinTaiKhoanND);
 
     const [display, setDisplay] = useState('none');
-    const [positon, setPositon] = useState('0');
+    const [position, setPosition] = useState('0');
+    const [rotate, setRotate] = useState('0');
 
     useEffect(() => {
-        const widthMH = window.screen.width;
+        // const widthMH = window.screen.width;
+        const widthMH = window.innerWidth;
         if (widthMH < 576) {
-            setPositon('-50.5%');
+            setPosition('-50.5%');
+            setDisplay('block')
         }
-    },[])
+    }, [window.innerWidth])
 
     const formik = useFormik({
         initialValues: {
@@ -122,32 +125,56 @@ function Profile() {
 
     return (
         <div className="row profile__content">
-            <div className="col-lg-2 col-md-2 col-sm-2 col-6 profile--user text-center px-0" style={{left:positon}}>
+            <div className="col-lg-2 col-md-2 col-sm-2 col-6 profile--user text-center px-0" style={{ left: position }}>
                 <button className='openMenu' onClick={() => {
-                    if (positon === '0') {
-                        setPositon('-50.5%');
+                    if (position === '0') {
+                        setPosition('-50.5%');
+                        setRotate('0');
                     } else {
-                        setPositon('0');
+                        setPosition('0');
+                        setRotate('180');
                     }
                 }}>
-                    <i className="fas fa-fighter-jet"></i>
+                    <i className="fas fa-fighter-jet" style={{ transform: `rotate(${rotate}deg)`, transition: 'all 0.5s' }}></i>
                 </button>
                 <div className="user--avatar m-auto">
                     <img src="https://i.pravatar.cc/150?img=5" alt="img" />
                 </div>
                 <div className="user--info mt-3">
                     <h5>{userLogin.taiKhoan}</h5>
-                    <div className='d-flex align-items-center pl-3'>
+                    <div className='d-flex align-items-center pl-2 pl-sm-3'>
                         <InfoTwoToneIcon></InfoTwoToneIcon>
                         <p>Thông tin chung</p>
                     </div>
 
                 </div>
                 <div className="user--nav nav flex-column nav-pills py-3" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-                    <a className="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">
+                    <a className="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true" onClick={() => {
+                        if (window.innerWidth < 756) {
+                            if (position === '0') {
+                                setPosition('-50.5%');
+                                setRotate('0');
+                            } else {
+                                setPosition('0');
+                                setRotate('180');
+                            }
+                        }
+
+                    }}>
                         Thông tin cá nhân
                     </a>
-                    <a className="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">
+                    <a className="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false" onClick={() => {
+                        if (window.innerWidth < 576) {
+                            if (position === '0') {
+                                setPosition('-50.5%');
+                                setRotate('0');
+                            } else {
+                                setPosition('0');
+                                setRotate('180');
+                            }
+                        }
+
+                    }}>
                         Lịch sử đặt vé
                     </a>
                 </div>
@@ -201,12 +228,14 @@ function Profile() {
                                         </div>
                                     </div>
                                 </div>
-                                <div className="col-lg-6 col-sm-12 pt-2">
+                                <div className="col-lg-6 col-sm-12 pt-0 pt-sm-2">
                                     <button className="btnPass" onClick={() => {
-                                        if (display === "none") {
-                                            setDisplay("block")
-                                        } else {
-                                            setDisplay("none")
+                                        if (window.innerWidth >= 576) {
+                                            if (display === "none") {
+                                                setDisplay("block")
+                                            } else {
+                                                setDisplay("none")
+                                            }
                                         }
                                     }}>Đổi mật khẩu</button>
                                     <div className='changePass' style={{ display: `${display}` }} >

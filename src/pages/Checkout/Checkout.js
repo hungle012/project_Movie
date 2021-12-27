@@ -20,15 +20,14 @@ function Checkout(props) {
 
     useEffect(() => {
         const action = layChiTietPhongVeAction(props.match.params.id);
-
         dispatch(action)
     }, []);
 
     useEffect(() => {
         const action = layLogoRapAction(props.match.params.maPhim);
-
         dispatch(action)
     }, [])
+
 
     // console.log(logoRap);
     // console.log(chiTietPhongVe);
@@ -36,22 +35,22 @@ function Checkout(props) {
     const { thongTinPhim, danhSachGhe } = chiTietPhongVe;
     const { heThongRapChieu } = logoRap;
     // console.log(heThongRapChieu);
-    let maRap = thongTinPhim.tenCumRap?.slice(0,3);
+    let maRap = thongTinPhim.tenCumRap?.slice(0, 3);
     // console.log(maRap);
     const renderLogo = () => {
-        return heThongRapChieu?.map((item,index) => {
-            let newMaRap = item.maHeThongRap?.slice(0,3);
+        return heThongRapChieu?.map((item, index) => {
+            let newMaRap = item.maHeThongRap?.slice(0, 3);
             if (newMaRap === 'Cin') {
                 newMaRap = 'CNS';
             } else if (newMaRap === 'Gal') {
                 newMaRap = 'GLX'
             }
 
-            if (maRap === newMaRap ) {
+            if (maRap === newMaRap) {
                 return <img key={index} src={item.logo} alt="" width={70} height={70} />
             }
-            
-            
+
+
         })
     }
 
@@ -91,7 +90,7 @@ function Checkout(props) {
     }
 
     return (
-        <div className="container-fluid checkout">     
+        <div className="container-fluid checkout">
             <div className="row checkout__content">
                 <div className="checkout__reservations">
                     <button className='backToHome' onClick={() => {
@@ -101,23 +100,23 @@ function Checkout(props) {
                         <i className="far fa-window-minimize" style={{ transform: 'rotate(90deg)' }}></i>
                     </button>
                     <div className="checkout__top p-3 row">
-                        <div className="checkout__theater col-7">
+                        <div className="checkout__theater col-8 col-sm-7 p-0">
                             {renderLogo()}
-                            <div className="ml-3 py-2">
+                            <div className="ml-2 ml-sm-3 py-2">
                                 <p className="theater--name">{thongTinPhim.tenCumRap}</p>
                                 <p className="theater--date">
                                     {thongTinPhim.ngayChieu} - {thongTinPhim.gioChieu} - {thongTinPhim.tenRap}
                                 </p>
                             </div>
                         </div>
-                        <div className="checkout__countdown col-5">
+                        <div className="checkout__countdown col-4 col-sm-3 p-0">
                             <p>Thời gian giữ vé</p>
-                            <CountDown Minute="5" Seconds="0" />
+                            <CountDown Minute="95" Seconds="0" />
 
                         </div>
                     </div>
                     <div className="checkout__screen text-center">
-                        <img src="../img/checkout/screen.png" alt="" />
+                        <img src="../../img/checkout/screen.png" alt="" />
                     </div>
                     <div className="checkout__seat row">
                         <div className="seat--col col-1 p-0">
@@ -132,36 +131,45 @@ function Checkout(props) {
                             <button disabled >I</button> <br />
                             <button disabled >J</button> <br />
                         </div>
-                        <div className="seat--row col-10 p-0">
+                        <div className="seat--row col-11 col-sm-10 p-0">
                             {renderSeats()}
                         </div>
                         <div className="seat--note pt-4 col-12">
-
-                            <button disabled className="ghe gheDangChon ml-4">
-                                <i className="fas fa-couch"></i>
-                            </button>
-                            <span>: Ghế đang chọn</span>
-
-                            <button disabled className="ghe ml-4">
-                                <i className="fas fa-couch"></i>
-                            </button>
-                            <span>: Ghế thường</span>
-
-                            <button disabled className="ghe gheVip ml-4">
-                                <i className="fas fa-couch"></i>
-                            </button>
-                            <span>: Ghế vip</span>
-
-                            <button style={{ cursor: "auto" }} disabled className="ghe gheDaDat ml-4">
-                                <i className="fas fa-couch"></i>
-                            </button>
-                            <span>: Ghế đã đặt</span>
-
-                            <button style={{ cursor: "auto" }} disabled className="ghe gheNguoiKhacDat ml-4">
-                                <i className="fas fa-couch"></i>
-                            </button>
-                            <span>: Ghế đang được người khác đặt</span>
-
+                            <div>
+                                <button disabled className="ghe gheDangChon">
+                                    <i className="fas fa-couch"></i>
+                                </button>
+                                <br />
+                                <span>Ghế đang chọn</span>
+                            </div>
+                            <div>
+                                <button disabled className="ghe">
+                                    <i className="fas fa-couch"></i>
+                                </button>
+                                <br />
+                                <span>Ghế thường</span>
+                            </div>
+                            <div>
+                                <button disabled className="ghe gheVip">
+                                    <i className="fas fa-couch"></i>
+                                </button>
+                                <br />
+                                <span>Ghế vip</span>
+                            </div>
+                            <div>
+                                <button style={{ cursor: "auto" }} disabled className="ghe gheDaDat">
+                                    <i className="fas fa-couch"></i>
+                                </button>
+                                <br />
+                                <span>Ghế đã đặt</span>
+                            </div>
+                            <div>
+                                <button style={{ cursor: "auto" }} disabled className="ghe gheNguoiKhacDat">
+                                    <i className="fas fa-couch"></i>
+                                </button>
+                                <br />
+                                <span>Ghế người khác đang đặt</span>
+                            </div>
                         </div>
                     </div>
 
@@ -263,7 +271,7 @@ function Checkout(props) {
                                 const thongTinDatVe = new ThongTinDatVe();
                                 thongTinDatVe.maLichChieu = props.match.params.id;
                                 thongTinDatVe.danhSachVe = danhSachGheDangChon;
-                               
+
                                 if (danhSachGheDangChon.length === 0) {
                                     Swal.fire({
                                         icon: 'error',
@@ -339,21 +347,21 @@ function KetQuaDatVe(props) {
     const { thongTinPhim } = chiTietPhongVe;
 
     const { heThongRapChieu } = logoRap;
-    let maRap = thongTinPhim.tenCumRap?.slice(0,3);
+    let maRap = thongTinPhim.tenCumRap?.slice(0, 3);
     const renderLogo = () => {
-        return heThongRapChieu?.map((item,index) => {
-            let newMaRap = item.maHeThongRap?.slice(0,3);
+        return heThongRapChieu?.map((item, index) => {
+            let newMaRap = item.maHeThongRap?.slice(0, 3);
             if (newMaRap === 'Cin') {
                 newMaRap = 'CNS';
             } else if (newMaRap === 'Gal') {
                 newMaRap = 'GLX'
             }
 
-            if (maRap === newMaRap ) {
+            if (maRap === newMaRap) {
                 return <img key={index} src={item.logo} alt="" width={70} height={70} />
             }
-            
-            
+
+
         })
     }
 

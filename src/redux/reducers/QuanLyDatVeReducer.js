@@ -2,13 +2,18 @@ import { ThongTinLichChieu, ThongTinLichChieuPhim } from "../../_core/models/Tho
 import { CHUYEN_TAB, CHUYEN_TAB_ACTIVE, DAT_GHE, DAT_VE_HOAN_TAT, SET_CHI_TIET_PHONG_VE, SET_LOGO_RAP } from "../types/QuanLyDatVeType"
 
 
-
+let wWidth = '';
+if (window.innerWidth < 576) {
+    wWidth = '100%'
+} else {
+    wWidth = '75%'
+}
 const stateDefault = {
     chiTietPhongVe: new ThongTinLichChieu(),
     danhSachGheDangChon: [],
     danhSachGheNguoiKhacDat:[],
     tabActive: "1",
-    widthCustom: '75%', 
+    widthCustom: wWidth, 
     logoRap: new ThongTinLichChieuPhim()
     
 }

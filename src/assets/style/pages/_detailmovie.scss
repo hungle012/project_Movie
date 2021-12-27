@@ -1,11 +1,10 @@
 .detailMovie {
     .detail__banner {
         position: relative;
-        // background: url("./bgfull.jpg") center no-repeat;
-        // height: 756px;
         height: 850px;
         width: 100%;
         background-size: cover;
+        background-position: center;
         filter: blur(5px);
         z-index: 0;
     }
@@ -138,6 +137,7 @@
 // responsive
 @include reponsiveMax("small") {
     .detailMovie {
+        margin-bottom: -5px;
         .detail__banner {
             height: 650px;
             
@@ -149,6 +149,10 @@
 
             .detail__img {
                 margin: auto;
+
+                .icon__play {
+                    display: none;
+                }
             }
             .infoText {
                 padding-top: 10px;
