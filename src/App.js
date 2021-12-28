@@ -22,6 +22,7 @@ import Profile from './pages/Profile/Profile';
 import EditUsers from './pages/admin/Users/editUsers/EditUsers';
 import LoadingHome from './Components/Loading/LoadingHome'
 import { Fragment, Suspense, lazy } from 'react';
+import CheckoutMobile from './pages/Checkout/CheckoutMobile';
 
 export const HomeTemplate = lazy(() => {
   return new Promise(resolve => {
@@ -85,7 +86,7 @@ function App() {
             <UserTemplate exact path="/login" Component={Login} />
             <UserTemplate exact path="/register" Component={Register} />
 
-            <CheckoutTemplate exact path="/checkout/:id/:maPhim" Component={Checkout} />
+            <CheckoutTemplate exact path="/checkout/:id/:maPhim" Component={Checkout} mobileComponent={CheckoutMobile} />
 
             <AdminTemplate path="/admin/films" exact Component={films} />
             <AdminTemplate path="/admin/films/addfilm" exact Component={AddFilm} />

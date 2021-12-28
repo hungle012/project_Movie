@@ -6,11 +6,10 @@ import { ThongTinDatVe } from '../../_core/models/ThongTinDatVe';
 import CountDown from './CountDown';
 import _ from 'lodash';
 import { Tabs } from 'antd';
-import { Link } from 'react-router-dom';
 import { history } from "../../App";
 import Swal from 'sweetalert2';
 
-function Checkout(props) {
+function CheckoutMobile(props) {
 
     const { userLogin } = useSelector(state => state.QuanLyNguoiDungReducer);
 
@@ -29,14 +28,11 @@ function Checkout(props) {
     }, [])
 
 
-    // console.log(logoRap);
-    // console.log(chiTietPhongVe);
-
     const { thongTinPhim, danhSachGhe } = chiTietPhongVe;
     const { heThongRapChieu } = logoRap;
-    // console.log(heThongRapChieu);
+
     let maRap = thongTinPhim.tenCumRap?.slice(0, 3);
-    // console.log(maRap);
+
     const renderLogo = () => {
         return heThongRapChieu?.map((item, index) => {
             let newMaRap = item.maHeThongRap?.slice(0, 3);
@@ -88,18 +84,66 @@ function Checkout(props) {
             </Fragment>
         })
     }
+    const tabActive = useSelector(state => state.QuanLyDatVeReducer.tabActive);
+
+    const [btn, setBtn] = useState({
+        btn1: 'block',
+        btn2: 'block',
+        btn3: 'none'
+    })
+    const [state, setState] = useState({
+        step: '01. Chọn ghế',
+        color: 'gray',
+        position1: '-100%'
+    });
+    useEffect(() => {
+        if (danhSachGheDangChon.length !== 0) {
+            setState({
+                step: '01. Chọn ghế',
+                color: '#00b943',
+                position1: '-100%'
+            })
+        } else {
+            setState({
+                step: '01. Chọn ghế',
+                color: 'gray',
+                position1: '-100%'
+            })
+        }
+    }, [danhSachGheDangChon.length])
 
     return (
-        <div className="container-fluid checkout">
+        <div className="container-fluid checkoutMobile">
             <div className="row checkout__content">
                 <div className="checkout__reservations">
-                    <button className='backToHome' onClick={() => {
-                        history.goBack();
-                    }}>
-                        <i className="fas fa-arrow-left"></i>
-                        <i className="far fa-window-minimize" style={{ transform: 'rotate(90deg)' }}></i>
-                    </button>
-                    <div className="checkout__top p-3 row">
+
+                    <div className="checkout__top row">
+                        <div className="checkout__header">
+                            <button className='backToStep1' onClick={() => {
+                                if (state.step === '01. Chọn ghế') {
+                                    history.goBack();
+                                } else {
+                                    setState({
+                                        step: '01. Chọn ghế',
+                                        color: '#00b943',
+                                        position1: '-100%'
+                                    })
+                                    setBtn({
+                                        btn1: 'block',
+                                        btn2: 'block',
+                                        btn3: 'none'
+                                    })
+                                }
+                            }} style={{ display: `${btn.btn1}` }}>
+                                <i className="fas fa-chevron-left"></i>
+                            </button>
+                            <div className="header--step">
+                                <p>{state.step}</p>
+                            </div>
+                            <div className="header--user">
+                                <span>{userLogin.taiKhoan.slice(0, 1)}</span>
+                            </div>
+                        </div>
                         <div className="checkout__theater col-8 col-sm-7 p-0">
                             {renderLogo()}
                             <div className="ml-2 ml-sm-3 py-2">
@@ -111,7 +155,7 @@ function Checkout(props) {
                         </div>
                         <div className="checkout__countdown col-4 col-sm-3 p-0">
                             <p>Thời gian giữ vé</p>
-                            <CountDown Minute="5" Seconds="0" />
+                            <CountDown Minute="95" Seconds="0" />
 
                         </div>
                     </div>
@@ -172,9 +216,85 @@ function Checkout(props) {
                             </div>
                         </div>
                     </div>
-
                 </div>
-                <div className="col-3 checkout__bills">
+                <div className="checkout__bottom">
+                    <div className="seat--checked">
+                        {_.sortBy(danhSachGheDangChon, ['stt']).map((gheDC, index) => {
+                            let hangGhe = '';
+                            let vtGhe = (gheDC.stt) / 16;
+                            let soGhe = (gheDC.stt) % 16;
+                            if (soGhe === 0) {
+                                soGhe = 16;
+                            }
+                            // console.log(gheDC);
+                            // console.log(soGhe);
+                            if (vtGhe <= 1) {
+                                hangGhe = `A${soGhe}`;
+                            } else if (vtGhe <= 2) {
+                                hangGhe = `B${soGhe}`;
+                            } else if (vtGhe <= 3) {
+                                hangGhe = `C${soGhe}`;
+                            } else if (vtGhe <= 4) {
+                                hangGhe = `D${soGhe}`;
+                            } else if (vtGhe <= 5) {
+                                hangGhe = `E${soGhe}`;
+                            } else if (vtGhe <= 6) {
+                                hangGhe = `F${soGhe}`;
+                            } else if (vtGhe <= 7) {
+                                hangGhe = `G${soGhe}`;
+                            } else if (vtGhe <= 8) {
+                                hangGhe = `H${soGhe}`;
+                            } else if (vtGhe <= 9) {
+                                hangGhe = `I${soGhe}`;
+                            } else if (vtGhe <= 10) {
+                                hangGhe = `J${soGhe}`;
+                            }
+
+
+                            return <span key={index} style={{ color: "#00b943" }}>{hangGhe}, </span>
+                        })}
+                    </div>
+                    <div className="bottom--btn" style={{ backgroundColor: `${state.color}` }}>
+                        <button style={{ display: `${btn.btn2}` }} onClick={() => {
+                            if (danhSachGheDangChon.length === 0) {
+                                Swal.fire({
+                                    icon: 'error',
+                                    title: 'Bạn chưa chọn vé!',
+                                    text: 'Bạn phải chọn vé trước khi đặt',
+                                })
+                            } else {
+                                setState({
+                                    step: '02. Thanh toán',
+                                    position1: '0'
+                                })
+                                setBtn({
+                                    btn2: 'none',
+                                    btn3: 'block'
+                                })
+                            }
+                        }}>Tiếp tục</button>
+                        <button style={{ display: `${btn.btn3}` }} onClick={async () => {
+                            const thongTinDatVe = new ThongTinDatVe();
+                            thongTinDatVe.maLichChieu = props.match.params.id;
+                            thongTinDatVe.danhSachVe = danhSachGheDangChon;
+
+                            setBtn({
+                                btn1: 'none',
+                                btn2: 'none',
+                                btn3: 'block'
+                            })
+                            await dispatch(datVeAction(thongTinDatVe));
+                            console.log(tabActive)
+                            if (tabActive === '2') {
+                                setState({
+                                    step: '03. Kết quả đặt vé',
+                                    position1: '0'
+                                })
+                            }
+                        }}>Đặt vé</button>
+                    </div>
+                </div>
+                <div className="checkout__bills" style={{ right: `${state.position1}` }}>
                     <div className="checkout__money text-center mt-3">
                         <h2>
                             {danhSachGheDangChon.reduce((total, ghe, index) => {
@@ -248,7 +368,7 @@ function Checkout(props) {
                         </div>
                     </div>
                     <hr />
-                    <div className="checkout__bottom">
+                    <div className="checkout__booking">
                         <div className="checkout__note p-4">
                             <div className="left mt-1">
                                 <i className="fas fa-exclamation-circle"></i>
@@ -266,45 +386,21 @@ function Checkout(props) {
                                 </p>
                             </div>
                         </div>
-                        <button
-                            onClick={() => {
-                                const thongTinDatVe = new ThongTinDatVe();
-                                thongTinDatVe.maLichChieu = props.match.params.id;
-                                thongTinDatVe.danhSachVe = danhSachGheDangChon;
-
-                                if (danhSachGheDangChon.length === 0) {
-                                    Swal.fire({
-                                        icon: 'error',
-                                        title: 'Bạn chưa chọn vé!',
-                                        text: 'Bạn phải chọn vé trước khi đặt',
-                                    })
-                                } else {
-                                    dispatch(datVeAction(thongTinDatVe))
-                                }
-
-                            }}
-                            className="checkout__btn">
-                            Đặt vé
-                        </button>
                     </div>
-
                 </div>
+
             </div>
         </div>
     )
 }
-
-
-
 
 const { TabPane } = Tabs;
 
 
 // eslint-disable-next-line import/no-anonymous-default-export
 export default function (props) {
-    const { userLogin } = useSelector(state => state.QuanLyNguoiDungReducer);
+    
     const tabActive = useSelector(state => state.QuanLyDatVeReducer.tabActive);
-    const widthCustom = useSelector(state => state.QuanLyDatVeReducer.widthCustom);
     const dispatch = useDispatch();
 
     useEffect(() => {
@@ -316,33 +412,23 @@ export default function (props) {
         }
     }, [])
 
-    const userAccount = (
-        <div className="user--acc pr-5">
-            <span>{userLogin.taiKhoan.slice(0, 1)}</span>
-            <p className="mb-0 ml-1 user--name">
-                {userLogin.taiKhoan}
-            </p>
-        </div>
-    );
 
     return <div className="tab__checkout">
-        <Tabs defaultActiveKey={tabActive} activeKey={tabActive} tabBarExtraContent={userAccount} style={{ width: widthCustom }} >
+        <Tabs defaultActiveKey={tabActive} activeKey={tabActive}>
             <TabPane tab="01 CHỌN GHẾ VÀ THANH TOÁN" key="1">
-                <Checkout {...props} />
+                <CheckoutMobile {...props} />
             </TabPane>
             <TabPane tab="02 KẾT QUẢ ĐẶT VÉ" key="2">
                 <KetQuaDatVe {...props} />
             </TabPane>
         </Tabs>
     </div >
-
-
 }
-
 
 
 function KetQuaDatVe(props) {
     const { chiTietPhongVe, logoRap } = useSelector(state => state.QuanLyDatVeReducer);
+    const { userLogin } = useSelector(state => state.QuanLyNguoiDungReducer);
 
     const { thongTinPhim } = chiTietPhongVe;
 
@@ -365,14 +451,30 @@ function KetQuaDatVe(props) {
         })
     }
 
-    return <div className='checkout__result container-fluid row m-0'>
-        <div className="back col-2 text-center pt-3">
-            <Link to="/">
+    return <div className='checkout__result container-fluid p-0'>
+        <div className="checkout__header">
+            <div className="header--step">
+                <p>03. Kết quả đặt vé</p>
+            </div>
+            <div className="header--user">
+                <span>{userLogin.taiKhoan.slice(0, 1)}</span>
+            </div>
+        </div>
+        <div className="back text-center pt-3">
+            <button onClick={() => {
+                history.push('/');
+            }}>
                 <i className="fas fa-arrow-left"></i>
                 Trở về trang chủ
-            </Link>
+            </button>
+            <button onClick={() => {
+                history.goBack();
+            }}>
+                Tiếp tục đặt vé
+                <i className="fas fa-arrow-right"></i>
+            </button>
         </div>
-        <div className="col-8 pt-3 text-center d-flex justify-content-center">
+        <div className="pt-5 text-center d-flex justify-content-center">
             <div className="film my-4">
                 <div className='logo-rap'>
                     {renderLogo()}
@@ -391,14 +493,5 @@ function KetQuaDatVe(props) {
                 </div>
             </div>
         </div>
-        <div className="continue col-2 text-center pt-3">
-            <button onClick={() => {
-                history.goBack();
-            }}>
-                Tiếp tục đặt vé
-                <i className="fas fa-arrow-right"></i>
-            </button>
-        </div>
     </div>
 }
-

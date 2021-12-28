@@ -1,4 +1,4 @@
-.checkout {
+.checkoutMobile {
     hr {
         margin: 10px 0;
     }
@@ -7,24 +7,70 @@
         height: 100%;
 
         .checkout__reservations {
-            overflow-x: hidden;
+            overflow-x: scroll;
+            &::-webkit-scrollbar {
+                display: none;
+            }
 
-            .backToHome {
+            .backToStep1 {
                 position: absolute;
-                top: 100px;
                 left: 20px;
-                font-size: 20px;
+                font-size: 18px;
                 z-index: 99;
-
-                &:hover {
-                    color: $color-orange;
-                }
             }
 
             .checkout__top {
+                position: sticky;
+                left: 0;
+                width: 100vw;
+                .checkout__header {
+                    width: 100%;
+                    height: 8vh;
+                    text-align: center;
+                    display: flex;
+                    align-items: center;
+                    margin: 0 !important;
+                    box-shadow: 0 1px 6px -2px $color-gray-1;
+                    .header--step {
+                        width: 100%;
+                        p {
+                            margin-bottom: 0;
+                            font-size: 18px;
+                            font-weight: bold;
+                            color: $color-red;
+                            text-transform: uppercase;
+                        }
+                    }
+                    .header--user {
+                        display: flex;
+                        align-items: center;
+                        position: absolute;
+                        right: 10px;
+
+                        span {
+                            width: 35px;
+                            height: 35px;
+                            border-radius: 50%;
+                            background: $color-gray-3;
+                            line-height: 35px;
+                            display: flex;
+                            justify-content: center;
+                            font-size: 25px;
+                            text-transform: uppercase;
+                            color: $color-white;
+                        }
+                    }
+                }
                 .checkout__theater {
                     display: flex;
                     justify-content: center;
+                    align-items: center;
+                    margin-top: 30px;
+
+                    img {
+                        width: 50px !important;
+                        height: 50px !important;
+                    }
 
                     .theater--name {
                         font-weight: bold;
@@ -38,6 +84,8 @@
                 }
                 .checkout__countdown {
                     text-align: center;
+                    padding-top: 13px;
+                    margin-top: 30px;
                     p {
                         margin: 0;
                         color: $color-gray-2;
@@ -45,14 +93,23 @@
                     h2 {
                         color: $color-red;
                         margin: 0;
+                        font-size: 20px;
                     }
+                }
+            }
+            .checkout__screen {
+                width: 170%;
+                margin-top: 15px;
+                img {
+                    width: 90%;
                 }
             }
             .checkout__seat {
                 text-align: center;
+                width: 170%;
                 .ghe {
                     color: $color-seats;
-                    margin: $mg-1;
+                    margin: 5px;
                     font-size: $fs-3;
                     line-height: 20px;
                 }
@@ -76,7 +133,7 @@
                         width: 20px;
                         font-size: $fs-3;
                         line-height: 20px;
-                        margin: $mg-1;
+                        margin: 5px;
                         font-weight: bolder;
                     }
                 }
@@ -87,12 +144,38 @@
                 }
             }
         }
-
+        .checkout__bottom {
+            position: absolute;
+            bottom: 0;
+            width: 100vw;
+            height: 7vh;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            border-top: 1px solid $color-gray-3;
+            .seat--checked {
+                width: 50%;
+            }
+            .bottom--btn {
+                width: 50%;
+                height: 100%;
+                font-size: 18px;
+                display: flex;
+                align-items: center;
+                color: $color-white;
+                button {
+                    width: 100%;
+                    text-transform: uppercase;
+                }
+            }
+        }
         .checkout__bills {
-            height: 100vh;
+            width: 100%;
+            height: 84.9vh;
             position: fixed;
-            top: 0;
-            right: 0;
+            top: 8.1vh;
+            right: -100%;
+            padding: 5px 10px;
             background-color: $color-white;
             box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
 
@@ -136,7 +219,7 @@
                     line-height: $pd-5;
                 }
             }
-            .checkout__bottom {
+            .checkout__booking {
                 background-color: $color-white;
                 position: absolute;
                 bottom: 0;
@@ -175,83 +258,73 @@
     }
 }
 
-.ant-tabs-top {
+.tab__checkout {
     .ant-tabs-nav {
-        height: 80px;
-        margin: 0 !important;
-        box-shadow: 0 1px 6px -2px $color-gray-1;
-
-        .ant-tabs-nav-list {
-            margin-left: 10%;
-
-            .ant-tabs-tab {
-                font-size: $fs-3;
-
-                &:hover {
-                    color: $color-red;
-                }
-            }
-            .ant-tabs-tab-active .ant-tabs-tab-btn,
-            .ant-tabs-tab-btn:focus {
-                color: $color-red;
-            }
-
-            .ant-tabs-ink-bar {
-                background-color: $color-red;
-            }
-        }
+        display: none !important;
     }
 }
 
-.user--acc {
-    display: flex;
-    align-items: center;
-
-    span {
-        width: 35px;
-        height: 35px;
-        border-radius: 50%;
-        background: $color-gray-3;
-        line-height: 35px;
-        display: flex;
-        justify-content: center;
-        font-size: 25px;
-        text-transform: uppercase;
-        color: $color-white;
-    }
-    .user--name {
-        color: $color-gray-2;
-        font-weight: bold;
-    }
-}
-
-// kết quả đặt vé
 .checkout__result {
     height: 100vh;
     background: linear-gradient(0deg, #0a2029, transparent);
-    .back,
-    .continue {
-        font-size: $fs-2;
-
-        a {
-            color: $color-black;
-        }
-
-        button {
-            transition: all 0.5s;
-
-            &:hover {
-                color: $color-orange-light;
+    .checkout__header {
+        width: 100%;
+        height: 8vh;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        margin: 0 !important;
+        box-shadow: 0 1px 6px -2px $color-gray-1;
+        .header--step {
+            width: 100%;
+            p {
+                margin-bottom: 0;
+                font-size: 18px;
+                font-weight: bold;
+                color: $color-red;
+                text-transform: uppercase;
             }
         }
+        .header--user {
+            display: flex;
+            align-items: center;
+            position: absolute;
+            right: 10px;
 
+            span {
+                width: 35px;
+                height: 35px;
+                border-radius: 50%;
+                background: $color-gray-3;
+                line-height: 35px;
+                display: flex;
+                justify-content: center;
+                font-size: 25px;
+                text-transform: uppercase;
+                color: $color-white;
+            }
+        }
+    }
+    .back {
+        width: 100%;
+        height: auto;
+        font-size: $fs-2;
+        button {
+            &:nth-child(1) {
+                position: absolute;
+                left: 20px;
+            }
+            &:nth-child(2) {
+                position: absolute;
+                right: 20px;
+            }
+        }
         i {
             margin: 0 10px;
         }
     }
     .film {
         width: 345px;
-        height: 545px;
         border-radius: 5px;
         background-color: $color-white;
         box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
@@ -259,6 +332,7 @@
         .logo-rap {
             display: flex;
             align-items: center;
+            justify-content: center;
             margin: $mg-1;
 
             p {
@@ -271,50 +345,3 @@
         }
     }
 }
-
-// responsive
-// @include reponsiveMax("small") {
-//     .checkout {
-//         .checkout__content {
-//             .checkout__reservations {
-//                 overflow-x: scroll;
-//                 &::-webkit-scrollbar { 
-//                     display: none; 
-//                 }
-//                 .backToHome {
-//                     top: 85px;
-//                     left: 5px;
-//                 }
-//                 .checkout__top {
-//                     position: sticky;
-//                     left: 0;
-//                     width: 100vw;
-//                     padding-top: 25px !important;
-//                     padding-left: 10px !important;
-//                     .checkout__theater {
-//                         align-items: center;
-//                         img {
-//                             width: 50px !important;
-//                             height: 50px !important;
-//                         }
-//                     }
-//                     .checkout__countdown {
-//                         padding-top: 13px !important;
-//                     }
-//                 }
-//                 .checkout__screen {
-//                     width: 220%;
-//                     img {
-//                         width: 90%;
-//                     }
-//                 }
-//                 .checkout__seat {
-//                     width: 220%;
-//                 }
-//             }
-//             .checkout__bills {
-//                 right: -25%;
-//             }
-//         }
-//     }
-// }
