@@ -1,8 +1,10 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import { styled } from '@mui/system';
 import { TextField } from '@mui/material';
 import SearchIcon from "@material-ui/icons/Search";
 import CloseIcon from "@material-ui/icons/Close";
+import MicNoneIcon from '@mui/icons-material/MicNone';
+import SpeechRecognition, { useSpeechRecognition } from "react-speech-recognition";
 
 const TextFieldCustom = styled(TextField)({
     '& input + fieldset': {
@@ -33,10 +35,14 @@ const TextFieldCustom = styled(TextField)({
     }
 });
 
-export default function SearchFilm({ placeholder, data }) {
+function SearchFilm({ placeholder, data }) {
+
     const [filteredDataFilm, setFilteredDataFilm] = useState([]);
     const [wordEntered, setWordEntered] = useState("");
-
+    const { transcript } = useSpeechRecognition();
+    useEffect(() => {
+        setWordEntered(transcript);
+    }, [transcript])
     const handleFilter = (event) => {
         const searchWord = event.target.value;
         setWordEntered(searchWord);
@@ -55,14 +61,10 @@ export default function SearchFilm({ placeholder, data }) {
         setFilteredDataFilm([]);
         setWordEntered("");
     };
-
-    const leave = (event) => {
-        const searchWord = event.target.value;
-        setWordEntered(searchWord);
-        if(searchWord){
-            setFilteredDataFilm([]);
-        }
-    };
+    // search OnMic
+    if (!SpeechRecognition.browserSupportsSpeechRecognition()) {
+        return null
+    }
     return (
         <div className="search container">
             <div className="searchInputs">
@@ -73,15 +75,19 @@ export default function SearchFilm({ placeholder, data }) {
                     placeholder={placeholder}
                     value={wordEntered}
                     onChange={handleFilter}
-                    // onMouseLeave={leave}
                     onMouseMove={handleFilter}
                 />
                 <div className="searchIcon">
-                    {filteredDataFilm.length === 0 ? (
-                        <SearchIcon />
-                    ) : (
-                        <CloseIcon id="clearBtn" onClick={clearInput} />
-                    )}
+                    <span className="voice">
+                        <MicNoneIcon onClick={SpeechRecognition.startListening}/>
+                    </span>
+                    <span className="icon__search">
+                        {filteredDataFilm.length === 0 ? (
+                            <SearchIcon />
+                        ) : (
+                            <CloseIcon id="clearBtn" onClick={clearInput} />
+                        )}
+                    </span>
                 </div>
             </div>
             {filteredDataFilm.length != 0 && (
@@ -95,10 +101,10 @@ export default function SearchFilm({ placeholder, data }) {
                                         {value.tenPhim}
                                     </span>
                                     <span className="time">
-                                    119 phút - 10 IMDb - 2D/Digital
+                                        119 phút - 10 IMDb - 2D/Digital
                                     </span>
                                 </div>
-                                
+
                             </a>
                         );
                     })}
@@ -107,3 +113,4 @@ export default function SearchFilm({ placeholder, data }) {
         </div>
     )
 }
+export default SearchFilm;
