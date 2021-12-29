@@ -15,14 +15,12 @@ const CheckoutTemplate = (props) => {
     })
     // console.log('state',state)
     useEffect(()=>{ 
-        //Khi browser load lên đăng ký 1 event onload
         window.onload = () => {
             setState({
                 width: window.innerWidth,
                 height: window.innerHeight
             })
         }
-        //Khi người dùng thay đổi kích thước cửa sổ
         window.onresize = () => {
             setState({
                 width: window.innerWidth,
@@ -33,9 +31,9 @@ const CheckoutTemplate = (props) => {
         //     window.removeEventListener('onload');
         //     window.removeEventListener('onresize');
         // }
-    },[])
+    },[window.innerWidth, window.innerHeight])
     let Component = props.Component;
-    if(state.width <= 425 && props.mobileComponent) {
+    if(state.width <= 576 && props.mobileComponent) {
         Component = props.mobileComponent;
     }
 
