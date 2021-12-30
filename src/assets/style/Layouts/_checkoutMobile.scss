@@ -110,7 +110,7 @@
                 .ghe {
                     color: $color-seats;
                     margin: 5px;
-                    font-size: $fs-3;
+                    font-size: $fs-2;
                     line-height: 20px;
                 }
                 .gheVip {
@@ -342,6 +342,35 @@
         }
         .film-img {
             padding: 0 10px;
+        }
+    }
+}
+
+// responsive 
+@include between-sizes("576px", "696px") {
+    .checkoutMobile {
+        .checkout__content {
+            .checkout__reservations {
+                .checkout__screen {
+                    width: 100%;
+                    img {
+                        width: 80%;
+                    }
+                }
+                .checkout__seat {
+                    width: 104%;
+                    .seat--col {
+                        button {
+                            margin: 5px;
+                        }
+                    }
+                    .seat--row {
+                        .ghe {
+                            margin: 5px;
+                        }
+                    }
+                }
+            }
         }
     }
 }

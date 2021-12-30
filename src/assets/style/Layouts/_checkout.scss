@@ -273,48 +273,105 @@
 }
 
 // responsive
-// @include reponsiveMax("small") {
-//     .checkout {
-//         .checkout__content {
-//             .checkout__reservations {
-//                 overflow-x: scroll;
-//                 &::-webkit-scrollbar { 
-//                     display: none; 
-//                 }
-//                 .backToHome {
-//                     top: 85px;
-//                     left: 5px;
-//                 }
-//                 .checkout__top {
-//                     position: sticky;
-//                     left: 0;
-//                     width: 100vw;
-//                     padding-top: 25px !important;
-//                     padding-left: 10px !important;
-//                     .checkout__theater {
-//                         align-items: center;
-//                         img {
-//                             width: 50px !important;
-//                             height: 50px !important;
-//                         }
-//                     }
-//                     .checkout__countdown {
-//                         padding-top: 13px !important;
-//                     }
-//                 }
-//                 .checkout__screen {
-//                     width: 220%;
-//                     img {
-//                         width: 90%;
-//                     }
-//                 }
-//                 .checkout__seat {
-//                     width: 220%;
-//                 }
-//             }
-//             .checkout__bills {
-//                 right: -25%;
-//             }
-//         }
-//     }
-// }
+@include between-sizes("947px", "1048px") {
+    .checkout {
+        .checkout__content {
+            .checkout__reservations {
+                .checkout__screen {
+                    img {
+                        width: 80%;
+                    }
+                }
+                .checkout__seat {
+                    .seat--col {
+                        button {
+                            margin: 8px;
+                        }
+                    }
+                    .seat--row {
+                        .ghe {
+                            margin: 8px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@include between-sizes("896px", "946px") {
+    .checkout {
+        .checkout__content {
+            .checkout__reservations {
+                .checkout__screen {
+                    img {
+                        width: 80%;
+                    }
+                }
+                .checkout__seat {
+                    .seat--col {
+                        button {
+                            margin: 7px;
+                        }
+                    }
+                    .seat--row {
+                        .ghe {
+                            margin: 7px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+@include between-sizes("792px", "895px") {
+    .checkout {
+        .checkout__content {
+            .checkout__reservations {
+                .checkout__screen {
+                    img {
+                        width: 80%;
+                    }
+                }
+                .checkout__seat {
+                    .seat--col {
+                        button {
+                            margin: 5px;
+                        }
+                    }
+                    .seat--row {
+                        .ghe {
+                            margin: 5px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+@include reponsiveMax("mid") {
+    .checkout {
+        .checkout__content {
+            .checkout__reservations {
+                .checkout__screen {
+                    img {
+                        width: 80%;
+                    }
+                }
+                .checkout__seat {
+                    .seat--col {
+                        button {
+                            margin: 5px;
+                        }
+                    }
+                    .seat--row {
+                        .ghe {
+                            margin: 5px;
+                            font-size: 15px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

@@ -33,7 +33,7 @@ const CheckoutTemplate = (props) => {
         // }
     },[window.innerWidth, window.innerHeight])
     let Component = props.Component;
-    if(state.width <= 576 && props.mobileComponent) {
+    if(state.width <= 695 && props.mobileComponent) {
         Component = props.mobileComponent;
     }
 
