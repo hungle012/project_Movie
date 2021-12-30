@@ -145,7 +145,7 @@
             }
         }
         .checkout__bottom {
-            position: absolute;
+            position: fixed;
             bottom: 0;
             width: 100vw;
             height: 7vh;
@@ -258,7 +258,7 @@
     }
 }
 
-.tab__checkout {
+.tab__checkoutMobile {
     .ant-tabs-nav {
         display: none !important;
     }

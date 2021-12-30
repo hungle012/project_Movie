@@ -155,7 +155,7 @@ function CheckoutMobile(props) {
                         </div>
                         <div className="checkout__countdown col-4 col-sm-3 p-0">
                             <p>Thời gian giữ vé</p>
-                            <CountDown Minute="95" Seconds="0" />
+                            <CountDown Minute="5" Seconds="0" />
 
                         </div>
                     </div>
@@ -413,7 +413,7 @@ export default function (props) {
     }, [])
 
 
-    return <div className="tab__checkout">
+    return <div className="tab__checkoutMobile">
         <Tabs defaultActiveKey={tabActive} activeKey={tabActive}>
             <TabPane tab="01 CHỌN GHẾ VÀ THANH TOÁN" key="1">
                 <CheckoutMobile {...props} />
