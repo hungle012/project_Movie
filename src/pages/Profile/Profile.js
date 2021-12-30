@@ -125,7 +125,7 @@ function Profile() {
 
     return (
         <div className="row profile__content">
-            <div className="col-lg-2 col-md-2 col-sm-2 col-6 profile--user text-center px-0" style={{ left: position }}>
+            <div className="col-lg-2 col-md-3 col-sm-3 col-6 profile--user text-center px-0" style={{ left: position }}>
                 <button className='openMenu' onClick={() => {
                     if (position === '0') {
                         setPosition('-50.5%');
@@ -142,7 +142,7 @@ function Profile() {
                 </div>
                 <div className="user--info mt-3">
                     <h5>{userLogin.taiKhoan}</h5>
-                    <div className='d-flex align-items-center pl-2 pl-sm-3'>
+                    <div className='d-flex align-items-center pl-2 pl-sm-1 pl-lg-3'>
                         <InfoTwoToneIcon></InfoTwoToneIcon>
                         <p>Thông tin chung</p>
                     </div>
@@ -180,8 +180,8 @@ function Profile() {
                 </div>
 
             </div>
-            <div className="col-lg-2 col-md-2 col-sm-2"></div>
-            <div className="col-lg-10 col-md-10 col-sm-10 col-12 profile--info">
+            <div className="col-lg-2 col-md-3 col-sm-3"></div>
+            <div className="col-lg-10 col-md-9 col-sm-9 col-12 profile--info">
                 <div className="info--blur">
                     <div className="tab-content" style={{ height: '100%' }} id="v-pills-tabContent">
                         <div className="content--information tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">

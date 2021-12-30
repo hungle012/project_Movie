@@ -25,7 +25,7 @@ export default function ShowInTick(props) {
                 return <Fragment key={index}>
                   <div className="theater__movie">
                     <div className="row">
-                      <div className="col-2 p-0 pl-4">
+                      <div className="col-2 p-0 pl-3 pl-xl-4">
                         <img width={70} height={80} src={phim.hinhAnh} alt={phim.tenPhim} onError={(e) => {
                           e.target.onerror = null; e.target.src = "https://picsum.photos/70/80"
                         }} />

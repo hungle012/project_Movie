@@ -92,6 +92,14 @@
                     font-size: 20px;
                     margin-bottom: 0;
                     color: $color-orange;
+
+                    @include between-sizes('673px','730px') {
+                        font-size: 18px;
+                    }
+                    @include between-sizes('577px','672px') {
+                        font-size: 16px;
+                        padding-left: 5px;
+                    }
                 }
             }
             .user--nav {
@@ -154,7 +162,7 @@
                     height: 100%;
                     .history--table {
                         overflow-y: auto;
-                        height: 80vh;
+                        height: 90%;
                         position: relative;
 
                         &::-webkit-scrollbar {
