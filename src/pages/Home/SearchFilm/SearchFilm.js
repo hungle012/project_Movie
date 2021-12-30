@@ -90,7 +90,7 @@ function SearchFilm({ placeholder, data }) {
                     </span>
                 </div>
             </div>
-            {filteredDataFilm.length != 0 && (
+            {filteredDataFilm.length !== 0 && (
                 <div className="dataResult">
                     {filteredDataFilm.slice(0, 15).map((value, key) => {
                         return (

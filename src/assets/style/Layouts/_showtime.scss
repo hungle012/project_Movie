@@ -24,7 +24,12 @@
             }
             .theater__movie {
                 padding: 0 10px 24px;
-
+                @include reponsiveMax("headerExMax") {
+                    img {
+                        width: 65px !important;
+                        height: 75px !important;
+                    }
+                }
                 .row {
                     border-bottom: $color-gray-1 1px solid;
                     padding-bottom: 7px;
@@ -32,7 +37,9 @@
 
                 .movie--info {
                     color: $color-gray-2;
-
+                    @include reponsiveMax("medium"){
+                        width: 100%;
+                    }
                     .movie--infoName {
                         font-size: 17px;
                         margin-bottom: 0;
@@ -46,6 +53,12 @@
                             font-size: $fs-2;
                             border: $color-orange-dark 1px solid;
                             margin: 7px 7px;
+                            @include reponsiveMax("headerExMax"){
+                                margin: 5px 5px;
+                            }
+                            @include reponsiveMax("medium"){
+                                font-size: $fs-1;
+                            }
                             color: $color-gray-2;
                             box-shadow: $color-orange-dark 0px 2px 5px -1px, $color-orange-dark 0px 1px 3px -1px;
                             background-color: rgba(246, 246, 246, 1);

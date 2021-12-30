@@ -1,6 +1,3 @@
-.search {
-    padding-top: 50px;
-}
 .searchInputs {
     margin-top: 50px;
     display: flex;
@@ -91,6 +88,9 @@ input:focus {
     cursor: pointer;
 }
 @include reponsiveMax("small") {
+    .search {
+        padding-top: 35px;
+    }
     .searchIcon {
         padding: 13px 15px 13px;
     }

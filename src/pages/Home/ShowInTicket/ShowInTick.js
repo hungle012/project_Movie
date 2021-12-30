@@ -30,7 +30,7 @@ export default function ShowInTick(props) {
                           e.target.onerror = null; e.target.src = "https://picsum.photos/70/80"
                         }} />
                       </div>
-                      <div className="movie--info col-10 pr-0">
+                      <div className="movie--info col-lg-10 pr-0">
                         <p className="movie--infoName">{phim.tenPhim}</p>
                         <p>120 phút - TIX 9.1 - IMDb 0</p>
                         <span style={{ fontSize: "20px", color: "red" }}>2D Digital</span>

@@ -23,6 +23,10 @@
         height: 200px;
         padding-bottom: $pd-1;
       }
+      @include reponsiveMax("medium"){
+        height: 150px;
+        padding-bottom: $pd-1;
+      }
     }
     a {
       color: white;

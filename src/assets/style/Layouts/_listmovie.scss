@@ -3,6 +3,12 @@
   @include reponsiveMax("small") {
     padding-top: $pd-3;
   }
+  @include reponsiveMax("medium"){
+    padding-top: $pd-4;
+  }
+  @include reponsiveMax("headerExMax"){
+    padding-top: $pd-4;
+  }
   .nav {
     margin-top: $mg-1;
     justify-content: center;
@@ -24,6 +30,9 @@
           @include reponsiveMax("small"){
             display: none;
           }
+          @include reponsiveMax("headerExMax"){
+            font-size: 30px;
+          }
         }
         .slick-next,
         .slick-prev {
@@ -31,9 +40,15 @@
         }
         .slick-next {
           right: -4%;
+          @include reponsiveMax("headerExMax"){
+            right: -2%;
+          }
         }
         .slick-prev {
           left: -6%;
+          @include reponsiveMax("headerExMax"){
+            left: -4%;
+          }
         }
         .movie__item {
           padding: $pd-3;

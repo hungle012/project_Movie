@@ -3,7 +3,6 @@ import { Tabs, Rate } from 'antd';
 import 'antd/dist/antd.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { layThongTinChiTietPhimAction } from '../../redux/action/QuanLyRapAction';
-import { Link } from "react-router-dom";
 import { NavLink } from 'react-router-dom';
 
 const { TabPane } = Tabs;

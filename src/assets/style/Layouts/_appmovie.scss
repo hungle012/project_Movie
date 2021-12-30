@@ -17,13 +17,19 @@
         }
     }
     .intro__img {
-        text-align: center;
+        text-align: center; 
+        @include reponsiveMax("medium"){
+            height: 50%;
+        }
 
         .img__mobile {
             position: relative;
             width: 44.2%;
             height: auto;
             overflow: hidden;
+            @include reponsiveMax("medium"){
+                height: 50%;
+            }
         }
 
         .img__app {
