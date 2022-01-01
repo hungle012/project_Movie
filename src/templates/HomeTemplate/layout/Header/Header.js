@@ -142,21 +142,20 @@ export default function (props) {
 
     const [nav, setNav] = useState(false)
 
-    const handleScroll = () => {
-        if (window.pageYOffset > 20) {
-            if (!nav) {
-                setNav(true)
-            }
-        } else {
-            if (nav) {
-                setNav(false)
+    useEffect(() => {
+        const handleScroll = () => {
+            if (window.pageYOffset > 20) {
+                if (!nav) {
+                    setNav(true)
+                }
+            } else {
+                if (nav) {
+                    setNav(false)
+                }
             }
         }
-    }
-
-    useEffect(() => {
         window.addEventListener('scroll', handleScroll)
-    }, [window.pageYOffset])
+    }, [])
 
     return (
         <header className="header">
