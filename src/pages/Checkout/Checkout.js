@@ -66,11 +66,11 @@ function Checkout(props) {
                 classGheDangChon = "gheDangChon";
             }
 
-            let classGheNguoiKhacDat = '';
-            let indexGheNguoiKhacDat = danhSachGheNguoiKhacDat.findIndex((gheNguoiKhacDat) => gheNguoiKhacDat.maGhe === ghe.maGhe);
-            if (indexGheNguoiKhacDat !== -1) {
-                classGheNguoiKhacDat = "gheNguoiKhacDat";
-            }
+            // let classGheNguoiKhacDat = '';
+            // let indexGheNguoiKhacDat = danhSachGheNguoiKhacDat.findIndex((gheNguoiKhacDat) => gheNguoiKhacDat.maGhe === ghe.maGhe);
+            // if (indexGheNguoiKhacDat !== -1) {
+            //     classGheNguoiKhacDat = "gheNguoiKhacDat";
+            // }
 
             return <Fragment key={index}>
                 <button
@@ -80,7 +80,7 @@ function Checkout(props) {
                             gheDuocChon: ghe
                         })
                     }}
-                    className={`ghe ${classGheVip} ${classGheDaDat} ${classGheDangChon} ${classGheNguoiKhacDat}`} >
+                    className={`ghe ${classGheVip} ${classGheDaDat} ${classGheDangChon}`} >
                     <i className="fas fa-couch"></i>
                 </button>
 
@@ -163,13 +163,13 @@ function Checkout(props) {
                                 <br />
                                 <span>Ghế đã đặt</span>
                             </div>
-                            <div>
+                            {/* <div>
                                 <button style={{ cursor: "auto" }} disabled className="ghe gheNguoiKhacDat">
                                     <i className="fas fa-couch"></i>
                                 </button>
                                 <br />
                                 <span>Ghế người khác đang đặt</span>
-                            </div>
+                            </div> */}
                         </div>
                     </div>
 
