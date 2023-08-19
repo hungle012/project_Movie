@@ -5,7 +5,7 @@ import React from 'react'
 import { Link } from 'react-router-dom';
 import { useFormik } from 'formik';
 import * as Yup from 'yup'
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { dangNhapAction } from '../../../../redux/action/QuanLyNguoiDungAction';
 
 
@@ -63,8 +63,6 @@ export default function Login() {
 
     const dispatch = useDispatch();
 
-    const { userLogin } = useSelector(state => state.QuanLyNguoiDungReducer);
-
     // console.log("user", userLogin);
 
     const formik = useFormik({
@@ -78,9 +76,9 @@ export default function Login() {
 
         }),
         onSubmit: (values) => {
+            console.log('values', values);
             const action = dangNhapAction(values);
             dispatch(action)
-            // console.log('values', values);
         }
     })
 

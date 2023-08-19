@@ -5,9 +5,11 @@ import Swal from "sweetalert2";
 
 
 export const dangNhapAction = (thongTinDangNhap) => {
+    console.log("đăng nhập", thongTinDangNhap)
     return async (dispatch) => {
         try {
             const result = await quanLyNguoiDungService.dangNhap(thongTinDangNhap);
+            console.log(result)
             if (result.data.statusCode === 200) {
                 dispatch({
                     type: DANG_NHAP_ACION,
