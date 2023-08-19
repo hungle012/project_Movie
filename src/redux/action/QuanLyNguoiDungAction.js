@@ -83,7 +83,7 @@ export const layThongTinLoaiNguoiDungAction = () => {
 export const themNguoiDungAction = (values) => {
     return async (dispatch) => {
         try {
-            const result = await quanLyNguoiDungService.themNguoiDung(values);
+            await quanLyNguoiDungService.themNguoiDung(values);
             Swal.fire(
                 'Thông Báo!',
                 'Thêm User Thành Công',
@@ -97,7 +97,7 @@ export const themNguoiDungAction = (values) => {
 export const suaNguoiDungAction = (values) => {
     return async (dispatch) => {
         try {
-            const result = await quanLyNguoiDungService.capNhatThongTinNguoiDung(values);
+            await quanLyNguoiDungService.capNhatThongTinNguoiDung(values);
             Swal.fire(
                 'Thông Báo!',
                 'Sửa User Thành Công',
@@ -113,7 +113,7 @@ export const suaNguoiDungAction = (values) => {
 export const xoaNguoiDungAction = (taiKhoan) => {
     return async (dispatch) => {
         try {
-            const result = await quanLyNguoiDungService.xoaNguoiDung(taiKhoan);
+            await quanLyNguoiDungService.xoaNguoiDung(taiKhoan);
             //Sau khi xoá load lại danh sách người dùng mới;
             dispatch(layDanhSachNguoiDungAction())
         } catch (error) {
