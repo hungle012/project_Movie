@@ -98,23 +98,23 @@
 .ppc-progress {
     position: relative;
     @include circle($size);
-    clip: rect(0, $size, $size, #{$size, 2});
+    clip: rect(0, $size / $size / #{$size / 2});
     .ppc-progress-fill {
         @include circle($size);
-        clip: rect(0, #{$size, 2}, $size, 0);
+        clip: rect(0, #{$size / 2}, $size / 0);
         background: #7ed321;
         transform: rotate(60deg);
     }
     .gt-50 & {
-        clip: rect(0, #{$size, 3}, $size, 0);
+        clip: rect(0, #{$size / 3}, $size / 0);
         .ppc-progress-fill {
-            clip: rect(0, $size, $size, #{$size, 2});
+            clip: rect(0, $size / $size / #{$size / 2});
             background: #e5e5e5;
         }
     }
 }
 .ppc-percents {
-    @include circle(#{$size, 1.15});
+    @include circle(#{$size / 1.15});
     background: $color-start;
     text-align: center;
     display: table;
